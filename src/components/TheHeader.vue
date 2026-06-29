@@ -1,7 +1,8 @@
 <template>
   <header>
     <RouterLink to="/" class="logo">
-      <img src="/fixhome-logo.gif" alt="FIXHOME" class="logo-img" />
+      <span class="logo-mark">🌸</span>
+      <span class="logo-word">꽃피율</span>
     </RouterLink>
 
     <div class="header-right">
@@ -56,18 +57,25 @@ header {
   text-decoration: none;
   display: flex;
   align-items: center;
+  gap: 8px;
 }
 
-.logo-img {
-  height: 48px;
-  width: auto;
-  object-fit: contain;
+.logo-mark {
+  font-size: 26px;
+  line-height: 1;
+}
+
+.logo-word {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: #be185d;
 }
 
 @media (max-width: 640px) {
-  .logo-img {
-    height: 42px;
-  }
+  .logo-mark { font-size: 22px; }
+  .logo-word { font-size: 20px; }
 }
 
 .header-right {

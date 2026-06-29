@@ -6,53 +6,37 @@
     </template>
   </TheHeader>
 
-  <!-- 공지 팝업 -->
-  <NoticePopup />
-
   <main>
     <!-- ───────────── HERO ───────────── -->
     <section class="hero" ref="heroSection">
       <div class="hero-text" ref="heroText">
-        <div class="section-label" style="margin-bottom: 16px">2025 전문가 서비스 플랫폼</div>
+        <div class="section-label" style="margin-bottom: 16px">동네꽃집 자동배정 · 꽃 주문 배달</div>
         <h1>
-          <span class="yellow">긴급수리 · 인테리어 · 건축시공</span>
+          <span class="yellow">💐 꽃 주문 · 배달</span>
           <div class="line2-row">
-            <span class="line2 outline">집에 대한 모든 고민 해결</span>
+            <span class="line2 outline">가까운 꽃집이 바로 배송</span>
           </div>
         </h1>
       </div>
 
-      <div class="hero-right" ref="videoContainer">
-      <div class="video-container" @click="goToLogin">
-        <div class="hud-overlay" />
-        <iframe
-          :src="videoSrc"
-          title="FIXHOME 홍보 영상"
-          allow="autoplay; encrypted-media"
-          allowfullscreen
-        />
-        <!-- 음소거 토글 버튼 -->
-        <button class="mute-toggle" @click="toggleMute" :aria-label="isMuted ? '소리 켜기' : '소리 끄기'">
-          <svg v-if="isMuted" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
-          </svg>
-          <svg v-else width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
-          </svg>
-        </button>
-      </div>
+      <div class="hero-right" ref="heroVisual">
+        <div class="hero-visual" @click="goToUrgent" role="button" aria-label="긴급꽃배달 주문">
+          <div class="hud-overlay" />
+          <div class="hero-visual-emoji">🌸💐🌷</div>
+          <div class="hero-visual-tag">⚡ 30분 긴급배달 · AI 꽃추천</div>
+        </div>
 
         <p class="hero-sub">
-          대한민국 최고의 전문가들이 당신의 공간을 책임집니다.
-          24시간 긴급 대응 시스템과 투명한 견적을 경험하세요.
+          주문 즉시 배달지에서 가장 가까운 꽃집에 자동 배정됩니다.
+          상황과 예산만 고르면 AI가 꽃을 추천하고, 제작부터 배송까지 실시간으로 확인하세요.
         </p>
       </div>
     </section>
 
-    <!-- ───────────── SERVICES ───────────── -->
+    <!-- ───────────── CATEGORIES ───────────── -->
     <section class="services-section">
       <div class="section-header">
-        <div class="section-label">서비스 카테고리 [08]</div>
+        <div class="section-label">꽃 카테고리 [10]</div>
         <div class="select-module">카테고리 선택</div>
       </div>
 
@@ -63,13 +47,7 @@
           :category="category"
         >
           <template #icon>
-            <img
-              v-if="category.image"
-              :src="category.image"
-              :alt="category.title"
-              class="card-icon-img"
-            />
-            <component v-else :is="iconMap[category.id]" />
+            <span class="card-emoji">{{ emojiMap[category.id] }}</span>
           </template>
         </ServiceCard>
       </div>
@@ -88,160 +66,166 @@ import { useAuth } from '@/composables/useAuth'
 import TheBottomNav from '@/components/TheBottomNav.vue'
 import TheFooter from '@/components/TheFooter.vue'
 import ServiceCard from '@/components/ServiceCard.vue'
-import NoticePopup from '@/components/NoticePopup.vue'
-import IconEmergency from '@/components/icons/IconEmergency.vue'
-import IconInterior from '@/components/icons/IconInterior.vue'
-import IconConstruction from '@/components/icons/IconConstruction.vue'
-import IconElectrical from '@/components/icons/IconElectrical.vue'
-import IconCleaning from '@/components/icons/IconCleaning.vue'
-import IconReview from '@/components/icons/IconReview.vue'
-import IconLandscape from '@/components/icons/IconLandscape.vue'
 import type { ServiceCategory } from '@/types'
 
-// ── icon map ─────────────────────────────────
-const iconMap: Record<string, unknown> = {
-  emergency: IconEmergency,
-  interior: IconInterior,
-  construction: IconConstruction,
-  electrical: IconElectrical,
-  cleaning: IconCleaning,
-  review: IconReview,
-  landscaping: IconLandscape,   // 조경·묘지 (전용 이미지 추가 전 폴백)
-  'ev-solar': IconElectrical,   // 이미지 없을 때 폴백
-  furniture: IconInterior,       // 이미지 없을 때 폴백
+// ── 이모지 아이콘 맵 ──────────────────────────
+const emojiMap: Record<string, string> = {
+  urgent: '⚡',
+  bouquet: '💐',
+  basket: '🧺',
+  wreath: '🌺',
+  plant: '🌿',
+  giftset: '🎁',
+  subscription: '📅',
+  ai: '🤖',
+  tracking: '🚚',
+  review: '⭐',
 }
 
-// ── service data ─────────────────────────────
+// ── 꽃 메인 카테고리 (10) ─────────────────────
 const categories: ServiceCategory[] = [
   {
-    id: 'emergency',
+    id: 'urgent',
     moduleId: '01',
-    title: '긴급수리\n생활수리',
-    description: '누수·전기·가스·잠긴 문 등 긴급 상황 30분 이내 출동, 조명·도어락·선반 등 생활 수리까지 한번에.',
+    title: '긴급꽃배달',
+    description: '30분·1시간·당일·예약·새벽·심야까지, 가까운 꽃집에서 바로 제작해 신속 배송합니다.',
     statusLabel: '출동 준비',
-    metaRight: '우선순위: 높음',
+    metaRight: '꽃피율 핵심',
     metaRightColor: '#ef4444',
     variant: 'emergency',
     accentColor: '#ef4444',
     glowColor: 'rgba(239,68,68,0.3)',
-    route: '/request/create?category=emergency',
-    image: '/icons/emergency.jpg',
+    route: '/request/create?category=urgent',
   },
   {
-    id: 'electrical',
+    id: 'bouquet',
     moduleId: '02',
-    title: '에어컨·가전\n조명·실링팬',
-    description: '에어컨·가전제품 설치 및 이전, 조명·실링팬 등 전기 기기 설치 전문 서비스.',
-    statusLabel: '전기 정상',
-    metaRight: '전력 관리',
+    title: '꽃다발',
+    description: '기념일·생일·프로포즈·졸업·입학·감사·축하까지 상황별 맞춤 꽃다발.',
+    statusLabel: '인기 1위',
+    metaRight: '가장 많은 주문',
     variant: 'default',
-    accentColor: '#f59e0b',
-    glowColor: 'rgba(245,158,11,0.25)',
-    route: '/request/create?category=electrical',
-    image: '/icons/electrical.jpg',
+    accentColor: '#ec4899',
+    glowColor: 'rgba(236,72,153,0.25)',
+    route: '/request/create?category=bouquet',
   },
   {
-    id: 'furniture',
+    id: 'basket',
     moduleId: '03',
-    title: '맞춤가구\n싱크제작',
-    description: '맞춤형 붙박이장, 주방 싱크대, 수납 가구 등 공간에 최적화된 제작 시공.',
-    statusLabel: '맞춤 제작',
-    metaRight: '공간 최적화',
+    title: '꽃바구니',
+    description: '생일·개업·승진·병문안·부모님 선물에 어울리는 선물용 꽃바구니.',
+    statusLabel: '선물용 인기',
+    metaRight: '선물 추천',
     variant: 'default',
-    accentColor: '#b45309',
-    glowColor: 'rgba(180,83,9,0.25)',
-    route: '/request/create?category=furniture',
-    image: '/icons/furniture.jpg',
+    accentColor: '#f43f5e',
+    glowColor: 'rgba(244,63,94,0.25)',
+    route: '/request/create?category=basket',
   },
   {
-    id: 'interior',
+    id: 'wreath',
     moduleId: '04',
-    title: '인테리어\n건축시공',
-    description: '주거·상업 공간 프리미엄 리모델링부터 신축·증축·개보수 건축 시공까지 토탈 솔루션.',
-    statusLabel: '포트폴리오: 1200+',
-    metaRight: '디자인·시공',
+    title: '화환',
+    description: '축하화환·근조화환·쌀화환·오브제·개업화환을 빠르고 정중하게 배송합니다.',
+    statusLabel: '수요 많음',
+    metaRight: '경조사',
     variant: 'default',
-    accentColor: '#059669',
-    glowColor: 'rgba(5,150,105,0.25)',
-    route: '/request/create?category=interior',
-    image: '/icons/interior.jpg',
+    accentColor: '#a855f7',
+    glowColor: 'rgba(168,85,247,0.25)',
+    route: '/request/create?category=wreath',
   },
   {
-    id: 'cleaning',
+    id: 'plant',
     moduleId: '05',
-    title: '청소·클리닝\n건물시설관리',
-    description: '입주·특수 청소부터 건물 시설 정기 관리·유지보수까지 종합 케어 서비스.',
-    statusLabel: '인력 대기',
-    metaRight: '환경 관리',
-    variant: 'default',
-    accentColor: '#0ea5e9',
-    glowColor: 'rgba(14,165,233,0.25)',
-    route: '/request/create?category=cleaning',
-    image: '/icons/cleaning.jpg',
-  },
-  {
-    id: 'landscaping',
-    moduleId: '06',
-    title: '조경관리\n묘지관리',
-    description: '정원·조경 시공 및 관리, 묘지 조성·벌초·관리 등 야외 공간 전문 서비스.',
-    statusLabel: '관리 대기',
-    metaRight: '그린 케어',
-    variant: 'default',
-    accentColor: '#15803d',
-    glowColor: 'rgba(21,128,61,0.25)',
-    route: '/request/create?category=landscaping',
-    image: '/icons/조경관리.png',
-  },
-  {
-    id: 'ev-solar',
-    moduleId: '07',
-    title: '전기차충전기\n태양광설치',
-    description: '전기차 충전기 설치 및 태양광 발전 시스템 구축·시공 전문 서비스.',
-    statusLabel: '친환경 에너지',
-    metaRight: '그린 테크',
+    title: '화분 · 식물',
+    description: '개업화분·동양란·서양란·관엽·다육·선인장·테라리움 등 화분과 반려식물.',
+    statusLabel: '오래 가는 선물',
+    metaRight: '그린 기프트',
     variant: 'default',
     accentColor: '#16a34a',
     glowColor: 'rgba(22,163,74,0.25)',
-    route: '/request/create?category=ev-solar',
-    image: '/icons/ev-solar.jpg',
+    route: '/request/create?category=plant',
+  },
+  {
+    id: 'giftset',
+    moduleId: '06',
+    title: '꽃 + 선물',
+    description: '꽃+케이크·와인·초콜릿·향수·풍선·편지·용돈박스를 함께 — 중개 플랫폼의 강점.',
+    statusLabel: '결합 상품',
+    metaRight: '특별한 선물',
+    variant: 'default',
+    accentColor: '#f59e0b',
+    glowColor: 'rgba(245,158,11,0.25)',
+    route: '/request/create?category=giftset',
+  },
+  {
+    id: 'subscription',
+    moduleId: '07',
+    title: '정기구독',
+    description: '주 1회·월 2회·월 1회 꽃 정기배송. 사무실·카페 꽃구독으로 늘 생기있게.',
+    statusLabel: '구독 서비스',
+    metaRight: '정기배송',
+    variant: 'default',
+    accentColor: '#0d9488',
+    glowColor: 'rgba(13,148,136,0.25)',
+    route: '/request/create?category=subscription',
+  },
+  {
+    id: 'ai',
+    moduleId: '08',
+    title: 'AI 꽃추천',
+    description: '"20대 여친 생일", "어머니 환갑"처럼 상황과 예산만 입력하면 AI가 꽃을 추천합니다.',
+    statusLabel: 'BETA',
+    metaRight: '꽃피율만의 차별화',
+    metaRightColor: '#6366f1',
+    variant: 'default',
+    accentColor: '#6366f1',
+    glowColor: 'rgba(99,102,241,0.25)',
+    route: '/request/create?category=ai',
+  },
+  {
+    id: 'tracking',
+    moduleId: '09',
+    title: '배송조회',
+    description: '주문접수 → 꽃 제작중 → 배송출발 → 배송완료까지 실시간 제작·배송 현황 확인.',
+    statusLabel: '실시간 추적',
+    metaRight: '내 주문',
+    variant: 'default',
+    accentColor: '#0ea5e9',
+    glowColor: 'rgba(14,165,233,0.25)',
+    route: '/requests',
   },
   {
     id: 'review',
-    moduleId: '08',
-    title: '리뷰확인',
-    description: '실제 이용 고객들의 검증된 후기와 평점을 통해 품질을 확인하세요.',
-    statusLabel: '평점: 4.9/5.0',
+    moduleId: '10',
+    title: '후기',
+    description: '실제 이용 고객들의 검증된 후기와 꽃집 평점을 확인하세요.',
+    statusLabel: '평점 확인',
     metaRight: '고객 후기',
     variant: 'default',
     accentColor: '#8b5cf6',
     glowColor: 'rgba(139,92,246,0.25)',
     route: '/requests',
-    image: '/icons/review.jpg',
   },
 ]
 
 // ── auth ──────────────────────────────────────
 const { user, profile, loading: authLoading, isLoggedIn, isCorporate, signOut } = useAuth()
 const displayName = computed(() => {
-  // 프로필 로딩 중에는 빈 문자열 반환 (버튼 텍스트는 로딩 가드에서 처리)
   if (authLoading.value) return ''
   let name = ''
   if (isCorporate.value) {
-    // 기업회원: 회사명 우선
     name =
       profile.value?.company_name ||
       profile.value?.name ||
       user.value?.email?.split('@')[0] ||
       ''
   } else {
-    // 일반회원: 가입자명 우선
     name =
       profile.value?.name ||
       (user.value?.user_metadata as Record<string, string> | undefined)?.name ||
       user.value?.email?.split('@')[0] ||
       ''
   }
-  // 이름 정보가 없을 때도 빈 버튼이 되지 않도록 폴백 텍스트 사용
   return name ? `${name}님` : '마이페이지'
 })
 
@@ -258,28 +242,18 @@ async function handleLogout() {
   router.push('/')
 }
 
-// ── 영상 음소거 토글 ──────────────────────────
-const isMuted = ref(true)
-const videoSrc = computed(
-  () =>
-    `https://www.youtube.com/embed/dNfTWmk1Yf8?autoplay=1&mute=${isMuted.value ? 1 : 0}&controls=0&loop=1&playlist=dNfTWmk1Yf8`,
-)
-function toggleMute(e: MouseEvent) {
-  e.stopPropagation()
-  isMuted.value = !isMuted.value
-}
-function goToLogin() {
-  router.push('/login')
+function goToUrgent() {
+  router.push('/request/create?category=urgent')
 }
 
 // ── parallax scroll ───────────────────────────
 const heroText = ref<HTMLElement | null>(null)
-const videoContainer = ref<HTMLElement | null>(null)
+const heroVisual = ref<HTMLElement | null>(null)
 
 function onScroll() {
   const scrolled = window.pageYOffset
   if (heroText.value) heroText.value.style.transform = `translateY(${scrolled * 0.1}px)`
-  if (videoContainer.value) videoContainer.value.style.transform = `translateY(${scrolled * -0.05}px)`
+  if (heroVisual.value) heroVisual.value.style.transform = `translateY(${scrolled * -0.05}px)`
 }
 
 onMounted(() => window.addEventListener('scroll', onScroll, { passive: true }))
@@ -329,23 +303,36 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   gap: 20px;
 }
 
-/* ── video ─────────────────────────────────── */
-.video-container {
+/* ── hero visual panel ─────────────────────── */
+.hero-visual {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
-  background: #f1f5f9;
+  background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 45%, #f5d0fe 100%);
   border: 1px solid var(--border);
-  border-radius: 4px;
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 40px 100px rgba(17, 24, 39, 0.15);
+  box-shadow: 0 40px 100px rgba(236, 72, 153, 0.18);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  cursor: pointer;
 }
 
-.video-container iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-  opacity: 0.8;
+.hero-visual-emoji {
+  font-size: clamp(48px, 8vw, 72px);
+  line-height: 1;
+  filter: drop-shadow(0 6px 12px rgba(190, 24, 93, 0.25));
+}
+
+.hero-visual-tag {
+  font-family: 'Roboto Mono', monospace;
+  font-size: clamp(12px, 1.6vw, 15px);
+  font-weight: 700;
+  color: #be185d;
+  letter-spacing: 0.5px;
 }
 
 /* HUD corner brackets */
@@ -362,7 +349,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   position: absolute;
   width: 20px;
   height: 20px;
-  border-color: #10b981;
+  border-color: #ec4899;
   border-style: solid;
 }
 
@@ -378,34 +365,10 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   border-width: 0 2px 2px 0;
 }
 
-/* ── 영상 클릭 커서 ─────────────────────────── */
-.video-container {
-  cursor: pointer;
-}
-
-/* ── 음소거 토글 버튼 ────────────────────────── */
-.mute-toggle {
-  position: absolute;
-  bottom: 48px;
-  right: 12px;
-  z-index: 5;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  background: rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 2px;
-  color: #fff;
-  cursor: pointer;
-  backdrop-filter: blur(4px);
-  transition: background 0.2s;
-  padding: 0;
-}
-
-.mute-toggle:hover {
-  background: rgba(0, 0, 0, 0.85);
+/* ── 카드 이모지 아이콘 ─────────────────────── */
+.card-emoji {
+  font-size: 48px;
+  line-height: 1;
 }
 
 /* ── services ──────────────────────────────── */
@@ -474,17 +437,8 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 
 /* ── sm: 일반 모바일 (360–639px) ──────────────────── */
 @media (max-width: 639px) {
-  /* ─────────────────────────────────────────────────
-   *  모바일 레이아웃 예산
-   *  viewport        : 100svh (≈ 812px iPhone 14)
-   *  고정 헤더        :  88px
-   *  고정 하단 네비   :  56px
-   *  콘텐츠 가용 영역 : 668px
-   * ───────────────────────────────────────────────── */
-
   .hero {
     margin-top: 0;
-    /* padding-top: 헤더 88px + 여유 8px = 96px 이상이어야 잘림 없음 */
     padding: 96px clamp(12px, 3.7vw, 16px) 8px;
     gap: 8px;
     min-height: auto;
@@ -492,7 +446,6 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 
   .hero .section-label { display: none; }
 
-  /* 제목: 7vw 기준 – 375px→26px / 360px→25px / 414px→29px */
   .hero-text h1 {
     font-size: clamp(16px, 7vw, 30px);
     line-height: 1.3;
@@ -500,7 +453,6 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
     letter-spacing: -0.02em;
   }
 
-  /* 한국어 단어 단위 줄바꿈 + 잘림 없음 */
   .hero-text h1 .yellow,
   .hero-text h1 .line2 {
     display: block;
@@ -510,15 +462,13 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
     overflow-wrap: break-word;
   }
 
-  /* 영상: 뷰포트 폭에 비례 (최소 150px, 최대 200px) */
-  .video-container {
+  .hero-visual {
     aspect-ratio: unset;
     height: clamp(150px, 50vw, 200px);
   }
 
   .hero-sub { display: none; }
 
-  /* services: 측면 패딩도 뷰포트 비례 */
   .services-section {
     padding: 10px clamp(10px, 3.7vw, 16px) 68px;
   }
@@ -529,6 +479,8 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
     grid-template-columns: repeat(2, 1fr);
     gap: clamp(4px, 1.5vw, 8px);
   }
+
+  .card-emoji { font-size: clamp(26px, 8vw, 34px); }
 }
 
 /* ── xs: 초소형 폰 (≤ 359px) ──────────────────────── */
@@ -543,7 +495,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
     margin-bottom: 4px;
   }
 
-  .video-container {
+  .hero-visual {
     height: clamp(130px, 48vw, 160px);
   }
 
@@ -561,7 +513,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   flex-wrap: nowrap;
 }
 
-/* ── 로그인/로그아웃 버튼: 초록 테두리 사각형 ── */
+/* ── 로그인/로그아웃 버튼: 테두리 사각형 ── */
 .hero-login-btn {
   flex-shrink: 0;
   display: inline-flex;
