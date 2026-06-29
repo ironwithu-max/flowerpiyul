@@ -61,34 +61,17 @@
             <!-- 이메일 -->
             <div class="field-group">
               <label class="field-label">이메일</label>
-              <div class="input-row">
-                <input
-                  v-model="form.email"
-                  type="email"
-                  placeholder="example@fixhome.com"
-                  class="form-input"
-                  :class="fieldClass('email')"
-                  @blur="touched.email = true"
-                  autocomplete="email"
-                />
-                <button
-                  type="button"
-                  class="inline-btn"
-                  :class="{ 'btn-verified': emailCheckState === 'ok' }"
-                  :disabled="emailCheckState === 'checking' || emailCheckState === 'ok'"
-                  @click="checkEmail"
-                >
-                  <span v-if="emailCheckState === 'checking'" class="spin-wrap">
-                    <svg class="spin" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>
-                  </span>
-                  <span v-else-if="emailCheckState === 'ok'">확인완료</span>
-                  <span v-else>중복확인</span>
-                </button>
-              </div>
+              <input
+                v-model="form.email"
+                type="email"
+                placeholder="example@email.com"
+                class="form-input"
+                :class="fieldClass('email')"
+                @blur="touched.email = true"
+                autocomplete="email"
+              />
               <span v-if="touched.email && errors.email" class="hint hint-error">{{ errors.email }}</span>
-              <span v-else-if="emailCheckState === 'ok'" class="hint hint-ok">사용 가능한 이메일입니다.</span>
-              <span v-else-if="emailCheckState === 'taken'" class="hint hint-error">이미 사용 중인 이메일입니다.</span>
-              <span v-else class="hint">올바른 이메일 형식으로 입력 후 중복 확인하세요</span>
+              <span v-else class="hint">로그인에 사용할 이메일을 입력하세요</span>
             </div>
 
             <!-- 비밀번호 -->
@@ -164,72 +147,18 @@
                 휴대폰 번호
                 <span class="optional-badge">선택</span>
               </label>
-              <div class="input-row">
-                <input
-                  v-model="form.phone"
-                  type="tel"
-                  placeholder="010-0000-0000"
-                  class="form-input"
-                  :class="fieldClass('phone')"
-                  @blur="touched.phone = true"
-                  :disabled="smsState === 'verified'"
-                  autocomplete="tel"
-                />
-                <button
-                  v-if="form.phone && smsState !== 'verified'"
-                  type="button"
-                  class="inline-btn"
-                  :disabled="smsState === 'sending'"
-                  @click="requestSms"
-                >
-                  <span v-if="smsState === 'sending'" class="spin-wrap">
-                    <svg class="spin" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>
-                  </span>
-                  <span v-else-if="smsState === 'sent'">재전송</span>
-                  <span v-else>인증요청</span>
-                </button>
-                <span v-else-if="smsState === 'verified'" class="verified-badge">인증완료 ✓</span>
-              </div>
+              <input
+                v-model="form.phone"
+                type="tel"
+                placeholder="010-0000-0000"
+                class="form-input"
+                :class="fieldClass('phone')"
+                @blur="touched.phone = true"
+                autocomplete="tel"
+              />
               <span v-if="touched.phone && errors.phone" class="hint hint-error">{{ errors.phone }}</span>
-              <span v-else-if="smsError" class="hint hint-error">{{ smsError }}</span>
-              <span v-else class="hint">입력 후 인증요청 — 나중에 마이페이지에서도 인증 가능합니다</span>
+              <span v-else class="hint">주문·배송 연락용 (선택 입력)</span>
             </div>
-
-            <!-- 인증번호 (shown after SMS sent) -->
-            <Transition name="slide-down">
-              <div v-if="smsState === 'sent' || smsState === 'verifying'" class="field-group">
-                <label class="field-label">인증번호</label>
-                <div class="input-row">
-                  <div class="input-wrapper" style="flex:1">
-                    <input
-                      v-model="form.smsCode"
-                      type="text"
-                      inputmode="numeric"
-                      maxlength="6"
-                      placeholder="6자리 입력"
-                      class="form-input"
-                      :class="{ 'input-error': smsCodeError }"
-                    />
-                    <span class="sms-timer" :class="{ 'timer-urgent': smsTimer <= 30 }">
-                      {{ timerDisplay }}
-                    </span>
-                  </div>
-                  <button
-                    type="button"
-                    class="inline-btn"
-                    :disabled="smsState === 'verifying' || form.smsCode.length !== 6"
-                    @click="verifySms"
-                  >
-                    <span v-if="smsState === 'verifying'" class="spin-wrap">
-                      <svg class="spin" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>
-                    </span>
-                    <span v-else>확인</span>
-                  </button>
-                </div>
-                <span v-if="smsCodeError" class="hint hint-error">{{ smsCodeError }}</span>
-                <span v-else class="hint">SMS로 전송된 6자리 코드를 입력하세요</span>
-              </div>
-            </Transition>
 
           </div>
 
@@ -314,14 +243,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, computed, onUnmounted } from 'vue'
+import { ref, reactive, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import TheHeader from '@/components/TheHeader.vue'
 import { useAuth } from '@/composables/useAuth'
 import { supabase } from '@/lib/supabase'
 
 const router = useRouter()
-const { sendPhoneOtp, verifyPhoneOtp, checkEmailExists, signUpGeneral } = useAuth()
+const { signUpGeneral } = useAuth()
 
 /* ── form state ────────────────────────────────── */
 const form = reactive({
@@ -330,7 +259,6 @@ const form = reactive({
   password: '',
   passwordConfirm: '',
   phone: '',
-  smsCode: '',
 })
 
 const touched = reactive({
@@ -346,18 +274,6 @@ const showPwConfirm = ref(false)
 const isSubmitting = ref(false)
 const submitError = ref('')
 const showTermsError = ref(false)
-
-/* ── email check state ─────────────────────────── */
-type EmailCheckState = 'idle' | 'checking' | 'ok' | 'taken'
-const emailCheckState = ref<EmailCheckState>('idle')
-
-/* ── sms state ─────────────────────────────────── */
-type SmsState = 'idle' | 'sending' | 'sent' | 'verifying' | 'verified'
-const smsState = ref<SmsState>('idle')
-const smsTimer = ref(180)
-const smsError = ref('')     // 인증요청/재전송 오류
-const smsCodeError = ref('') // 인증번호 확인 오류
-let smsInterval: ReturnType<typeof setInterval> | null = null
 
 /* ── terms state ───────────────────────────────── */
 const terms = reactive({
@@ -390,8 +306,6 @@ const errors = computed(() => {
 
   if (!form.email) e.email = '이메일을 입력해 주세요.'
   else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = '유효한 이메일 형식이 아닙니다.'
-  else if (emailCheckState.value === 'idle') e.email = '이메일 중복확인을 해주세요.'
-  else if (emailCheckState.value === 'taken') e.email = '이미 사용 중인 이메일입니다.'
 
   if (!form.password) e.password = '비밀번호를 입력해 주세요.'
   else if (form.password.length < 8) e.password = '8자 이상 입력해 주세요.'
@@ -430,89 +344,6 @@ const passwordStrength = computed(() => {
 function fieldClass(field: keyof typeof touched) {
   if (!touched[field]) return ''
   return errors.value[field] ? 'input-error' : 'input-ok'
-}
-
-/* ── timer display ─────────────────────────────── */
-const timerDisplay = computed(() => {
-  const m = Math.floor(smsTimer.value / 60)
-  const s = smsTimer.value % 60
-  return `${m}:${s.toString().padStart(2, '0')}`
-})
-
-/* ── 이메일 중복 확인 (실제 Supabase RPC) ────── */
-async function checkEmail() {
-  touched.email = true
-  if (!form.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) return
-
-  emailCheckState.value = 'checking'
-  try {
-    const exists = await checkEmailExists(form.email)
-    emailCheckState.value = exists ? 'taken' : 'ok'
-  } catch {
-    // RPC 미설치 시 UI는 통과시키고 가입 시 중복 에러 처리
-    emailCheckState.value = 'ok'
-  }
-}
-
-/* ── SMS 인증요청 (실제 Supabase Phone OTP) ───── */
-async function requestSms() {
-  touched.phone = true
-  const digits = form.phone.replace(/-/g, '')
-  if (!form.phone || !/^01[016789]\d{7,8}$/.test(digits)) return
-
-  smsState.value = 'sending'
-  smsError.value = ''
-
-  try {
-    await sendPhoneOtp(form.phone)
-
-    smsState.value = 'sent'
-    smsTimer.value = 180
-    form.smsCode = ''
-
-    if (smsInterval) clearInterval(smsInterval)
-    smsInterval = setInterval(() => {
-      smsTimer.value--
-      if (smsTimer.value <= 0) {
-        clearInterval(smsInterval!)
-        smsInterval = null
-        if (smsState.value === 'sent') smsState.value = 'idle'
-      }
-    }, 1000)
-  } catch (err: unknown) {
-    smsState.value = 'idle'
-    const msg = err instanceof Error ? err.message : String(err)
-    if (msg.includes('rate') || msg.includes('Rate')) {
-      smsError.value = '잠시 후 다시 시도해 주세요. (발송 제한)'
-    } else if (msg.includes('Phone provider') || msg.includes('not enabled')) {
-      smsError.value = 'SMS 서비스가 설정되지 않았습니다. 관리자에게 문의해 주세요.'
-    } else {
-      smsError.value = 'SMS 발송 중 오류가 발생했습니다. 다시 시도해 주세요.'
-    }
-  }
-}
-
-/* ── SMS 인증번호 확인 (실제 Supabase verifyOtp) ─ */
-async function verifySms() {
-  if (form.smsCode.length !== 6) return
-  smsState.value = 'verifying'
-  smsCodeError.value = ''
-
-  try {
-    await verifyPhoneOtp(form.phone, form.smsCode)
-    if (smsInterval) { clearInterval(smsInterval); smsInterval = null }
-    smsState.value = 'verified'
-  } catch (err: unknown) {
-    smsState.value = 'sent'
-    const msg = err instanceof Error ? err.message : String(err)
-    if (msg.includes('expired') || msg.includes('Token has expired')) {
-      smsCodeError.value = '인증번호가 만료되었습니다. 재전송해 주세요.'
-    } else if (msg.includes('Invalid') || msg.includes('invalid')) {
-      smsCodeError.value = '인증번호가 올바르지 않습니다.'
-    } else {
-      smsCodeError.value = '인증 확인 중 오류가 발생했습니다. 다시 시도해 주세요.'
-    }
-  }
 }
 
 /* ── 회원가입 제출 (실제 Supabase signUpGeneral) ─ */
@@ -561,11 +392,6 @@ async function socialSignup(provider: 'kakao' | 'google') {
     submitError.value = `${provider === 'kakao' ? '카카오' : '구글'} 로그인 오류: ${error.message}`
   }
 }
-
-/* ── cleanup ───────────────────────────────────── */
-onUnmounted(() => {
-  if (smsInterval) clearInterval(smsInterval)
-})
 </script>
 
 <style scoped>
