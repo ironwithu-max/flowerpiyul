@@ -1306,7 +1306,7 @@ const companyLabel = computed(() => profile.value?.company_name ?? profile.value
 .status-waiting          { background: #F3F4F6; color: #4B5563; }
 .status-payment-wait     { background: #FEF3C7; color: #D97706; border: 1px solid #FDE68A; }
 .status-pending-confirm  { background: #FEF3C7; color: #92400E; border: 1px solid #FDE68A; }
-.status-received         { background: #ECFDF5; color: #059669; }
+.status-received         { background: #fdf2f8; color: #db2777; }
 .status-ongoing          { background: #EFF6FF; color: #2563EB; }
 .status-completed        { background: #F8FAFC; color: #94A3B8; border: 1px solid var(--border); }
 .status-cancelled        { background: #FFF1F2; color: #F43F5E; }
@@ -1329,7 +1329,7 @@ const companyLabel = computed(() => profile.value?.company_name ?? profile.value
 .btn-pay-header:hover {
   filter: brightness(1.1);
   transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(16,185,129,0.3);
+  box-shadow: 0 4px 16px rgba(236, 72, 153,0.3);
 }
 
 /* ── content grid ─────────────────────────────── */
@@ -1477,7 +1477,7 @@ const companyLabel = computed(() => profile.value?.company_name ?? profile.value
 
 .quote-card:hover {
   border-color: var(--accent-yellow);
-  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.12);
+  box-shadow: 0 4px 20px rgba(236, 72, 153, 0.12);
   transform: translateX(4px);
 }
 
@@ -1762,7 +1762,7 @@ const companyLabel = computed(() => profile.value?.company_name ?? profile.value
   border: 1px solid #FDE68A;
 }
 .payment-status-box.paid {
-  background: #ECFDF5;
+  background: #fdf2f8;
   border: 1px solid #A7F3D0;
 }
 
@@ -1775,7 +1775,7 @@ const companyLabel = computed(() => profile.value?.company_name ?? profile.value
   color: #94A3B8;
 }
 .ps-icon.pay        { background: #FEF3C7; color: #D97706; }
-.ps-icon.paid-icon  { background: #D1FAE5; color: #059669; }
+.ps-icon.paid-icon  { background: #fce7f3; color: #db2777; }
 
 .ps-text { flex: 1; }
 .ps-text strong { font-size: 14px; font-weight: 700; display: block; margin-bottom: 4px; }
@@ -1870,8 +1870,8 @@ const companyLabel = computed(() => profile.value?.company_name ?? profile.value
 .distance-fee-box {
   margin-top: 20px;
   padding: 14px 16px;
-  background: #f0fdf4;
-  border: 1px solid #bbf7d0;
+  background: #fdf2f8;
+  border: 1px solid #fbcfe8;
   border-radius: 10px;
 }
 .df-row {
@@ -1887,7 +1887,7 @@ const companyLabel = computed(() => profile.value?.company_name ?? profile.value
 .df-total {
   margin-top: 4px;
   padding-top: 8px;
-  border-top: 1px solid #bbf7d0;
+  border-top: 1px solid #fbcfe8;
   font-weight: 700;
 }
 .aq-err-msg {
@@ -1938,8 +1938,8 @@ const companyLabel = computed(() => profile.value?.company_name ?? profile.value
 .aq-method-btn span:nth-child(2) { font-size: 13px; font-weight: 700; color: var(--text-main); }
 .aq-method-btn small { font-size: 10px; color: var(--text-dim); }
 .aq-method-btn:hover { transform: translateY(-2px); }
-.aq-method-btn.toss-pay  { border-color: rgba(16,185,129,.3); background: rgba(16,185,129,.03); }
-.aq-method-btn.toss-pay:hover  { border-color: var(--accent-yellow); box-shadow: 0 4px 16px rgba(16,185,129,.15); }
+.aq-method-btn.toss-pay  { border-color: rgba(236, 72, 153,.3); background: rgba(236, 72, 153,.03); }
+.aq-method-btn.toss-pay:hover  { border-color: var(--accent-yellow); box-shadow: 0 4px 16px rgba(236, 72, 153,.15); }
 .aq-method-btn.transfer { border-color: rgba(100,116,139,.3); background: rgba(100,116,139,.02); }
 .aq-method-btn.transfer:hover { border-color: #64748B; box-shadow: 0 4px 12px rgba(100,116,139,.1); }
 .aq-loading {
@@ -1981,10 +1981,10 @@ const companyLabel = computed(() => profile.value?.company_name ?? profile.value
   justify-content: space-between;
   align-items: center;
   padding: 20px 24px;
-  background: #f0fdf4;
-  border: 1px solid #bbf7d0;
+  background: #fdf2f8;
+  border: 1px solid #fbcfe8;
 }
-.pay-summary-label { font-size: 14px; font-weight: 600; color: #065f46; }
+.pay-summary-label { font-size: 14px; font-weight: 600; color: #9d174d; }
 .pay-summary-amount {
   font-size: 32px;
   font-weight: 900;
@@ -1998,8 +1998,8 @@ const companyLabel = computed(() => profile.value?.company_name ?? profile.value
   display: flex;
   align-items: flex-start;
   gap: 16px;
-  background: #f0fdf4;
-  border: 2px solid #bbf7d0;
+  background: #fdf2f8;
+  border: 2px solid #fbcfe8;
   padding: 20px 24px;
   border-radius: 4px;
 }
@@ -2012,17 +2012,17 @@ const companyLabel = computed(() => profile.value?.company_name ?? profile.value
 .pay-account-details { flex: 1; }
 .pay-acc-row {
   display: flex; align-items: center; gap: 10px;
-  padding: 6px 0; border-bottom: 1px dashed #bbf7d0;
+  padding: 6px 0; border-bottom: 1px dashed #fbcfe8;
 }
 .pay-acc-row:last-child { border-bottom: none; }
-.pay-acc-label { font-size: 12px; color: #065f46; min-width: 56px; font-weight: 600; }
-.pay-acc-val   { font-size: 14px; font-weight: 600; color: #065f46; flex: 1; }
+.pay-acc-label { font-size: 12px; color: #9d174d; min-width: 56px; font-weight: 600; }
+.pay-acc-val   { font-size: 14px; font-weight: 600; color: #9d174d; flex: 1; }
 .pay-acc-num   { font-family: 'Roboto Mono', monospace; font-size: 16px; font-weight: 900; letter-spacing: 1px; }
 .btn-copy-acc  {
-  padding: 3px 9px; background: #059669; color: #fff; border: none;
+  padding: 3px 9px; background: #db2777; color: #fff; border: none;
   font-size: 11px; font-weight: 700; cursor: pointer; border-radius: 3px; font-family: inherit;
 }
-.btn-copy-acc:hover { background: #047857; }
+.btn-copy-acc:hover { background: #be185d; }
 
 /* 입력 폼 */
 .pay-form-group { display: flex; flex-direction: column; gap: 6px; }
@@ -2079,7 +2079,7 @@ const companyLabel = computed(() => profile.value?.company_name ?? profile.value
 .btn-submit-transfer:not(:disabled):hover {
   filter: brightness(1.08);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(16,185,129,.25);
+  box-shadow: 0 8px 24px rgba(236, 72, 153,.25);
 }
 .btn-submit-transfer:disabled { opacity: .6; cursor: not-allowed; }
 .pay-notice {

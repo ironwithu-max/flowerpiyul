@@ -86,7 +86,7 @@
             </div>
             <div class="stat-card">
               <span class="stat-lbl">완료</span>
-              <span class="stat-val" style="color:#059669">{{ statsLoading ? '—' : myRequestStats.completed }}</span>
+              <span class="stat-val" style="color:#db2777">{{ statsLoading ? '—' : myRequestStats.completed }}</span>
             </div>
           </div>
 
@@ -203,7 +203,7 @@
             </div>
             <div class="stat-card">
               <span class="stat-lbl">완료</span>
-              <span class="stat-val" style="color:#059669">{{ statsLoading ? '—' : corpStats.completedOrders }}</span>
+              <span class="stat-val" style="color:#db2777">{{ statsLoading ? '—' : corpStats.completedOrders }}</span>
             </div>
             <div class="stat-card">
               <span class="stat-lbl">총 수익 (원)</span>
@@ -452,7 +452,7 @@ async function handleLogout() {
 .badge-corp    { background:#2563EB; }
 .badge-general { background:var(--accent-yellow); }
 .verify-badge { display:inline-block; padding:4px 10px; font-size:11px; font-weight:700; border-radius:4px; font-family:'Noto Sans KR',sans-serif; }
-.verify-badge.verified { background:#ecfdf5; color:#059669; border:1px solid #a7f3d0; }
+.verify-badge.verified { background:#fdf2f8; color:#db2777; border:1px solid #a7f3d0; }
 .verify-badge.pending  { background:#fff7ed; color:#c2410c; border:1px solid #fed7aa; }
 .profile-name  { font-size:28px; font-weight:900; color:var(--text-main); margin-bottom:10px; }
 .profile-details { font-size:13px; color:var(--text-dim); }
@@ -487,13 +487,13 @@ async function handleLogout() {
 /* badges in table */
 .badge-cat    { font-family:'Roboto Mono',monospace; font-size:10px; padding:2px 8px; border-radius:100px; background:#f1f5f9; color:#475569; font-weight:600; white-space:nowrap; }
 .status-chip  { font-family:'Roboto Mono',monospace; font-size:10px; padding:2px 8px; border-radius:100px; font-weight:600; white-space:nowrap; background:#f1f5f9; color:var(--text-dim); }
-.status-chip.open        { background:#ecfdf5; color:#059669; }
+.status-chip.open        { background:#fdf2f8; color:#db2777; }
 .status-chip.quoted      { background:#eff6ff; color:#2563eb; }
 .status-chip.in_progress { background:#fef3c7; color:#d97706; }
 .status-chip.completed   { background:#f1f5f9; color:#475569; }
 .status-chip.cancelled   { background:#fef2f2; color:#ef4444; }
 .status-chip.pending     { background:#fef3c7; color:#d97706; }
-.status-chip.accepted    { background:#ecfdf5; color:#059669; }
+.status-chip.accepted    { background:#fdf2f8; color:#db2777; }
 .status-chip.rejected    { background:#fef2f2; color:#ef4444; }
 .status-chip.expired     { background:#f1f5f9; color:#94a3b8; }
 
@@ -513,7 +513,7 @@ async function handleLogout() {
 .menu-heading   { font-family:'Roboto Mono',monospace; font-size:12px; color:var(--text-dim); border-bottom:1px solid var(--border); padding-bottom:12px; margin-bottom:20px; letter-spacing:1px; font-weight:500; }
 .menu-list      { list-style:none; }
 .menu-item      { display:flex; align-items:center; padding:15px 0; border-bottom:1px solid rgba(17,24,39,.05); text-decoration:none; color:var(--text-main); font-weight:500; font-size:15px; transition:all .2s; cursor:pointer; background:none; border-left:none; border-right:none; border-top:none; width:100%; text-align:left; font-family:'Noto Sans KR',sans-serif; }
-.menu-tag       { margin-left:8px; font-size:11px; font-weight:600; color:#059669; background:#ecfdf5; border:1px solid #a7f3d0; border-radius:6px; padding:2px 7px; font-family:'Noto Sans KR',sans-serif; }
+.menu-tag       { margin-left:8px; font-size:11px; font-weight:600; color:#db2777; background:#fdf2f8; border:1px solid #a7f3d0; border-radius:6px; padding:2px 7px; font-family:'Noto Sans KR',sans-serif; }
 .menu-item:hover { color:var(--accent-yellow); padding-left:8px; }
 .menu-item svg  { margin-right:12px; opacity:.6; flex-shrink:0; }
 .menu-item--logout { color:#ef4444; }

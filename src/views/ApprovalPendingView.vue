@@ -15,7 +15,7 @@
 
         <!-- ── status card ── -->
         <div class="status-card" :class="{ 'card-rejected': actualStatus === 'rejected' }">
-          <HudCorners :color="actualStatus === 'rejected' ? '#EF4444' : '#10B981'" :size="14" :thickness="2" />
+          <HudCorners :color="actualStatus === 'rejected' ? '#EF4444' : '#ec4899'" :size="14" :thickness="2" />
 
           <!-- badge -->
           <div class="status-badge" :class="{ 'badge-rejected': actualStatus === 'rejected' }">
@@ -188,7 +188,7 @@ const flowSteps = [
   right: -10%;
   width: 60%;
   height: 60%;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.08) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
@@ -250,7 +250,7 @@ const flowSteps = [
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(16, 185, 129, 0.08);
+  background: rgba(236, 72, 153, 0.08);
   color: var(--accent-yellow);
   padding: 7px 16px;
   font-family: 'Roboto Mono', monospace;
@@ -445,7 +445,7 @@ const flowSteps = [
 .flow-step.active .step-dot {
   border-color: var(--accent-yellow);
   color: var(--accent-yellow);
-  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.12), 0 0 16px rgba(16, 185, 129, 0.25);
+  box-shadow: 0 0 0 4px rgba(236, 72, 153, 0.12), 0 0 16px rgba(236, 72, 153, 0.25);
 }
 
 .step-label {

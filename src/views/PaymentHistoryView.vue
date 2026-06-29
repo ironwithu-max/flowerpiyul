@@ -55,7 +55,7 @@
 
       <!-- ── loading / error ── -->
       <div v-if="loading" class="state-box">
-        <svg class="spin" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="1.5">
+        <svg class="spin" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="1.5">
           <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
         </svg>
         <span>내역을 불러오는 중...</span>
@@ -390,7 +390,7 @@ function formatPrice(n: number): string { return n.toLocaleString('ko-KR') }
   padding: 4px 10px; font-size: 11px; font-weight: 700;
   text-transform: uppercase; font-family: 'Roboto Mono', monospace; letter-spacing: 0.5px;
 }
-.status-done    { background: rgba(16,185,129,0.1);  color: #059669; }
+.status-done    { background: rgba(236, 72, 153,0.1);  color: #db2777; }
 .status-pending { background: #f1f5f9;                color: var(--text-dim); }
 .status-failed  { background: rgba(239,68,68,0.1);   color: #EF4444; }
 

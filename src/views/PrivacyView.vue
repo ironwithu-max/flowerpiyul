@@ -282,7 +282,7 @@ import TheFooter from '@/components/TheFooter.vue'
   font-family: 'Roboto Mono', monospace;
   font-size: 11px;
   font-weight: 700;
-  color: #10b981;
+  color: #ec4899;
   letter-spacing: 2px;
   margin-bottom: 12px;
 }
@@ -306,8 +306,8 @@ import TheFooter from '@/components/TheFooter.vue'
   color: rgba(17, 24, 39, 0.7);
   line-height: 1.85;
   padding: 20px 24px;
-  background: #f0fdf4;
-  border-left: 3px solid #10b981;
+  background: #fdf2f8;
+  border-left: 3px solid #ec4899;
   margin-bottom: 8px;
 }
 
@@ -353,7 +353,7 @@ import TheFooter from '@/components/TheFooter.vue'
   background: #f8fafc;
   margin: 0 -24px;
   padding: 28px 24px;
-  border-left: 3px solid #10b981;
+  border-left: 3px solid #ec4899;
   border-bottom: 1px solid rgba(17, 24, 39, 0.08);
 }
 
@@ -414,11 +414,11 @@ import TheFooter from '@/components/TheFooter.vue'
 .mt-12 { margin-top: 12px !important; }
 
 .inline-link {
-  color: #10b981;
+  color: #ec4899;
   text-decoration: underline;
 }
 
-a { color: #10b981; }
+a { color: #ec4899; }
 
 @media (max-width: 768px) {
   .legal-container { padding: 80px 20px 60px; }

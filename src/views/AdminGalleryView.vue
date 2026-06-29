@@ -199,7 +199,7 @@ async function del(p: GalleryPhoto) {
 .cap-input:focus { background:#fdf2f8; }
 .card-actions { display:flex; border-top:1px solid var(--border); }
 .btn-toggle, .btn-del { flex:1; padding:8px; font-size:12px; font-weight:700; border:none; cursor:pointer; font-family:inherit; background:#f8fafc; color:var(--text-dim); transition:.2s; }
-.btn-toggle.on { color:#059669; }
+.btn-toggle.on { color:#db2777; }
 .btn-toggle:hover { background:#f1f5f9; }
 .btn-del { color:#ef4444; border-left:1px solid var(--border); }
 .btn-del:hover { background:#ef4444; color:#fff; }

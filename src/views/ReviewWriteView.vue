@@ -589,7 +589,7 @@ onUnmounted(() => {
 }
 
 .star:hover {
-  color: #10B981;
+  color: #ec4899;
   transform: scale(1.15);
 }
 
@@ -668,7 +668,7 @@ textarea.error {
 
 .upload-box:not(.photo-thumb):hover {
   border-color: var(--accent-yellow);
-  background: #f0fdf4;
+  background: #fdf2f8;
 }
 
 .upload-trigger span,
@@ -754,7 +754,7 @@ textarea.error {
 .recommend-btn.up.active {
   border-color: var(--accent-yellow);
   color: var(--accent-yellow);
-  background: rgba(16, 185, 129, 0.05);
+  background: rgba(236, 72, 153, 0.05);
 }
 
 .recommend-btn.down:hover,
@@ -793,7 +793,7 @@ textarea.error {
 .btn-submit:not(:disabled):hover {
   background: var(--accent-yellow);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.25);
+  box-shadow: 0 8px 24px rgba(236, 72, 153, 0.25);
 }
 
 .btn-submit:disabled {
@@ -826,7 +826,7 @@ textarea.error {
 .modal-mono {
   font-family: 'Roboto Mono', monospace;
   font-size: 11px;
-  color: #059669;
+  color: #db2777;
   font-weight: 600;
   letter-spacing: 1.5px;
   display: block;
@@ -835,7 +835,7 @@ textarea.error {
 
 .success-check {
   font-size: 52px;
-  color: #059669;
+  color: #db2777;
   line-height: 1;
   margin-bottom: 20px;
 }

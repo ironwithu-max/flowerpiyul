@@ -253,7 +253,7 @@ async function togglePopup(n: Notice) {
 
 <style scoped>
 .admin-page { min-height:100vh; background:var(--bg); }
-.bg-glow { position:fixed; top:-10%; right:-10%; width:60%; height:60%; background:radial-gradient(circle,rgba(16,185,129,.08) 0%,transparent 70%); pointer-events:none; z-index:0; }
+.bg-glow { position:fixed; top:-10%; right:-10%; width:60%; height:60%; background:radial-gradient(circle,rgba(236, 72, 153,.08) 0%,transparent 70%); pointer-events:none; z-index:0; }
 .admin-header { position:fixed; top:0; width:100%; padding:20px 40px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border); backdrop-filter:blur(20px); z-index:1000; background:rgba(255,255,255,.8); }
 .logo-area { display:flex; align-items:center; gap:12px; }
 .logo { font-weight:900; font-size:22px; letter-spacing:-1px; color:var(--text-main); text-decoration:none; }
@@ -280,7 +280,7 @@ tr:last-child td { border-bottom:none; }
 .td-title:hover { color:var(--accent-yellow); }
 .empty { text-align:center; padding:56px; color:var(--text-dim); font-size:14px; line-height:1.8; }
 .badge { font-family:'Roboto Mono',monospace; font-size:10px; padding:2px 8px; border-radius:100px; font-weight:600; white-space:nowrap; }
-.badge.notice  { background:#ecfdf5; color:#059669; }
+.badge.notice  { background:#fdf2f8; color:#db2777; }
 .badge.update  { background:#eff6ff; color:#2563eb; }
 .badge.event   { background:#fef3c7; color:#d97706; }
 .btn-edit,.btn-del { padding:4px 10px; font-size:12px; font-weight:600; border:none; cursor:pointer; margin-right:4px; font-family:inherit; transition:.2s; }
@@ -304,9 +304,9 @@ tr:last-child td { border-bottom:none; }
   white-space:nowrap;
 }
 .toggle-popup.active {
-  background:#ecfdf5;
-  color:#059669;
-  border-color:rgba(5,150,105,.3);
+  background:#fdf2f8;
+  color:#db2777;
+  border-color:rgba(219, 39, 119,.3);
 }
 .toggle-popup:hover { opacity:.8; }
 

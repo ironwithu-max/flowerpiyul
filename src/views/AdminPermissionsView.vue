@@ -263,7 +263,7 @@ async function save(admin: AdminRow) {
 
 <style scoped>
 .admin-page { min-height:100vh; background:var(--bg); overflow-x:hidden; }
-.bg-glow { position:fixed; top:-10%; right:-10%; width:60%; height:60%; background:radial-gradient(circle,rgba(16,185,129,.06) 0%,transparent 70%); pointer-events:none; z-index:0; }
+.bg-glow { position:fixed; top:-10%; right:-10%; width:60%; height:60%; background:radial-gradient(circle,rgba(236, 72, 153,.06) 0%,transparent 70%); pointer-events:none; z-index:0; }
 .admin-header { position:fixed; top:0; width:100%; padding:20px 40px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border); backdrop-filter:blur(20px); z-index:1000; background:rgba(255,255,255,.85); }
 .logo-area { display:flex; align-items:center; gap:12px; }
 .logo { font-weight:900; font-size:22px; letter-spacing:-1px; color:var(--text-main); text-decoration:none; }
@@ -395,8 +395,8 @@ tr:last-child td { border-bottom:none; }
 }
 .btn-save.dirty:hover { background: #000; transform: translateY(-1px); }
 .btn-save.saved {
-  background: #ecfdf5;
-  color: #059669;
+  background: #fdf2f8;
+  color: #db2777;
   cursor: default;
 }
 .btn-save:disabled:not(.saved) { opacity:.6; }

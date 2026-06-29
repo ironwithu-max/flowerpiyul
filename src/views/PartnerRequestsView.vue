@@ -478,44 +478,44 @@ watch(() => authLoading.value, (isLoading) => {
 /* ── 새 출동 요청 섹션 ── */
 .dispatch-section {
   margin-bottom: 32px;
-  border: 2px solid #10B981;
+  border: 2px solid #ec4899;
   border-radius: 8px;
   overflow: hidden;
 }
 .dispatch-header {
   display: flex; align-items: center; gap: 10px;
-  background: rgba(16,185,129,.08); padding: 14px 20px;
-  border-bottom: 1px solid rgba(16,185,129,.2);
+  background: rgba(236, 72, 153,.08); padding: 14px 20px;
+  border-bottom: 1px solid rgba(236, 72, 153,.2);
 }
 .dispatch-badge {
-  font-size: 14px; font-weight: 700; color: #059669;
+  font-size: 14px; font-weight: 700; color: #db2777;
 }
 .dispatch-count {
   font-family: 'Roboto Mono', monospace; font-size: 12px;
-  background: #10B981; color: #fff; padding: 2px 8px; border-radius: 12px;
+  background: #ec4899; color: #fff; padding: 2px 8px; border-radius: 12px;
 }
 .dispatch-list { display: flex; flex-direction: column; }
 .dispatch-card {
   display: flex; align-items: center; justify-content: space-between;
   gap: 16px; padding: 16px 20px;
-  border-bottom: 1px solid rgba(16,185,129,.1);
+  border-bottom: 1px solid rgba(236, 72, 153,.1);
   background: #fff; transition: background .2s;
 }
 .dispatch-card:last-child { border-bottom: none; }
-.dispatch-card:hover { background: rgba(16,185,129,.03); }
+.dispatch-card:hover { background: rgba(236, 72, 153,.03); }
 .dispatch-info { flex: 1; min-width: 0; }
 .dispatch-badges { display: flex; gap: 6px; margin-bottom: 6px; flex-wrap: wrap; }
 .dispatch-title { font-size: 16px; font-weight: 700; margin-bottom: 6px; color: var(--text-main); }
 .dispatch-meta { display: flex; gap: 14px; font-size: 12px; color: var(--text-dim); flex-wrap: wrap; }
-.dispatch-amount { font-weight: 700; color: #10B981; font-family: 'Roboto Mono', monospace; }
+.dispatch-amount { font-weight: 700; color: #ec4899; font-family: 'Roboto Mono', monospace; }
 .dispatch-actions { flex-shrink: 0; display: flex; gap: 8px; align-items: center; }
 .btn-accept {
-  padding: 10px 20px; background: #10B981; color: #fff;
+  padding: 10px 20px; background: #ec4899; color: #fff;
   border: none; border-radius: 6px; font-size: 14px; font-weight: 700;
   cursor: pointer; font-family: inherit; transition: all .2s;
   display: flex; align-items: center; gap: 6px; white-space: nowrap;
 }
-.btn-accept:hover:not(:disabled) { background: #059669; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(16,185,129,.3); }
+.btn-accept:hover:not(:disabled) { background: #db2777; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(236, 72, 153,.3); }
 .btn-accept:disabled { opacity: .6; cursor: not-allowed; }
 .btn-reject-dispatch {
   padding: 10px 16px; background: #fff; color: #ef4444;
@@ -524,7 +524,7 @@ watch(() => authLoading.value, (isLoading) => {
 }
 .btn-reject-dispatch:hover:not(:disabled) { background: #fef2f2; border-color: #ef4444; }
 .btn-reject-dispatch:disabled { opacity: .6; cursor: not-allowed; }
-.badge-paid { background: rgba(16,185,129,.1); color: #059669; border: 1px solid rgba(16,185,129,.3); font-size: 10px; padding: 2px 7px; font-weight: 700; border-radius: 3px; }
+.badge-paid { background: rgba(236, 72, 153,.1); color: #db2777; border: 1px solid rgba(236, 72, 153,.3); font-size: 10px; padding: 2px 7px; font-weight: 700; border-radius: 3px; }
 @keyframes spin-sm-rotate { to { transform: rotate(360deg); } }
 .spin-sm { animation: spin-sm-rotate .7s linear infinite; flex-shrink: 0; }
 
@@ -547,7 +547,7 @@ watch(() => authLoading.value, (isLoading) => {
 .badge { font-family:'Roboto Mono',monospace; font-size:10px; font-weight:700; padding:2px 8px; border-radius:100px; white-space:nowrap; }
 .badge-urgent { background:#FFF1F2; color:#F43F5E; }
 .badge-category { background:#F1F5F9; color:#475569; }
-.badge-confirmed { background:#ecfdf5; color:#059669; }
+.badge-confirmed { background:#fdf2f8; color:#db2777; }
 .badge-unconfirmed { background:#fefce8; color:#854d0e; }
 .card-title { font-size:15px; font-weight:700; margin-bottom:8px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 .card-meta { display:flex; gap:16px; flex-wrap:wrap; }
@@ -555,12 +555,12 @@ watch(() => authLoading.value, (isLoading) => {
 .card-side { display:flex; flex-direction:column; align-items:flex-end; gap:8px; flex-shrink:0; }
 .status-pill { font-family:'Roboto Mono',monospace; font-size:11px; font-weight:700; padding:4px 12px; border-radius:100px; white-space:nowrap; }
 .status-waiting  { background:#FEFCE8; color:#854D0E; }
-.status-received { background:#ECFDF5; color:#059669; }
+.status-received { background:#fdf2f8; color:#db2777; }
 .status-ongoing  { background:#EFF6FF; color:#2563EB; }
 .status-completed { background:#F8FAFC; color:#94A3B8; border:1px solid var(--border); }
 .status-cancelled { background:#FFF1F2; color:#F43F5E; }
 .quote-badge { font-family:'Roboto Mono',monospace; font-size:10px; padding:2px 8px; border-radius:100px; font-weight:700; }
-.quote-green { background:#ECFDF5; color:#059669; }
+.quote-green { background:#fdf2f8; color:#db2777; }
 .quote-blue  { background:#EFF6FF; color:#2563EB; }
 .quote-gray  { background:#F1F5F9; color:#94A3B8; }
 .btn-confirm { padding:7px 14px; font-size:12px; font-weight:700; font-family:'Roboto Mono',monospace; letter-spacing:.5px; background:var(--accent-yellow); color:#fff; border:none; border-radius:4px; cursor:pointer; white-space:nowrap; transition:filter .2s; }

@@ -264,7 +264,7 @@ function fmtDate(iso: string) {
 
 <style scoped>
 .admin-page { min-height:100vh; background:var(--bg); }
-.bg-glow { position:fixed; top:-10%; right:-10%; width:60%; height:60%; background:radial-gradient(circle,rgba(16,185,129,.08) 0%,transparent 70%); pointer-events:none; z-index:0; }
+.bg-glow { position:fixed; top:-10%; right:-10%; width:60%; height:60%; background:radial-gradient(circle,rgba(236, 72, 153,.08) 0%,transparent 70%); pointer-events:none; z-index:0; }
 .admin-header { position:fixed; top:0; width:100%; padding:20px 40px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border); backdrop-filter:blur(20px); z-index:1000; background:rgba(255,255,255,.8); }
 .logo-area { display:flex; align-items:center; gap:12px; }
 .logo { font-weight:900; font-size:22px; letter-spacing:-1px; color:var(--text-main); text-decoration:none; }
@@ -283,7 +283,7 @@ function fmtDate(iso: string) {
 .sum-card { background:#fff; border:1px solid var(--border); padding:20px 24px; }
 .sum-label { font-size:12px; color:var(--text-dim); margin-bottom:8px; }
 .sum-val { font-size:24px; font-weight:900; font-family:'Inter',sans-serif; }
-.sum-val.red { color:#ef4444; } .sum-val.green { color:#059669; }
+.sum-val.red { color:#ef4444; } .sum-val.green { color:#db2777; }
 .filter-tabs { display:flex; gap:8px; margin-bottom:20px; flex-wrap:wrap; }
 .tab-btn { padding:8px 16px; border:1px solid var(--border); background:#fff; font-size:13px; font-weight:600; cursor:pointer; transition:.2s; display:flex; align-items:center; gap:6px; font-family:inherit; }
 .tab-btn:hover { border-color:var(--accent-yellow); } .tab-btn.active { background:var(--text-main); color:#fff; border-color:var(--text-main); }
@@ -300,7 +300,7 @@ tr.row-hidden td { opacity:.5; }
 .td-comment { max-width:260px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 .stars { color:#f59e0b; font-size:14px; letter-spacing:1px; }
 .badge-hidden { font-family:'Roboto Mono',monospace; font-size:10px; padding:2px 8px; background:#f1f5f9; color:#64748b; border-radius:100px; font-weight:600; white-space:nowrap; }
-.badge-visible { font-family:'Roboto Mono',monospace; font-size:10px; padding:2px 8px; background:#ecfdf5; color:#059669; border-radius:100px; font-weight:600; white-space:nowrap; }
+.badge-visible { font-family:'Roboto Mono',monospace; font-size:10px; padding:2px 8px; background:#fdf2f8; color:#db2777; border-radius:100px; font-weight:600; white-space:nowrap; }
 .action-btns { display:flex; gap:5px; }
 .btn-hide { padding:4px 10px; background:#eff6ff; color:#2563eb; border:1px solid #bfdbfe; font-size:11px; font-weight:700; cursor:pointer; border-radius:3px; white-space:nowrap; }
 .btn-hide:disabled { opacity:.5; cursor:not-allowed; }

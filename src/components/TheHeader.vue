@@ -5,11 +5,11 @@
     </RouterLink>
 
     <div class="header-right">
-      <slot name="action" />
       <div class="system-status">
         <div class="status-dot" />
         시스템 정상 /&nbsp;<span class="clock">{{ clock }}</span>
       </div>
+      <slot name="action" />
     </div>
   </header>
 </template>

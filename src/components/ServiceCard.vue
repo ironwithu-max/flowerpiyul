@@ -148,13 +148,13 @@ const cardStyle = computed(() => ({
 
 .btn-mini {
   width: 28px; height: 28px;
-  border: 1px solid #16a34a;
+  border: 1px solid #db2777;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 16px;
   transition: 0.3s;
-  color: #16a34a;
+  color: #db2777;
   flex-shrink: 0;
 }
 

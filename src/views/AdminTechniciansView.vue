@@ -331,7 +331,7 @@ onUnmounted(() => clearInterval(ti))
 
 <style scoped>
 .admin-page { min-height:100vh; background:var(--bg); }
-.bg-glow { position:fixed; top:-10%; right:-10%; width:60%; height:60%; background:radial-gradient(circle,rgba(16,185,129,.08) 0%,transparent 70%); pointer-events:none; z-index:0; }
+.bg-glow { position:fixed; top:-10%; right:-10%; width:60%; height:60%; background:radial-gradient(circle,rgba(236, 72, 153,.08) 0%,transparent 70%); pointer-events:none; z-index:0; }
 .admin-header { position:fixed; top:0; width:100%; padding:20px 40px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border); backdrop-filter:blur(20px); z-index:1000; background:rgba(255,255,255,.8); }
 .logo-area { display:flex; align-items:center; gap:12px; }
 .logo { font-weight:900; font-size:22px; letter-spacing:-1px; color:var(--text-main); text-decoration:none; }
@@ -350,7 +350,7 @@ onUnmounted(() => clearInterval(ti))
 .stats-row { display:flex; gap:12px; margin-bottom:24px; }
 .stat-card { background:#fff; border:1px solid var(--border); padding:16px 24px; min-width:100px; }
 .stat-val { font-size:28px; font-weight:900; font-family:'Roboto Mono',monospace; }
-.stat-val.green { color:#10b981; } .stat-val.gray { color:#94a3b8; }
+.stat-val.green { color:#ec4899; } .stat-val.gray { color:#94a3b8; }
 .stat-label { font-size:11px; color:var(--text-dim); margin-top:2px; }
 .table-wrap { border:1px solid var(--border); border-top:2px solid var(--text-main); background:#fff; overflow-x:auto; }
 table { width:100%; border-collapse:collapse; min-width:800px; }
@@ -368,7 +368,7 @@ tr.inactive td { opacity:.5; }
 .badge.cat { font-family:'Roboto Mono',monospace; font-size:10px; padding:2px 7px; background:#f1f5f9; color:#475569; border-radius:100px; white-space:nowrap; }
 .dim { color:var(--text-dim); font-size:12px; }
 .toggle-btn { padding:4px 10px; border-radius:100px; font-size:11px; font-weight:700; border:none; cursor:pointer; font-family:'Roboto Mono',monospace; }
-.toggle-btn.active { background:#ecfdf5; color:#059669; }
+.toggle-btn.active { background:#fdf2f8; color:#db2777; }
 .toggle-btn.inactive { background:#f1f5f9; color:#94a3b8; }
 .action-btns { display:flex; gap:6px; }
 .btn-edit { padding:5px 10px; background:#eff6ff; color:#2563eb; border:none; font-size:12px; font-weight:600; cursor:pointer; border-radius:3px; }

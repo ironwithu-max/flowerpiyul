@@ -527,7 +527,7 @@ function handleDispute(): void {
 .sub-label {
   font-family: 'Roboto Mono', monospace;
   font-size: 11px;
-  color: #059669;
+  color: #db2777;
   font-weight: 600;
   margin-bottom: 8px;
   letter-spacing: 0.5px;
@@ -728,7 +728,7 @@ tbody tr:last-child td {
   background: var(--accent-yellow);
   color: #ffffff;
   border: none;
-  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.15);
+  box-shadow: 0 10px 30px rgba(236, 72, 153, 0.15);
 }
 
 .btn-primary:hover {
@@ -779,7 +779,7 @@ tbody tr:last-child td {
 }
 
 .modal-mono.mono-danger { color: #EF4444; }
-.modal-mono.mono-success { color: #059669; }
+.modal-mono.mono-success { color: #db2777; }
 
 .modal-title {
   font-size: 22px;
@@ -842,7 +842,7 @@ tbody tr:last-child td {
 /* payment success */
 .success-check {
   font-size: 48px;
-  color: #059669;
+  color: #db2777;
   font-weight: 900;
   margin-bottom: 16px;
   line-height: 1;

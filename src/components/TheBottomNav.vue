@@ -141,7 +141,7 @@ const navItems = computed(() => {
 
 .nav-item:hover:not(.active) {
   color: var(--text-main);
-  background: rgba(16, 185, 129, 0.08);
+  background: rgba(236, 72, 153, 0.08);
 }
 
 @media (min-width: 640px) {

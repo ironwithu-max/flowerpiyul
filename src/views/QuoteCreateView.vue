@@ -411,7 +411,7 @@ async function handleSubmit(): Promise<void> {
   right: -10%;
   width: 60%;
   height: 60%;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.1) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
@@ -557,7 +557,7 @@ textarea:focus {
   outline: none;
   border-color: var(--accent-yellow);
   background: #ffffff;
-  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15);
+  box-shadow: 0 0 0 4px rgba(236, 72, 153, 0.15);
 }
 
 input.is-error,
@@ -692,7 +692,7 @@ textarea {
 .upload-area:hover,
 .upload-area.drag-over {
   border-color: var(--accent-yellow);
-  background: rgba(16, 185, 129, 0.04);
+  background: rgba(236, 72, 153, 0.04);
 }
 
 .upload-icon {
@@ -778,7 +778,7 @@ textarea {
 .preview-item.add-slot:hover {
   border-color: var(--accent-yellow);
   color: var(--accent-yellow);
-  background: rgba(16, 185, 129, 0.04);
+  background: rgba(236, 72, 153, 0.04);
 }
 
 .preview-item.empty-slot {
@@ -810,7 +810,7 @@ textarea {
 .submit-btn:not(:disabled):hover {
   background: var(--accent-yellow);
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 10px 30px rgba(236, 72, 153, 0.3);
 }
 
 .submit-btn:disabled {

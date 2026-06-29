@@ -247,7 +247,7 @@ import TheFooter from '@/components/TheFooter.vue'
   font-family: 'Roboto Mono', monospace;
   font-size: 11px;
   font-weight: 700;
-  color: #10b981;
+  color: #ec4899;
   letter-spacing: 2px;
   margin-bottom: 12px;
 }
@@ -312,7 +312,7 @@ import TheFooter from '@/components/TheFooter.vue'
   background: #f8fafc;
   margin: 0 -24px;
   padding: 28px 24px;
-  border-left: 3px solid #10b981;
+  border-left: 3px solid #ec4899;
   border-bottom: 1px solid rgba(17, 24, 39, 0.08);
 }
 
@@ -344,7 +344,7 @@ import TheFooter from '@/components/TheFooter.vue'
 }
 
 .refund-table tbody tr:nth-child(even) {
-  background: rgba(16, 185, 129, 0.04);
+  background: rgba(236, 72, 153, 0.04);
 }
 
 .refund-table td strong {
@@ -356,7 +356,7 @@ import TheFooter from '@/components/TheFooter.vue'
 }
 
 .inline-link {
-  color: #10b981;
+  color: #ec4899;
   text-decoration: underline;
 }
 

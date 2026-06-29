@@ -18,11 +18,11 @@
 
         <!-- 일반회원 -->
         <RouterLink to="/signup/general" class="selection-card">
-          <HudCorners color="#10B981" :size="12" :thickness="2" />
+          <HudCorners color="#ec4899" :size="12" :thickness="2" />
 
           <div class="icon-box">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none"
-                 stroke="#10B981" stroke-width="2"
+                 stroke="#ec4899" stroke-width="2"
                  stroke-linecap="round" stroke-linejoin="round">
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
               <circle cx="12" cy="7" r="4"/>
@@ -40,11 +40,11 @@
 
         <!-- 기업회원 -->
         <RouterLink to="/signup/corporate" class="selection-card">
-          <HudCorners color="#10B981" :size="12" :thickness="2" />
+          <HudCorners color="#ec4899" :size="12" :thickness="2" />
 
           <div class="icon-box">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none"
-                 stroke="#10B981" stroke-width="2"
+                 stroke="#ec4899" stroke-width="2"
                  stroke-linecap="round" stroke-linejoin="round">
               <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
               <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
@@ -89,7 +89,7 @@ import HudCorners from '@/components/HudCorners.vue'
 /* ── page wrapper ─────────────────────────────── */
 .signup-select-page {
   --border: rgba(17, 24, 39, 0.12);
-  --glow-green: rgba(16, 185, 129, 0.15);
+  --glow-green: rgba(236, 72, 153, 0.15);
 
   min-height: 100vh;
   background-color: var(--bg);
@@ -105,7 +105,7 @@ import HudCorners from '@/components/HudCorners.vue'
   right: -10%;
   width: 60%;
   height: 60%;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.1) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
@@ -212,7 +212,7 @@ import HudCorners from '@/components/HudCorners.vue'
 }
 
 .selection-card:hover .icon-box {
-  background: rgba(16, 185, 129, 0.1);
+  background: rgba(236, 72, 153, 0.1);
   transform: scale(1.05);
 }
 

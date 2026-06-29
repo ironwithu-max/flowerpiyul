@@ -888,7 +888,7 @@ table { width: 100%; border-collapse: collapse; font-size: 14px; }
 thead { background: var(--surface); border-bottom: 1px solid var(--border); }
 th { text-align: left; padding: 16px 24px; font-weight: 700; color: var(--text-dim); font-size: 12px; text-transform: uppercase; letter-spacing: .05em; white-space: nowrap; }
 .data-row { border-bottom: 1px solid var(--border); transition: background .2s; cursor: pointer; }
-.data-row:hover { background: rgba(16,185,129,.02); }
+.data-row:hover { background: rgba(236, 72, 153,.02); }
 .data-row:last-child { border-bottom: none; }
 td { padding: 20px 24px; color: var(--text-main); }
 .company-name { font-weight: 700; }
@@ -909,13 +909,13 @@ td { padding: 20px 24px; color: var(--text-main); }
 /* ── status badges ────────────────────────────── */
 .status-badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: 700; font-family: 'Roboto Mono', monospace; white-space: nowrap; letter-spacing: .5px; }
 .status-pending  { background: #fff7ed; color: var(--accent-amber); border: 1px solid rgba(245,158,11,.2); }
-.status-approved { background: #ecfdf5; color: var(--accent-yellow); border: 1px solid rgba(16,185,129,.2); }
+.status-approved { background: #fdf2f8; color: var(--accent-yellow); border: 1px solid rgba(236, 72, 153,.2); }
 .status-rejected { background: #fef2f2; color: var(--accent-red);   border: 1px solid rgba(239,68,68,.2); }
 
 /* ── member type badges ───────────────────────── */
 .type-badge { font-family: 'Roboto Mono', monospace; font-size: 10px; padding: 2px 8px; border-radius: 4px; font-weight: 700; white-space: nowrap; }
 .badge-company { background: #eff6ff; color: #2563eb; border: 1px solid rgba(37,99,235,.2); }
-.badge-tech    { background: #f0fdf4; color: #16a34a; border: 1px solid rgba(22,163,74,.2); }
+.badge-tech    { background: #fdf2f8; color: #db2777; border: 1px solid rgba(219, 39, 119,.2); }
 
 /* ── empty cell ───────────────────────────────── */
 .empty-cell { text-align: center; padding: 48px 24px; color: var(--text-dim); font-size: 14px; }
@@ -935,9 +935,9 @@ td { padding: 20px 24px; color: var(--text-main); }
 /* ── bulk bar ─────────────────────────────────── */
 .bulk-bar { display: flex; align-items: center; gap: 10px; padding: 10px 16px; background: #fff; border: 1px solid var(--border); border-left: 3px solid var(--text-main); margin-bottom: 16px; flex-wrap: wrap; }
 .bulk-info { font-size: 13px; font-weight: 700; flex: 1; min-width: 80px; }
-.btn-bulk-approve { padding: 7px 16px; background: #ecfdf5; color: #059669; border: 1px solid #bbf7d0; border-radius: 4px; font-size: 13px; font-weight: 700; cursor: pointer; font-family: inherit; }
+.btn-bulk-approve { padding: 7px 16px; background: #fdf2f8; color: #db2777; border: 1px solid #fbcfe8; border-radius: 4px; font-size: 13px; font-weight: 700; cursor: pointer; font-family: inherit; }
 .btn-bulk-approve:disabled { opacity: .5; cursor: not-allowed; }
-.btn-bulk-approve:hover:not(:disabled) { background: #059669; color: #fff; }
+.btn-bulk-approve:hover:not(:disabled) { background: #db2777; color: #fff; }
 .btn-bulk-reject { padding: 7px 16px; background: #fef2f2; color: #ef4444; border: 1px solid #fecaca; border-radius: 4px; font-size: 13px; font-weight: 700; cursor: pointer; font-family: inherit; }
 .btn-bulk-reject:disabled { opacity: .5; cursor: not-allowed; }
 .btn-bulk-reject:hover:not(:disabled) { background: #ef4444; color: #fff; }
@@ -948,7 +948,7 @@ td { padding: 20px 24px; color: var(--text-main); }
 /* ── checkbox column ──────────────────────────── */
 .th-check { width: 40px; padding: 16px 12px; }
 .td-check { width: 40px; padding: 20px 12px; text-align: center; }
-.data-row.row-selected { background: rgba(16,185,129,.04); }
+.data-row.row-selected { background: rgba(236, 72, 153,.04); }
 
 /* ── modals ───────────────────────────────────── */
 .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 20px; }
@@ -989,10 +989,10 @@ td { padding: 20px 24px; color: var(--text-main); }
 .radio-opt input { display: none; }
 .radio-opt.active { border-color: var(--accent-yellow); background: #fffbeb; }
 .badge { font-family: 'Roboto Mono', monospace; font-size: 10px; padding: 2px 8px; border-radius: 100px; font-weight: 600; }
-.badge.general    { background: #ecfdf5; color: #059669; }
+.badge.general    { background: #fdf2f8; color: #db2777; }
 .badge.corporate  { background: #eff6ff; color: #2563eb; }
 .badge.admin      { background: #fef3c7; color: #d97706; }
-.badge.technician { background: #f0fdf4; color: #16a34a; }
+.badge.technician { background: #fdf2f8; color: #db2777; }
 .form-hint { font-size: 11px; color: var(--text-dim); margin-top: 6px; font-family: 'Roboto Mono', monospace; }
 
 /* ── perm grid ────────────────────────────────── */

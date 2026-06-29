@@ -1186,7 +1186,7 @@ onUnmounted(() => {
   right: -10%;
   width: 60%;
   height: 60%;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.08) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
@@ -1335,7 +1335,7 @@ onUnmounted(() => {
 
 .biz-type-opt.active {
   border-color: var(--accent-yellow);
-  background: rgba(16, 185, 129, 0.06);
+  background: rgba(236, 72, 153, 0.06);
   color: var(--accent-yellow);
 }
 
@@ -1435,7 +1435,7 @@ onUnmounted(() => {
 .form-input:focus {
   border-color: var(--accent-yellow);
   background: #ffffff;
-  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.08);
+  box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.08);
 }
 
 .form-input.input-error {
@@ -1533,7 +1533,7 @@ onUnmounted(() => {
 
 .chip-label.active {
   border-color: var(--accent-yellow);
-  background: rgba(16, 185, 129, 0.06);
+  background: rgba(236, 72, 153, 0.06);
   color: var(--accent-yellow);
   font-weight: 600;
 }
@@ -1556,13 +1556,13 @@ onUnmounted(() => {
 
 .file-upload-zone.zone-drag-over {
   border-color: var(--accent-yellow);
-  background: rgba(16, 185, 129, 0.04);
+  background: rgba(236, 72, 153, 0.04);
 }
 
 .file-upload-zone.zone-has-file {
   border-style: solid;
   border-color: var(--accent-yellow);
-  background: rgba(16, 185, 129, 0.03);
+  background: rgba(236, 72, 153, 0.03);
 }
 
 .file-upload-zone.zone-error {
@@ -1590,7 +1590,7 @@ onUnmounted(() => {
   gap: 7px;
   padding: 8px 12px;
   border: 1px solid var(--accent-yellow);
-  background: rgba(16, 185, 129, 0.04);
+  background: rgba(236, 72, 153, 0.04);
   border-radius: 2px;
 }
 
@@ -1630,9 +1630,9 @@ onUnmounted(() => {
   font-weight: 700;
   padding: 2px 5px;
   letter-spacing: 0.3px;
-  background: rgba(16, 185, 129, 0.1);
+  background: rgba(236, 72, 153, 0.1);
   color: var(--accent-yellow);
-  border: 1px solid rgba(16, 185, 129, 0.25);
+  border: 1px solid rgba(236, 72, 153, 0.25);
 }
 
 .badge-optional {
@@ -1696,12 +1696,12 @@ onUnmounted(() => {
   color: var(--accent-yellow);
   text-decoration: none;
   padding: 2px 8px;
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  border: 1px solid rgba(236, 72, 153, 0.3);
   transition: background 0.2s;
   white-space: nowrap;
 }
 
-.term-view:hover { background: rgba(16, 185, 129, 0.08); }
+.term-view:hover { background: rgba(236, 72, 153, 0.08); }
 
 /* ── hint ─────────────────────────────────────── */
 .hint {
@@ -1750,7 +1750,7 @@ onUnmounted(() => {
 .btn-submit:hover:not(:disabled) {
   background: var(--accent-lime);
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.25);
+  box-shadow: 0 10px 30px rgba(236, 72, 153, 0.25);
 }
 
 .btn-submit:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
@@ -1839,7 +1839,7 @@ onUnmounted(() => {
 }
 .member-type-opt.active {
   border-color: var(--accent-yellow);
-  background: #ecfdf5;
+  background: #fdf2f8;
 }
 .member-type-opt svg { color: var(--text-dim); flex-shrink: 0; }
 .member-type-opt.active svg { color: var(--accent-yellow); }
@@ -1878,7 +1878,7 @@ onUnmounted(() => {
 
 .job-cat-tab.active {
   border-color: var(--accent-yellow);
-  background: rgba(16, 185, 129, 0.07);
+  background: rgba(236, 72, 153, 0.07);
   color: var(--accent-yellow);
 }
 
@@ -1918,7 +1918,7 @@ onUnmounted(() => {
 
 .job-item-label.active {
   border-color: var(--accent-yellow);
-  background: rgba(16, 185, 129, 0.06);
+  background: rgba(236, 72, 153, 0.06);
   color: var(--accent-yellow);
   font-weight: 600;
 }
@@ -1939,8 +1939,8 @@ onUnmounted(() => {
 /* ── 선택된 직군 요약 ─────────────────────────── */
 .selected-jobs {
   padding: 12px 16px;
-  background: rgba(16, 185, 129, 0.04);
-  border: 1px solid rgba(16, 185, 129, 0.2);
+  background: rgba(236, 72, 153, 0.04);
+  border: 1px solid rgba(236, 72, 153, 0.2);
   border-radius: 4px;
 }
 
@@ -1965,8 +1965,8 @@ onUnmounted(() => {
   align-items: center;
   gap: 4px;
   padding: 3px 8px;
-  background: rgba(16, 185, 129, 0.1);
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  background: rgba(236, 72, 153, 0.1);
+  border: 1px solid rgba(236, 72, 153, 0.3);
   border-radius: 100px;
   font-size: 11px;
   font-weight: 600;

@@ -310,7 +310,7 @@ async function handleSelect(): Promise<void> {
   right: -10%;
   width: 60%;
   height: 60%;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.1) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
@@ -452,7 +452,7 @@ async function handleSelect(): Promise<void> {
 .verified-badge {
   font-family: 'Roboto Mono', monospace;
   font-size: 10px;
-  color: #059669;
+  color: #db2777;
   font-weight: 600;
   letter-spacing: 1px;
 }
@@ -619,7 +619,7 @@ async function handleSelect(): Promise<void> {
 
 .btn-primary:not(:disabled):hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 10px 20px rgba(236, 72, 153, 0.3);
 }
 
 .btn-outline {

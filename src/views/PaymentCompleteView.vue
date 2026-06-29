@@ -9,7 +9,7 @@
 
       <!-- ── 승인 중 ── -->
       <div v-if="confirming" class="status-wrap">
-        <svg class="spin" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="1.5">
+        <svg class="spin" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="1.5">
           <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
         </svg>
         <p class="status-text">결제를 승인하는 중입니다...</p>
@@ -38,8 +38,8 @@
 
         <div class="success-icon-wrapper">
           <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-            <circle cx="40" cy="40" r="38" fill="#10B981" fill-opacity="0.1" stroke="#10B981" stroke-width="2"/>
-            <path d="M25 40L35 50L55 30" stroke="#10B981" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="40" cy="40" r="38" fill="#ec4899" fill-opacity="0.1" stroke="#ec4899" stroke-width="2"/>
+            <path d="M25 40L35 50L55 30" stroke="#ec4899" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
 
@@ -193,7 +193,7 @@ onMounted(async () => {
   position: fixed;
   top: -10%; right: -10%;
   width: 60%; height: 60%;
-  background: radial-gradient(circle, #10B981 0%, transparent 70%);
+  background: radial-gradient(circle, #ec4899 0%, transparent 70%);
   z-index: 0; opacity: 0.15; pointer-events: none;
 }
 
@@ -255,7 +255,7 @@ onMounted(async () => {
 
 .section-label {
   font-family: 'Roboto Mono', monospace; font-size: 11px;
-  color: #10B981; letter-spacing: 2px; font-weight: 600;
+  color: #ec4899; letter-spacing: 2px; font-weight: 600;
   margin-bottom: 20px; display: block;
 }
 
@@ -266,7 +266,7 @@ onMounted(async () => {
 .row-label { color: var(--text-dim); width: 110px; }
 .row-value  { text-align: right; font-weight: 600; color: var(--text-main); }
 .row-value.mono { font-family: 'Roboto Mono', monospace; font-size: 12px; }
-.row-value.highlight { color: #10B981; font-size: 18px; font-weight: 900; }
+.row-value.highlight { color: #ec4899; font-size: 18px; font-weight: 900; }
 
 .receipt-note {
   margin-top: 16px; font-size: 11px; color: var(--text-dim);
@@ -282,7 +282,7 @@ onMounted(async () => {
   text-align: center; transition: all 0.2s;
 }
 .btn-primary {
-  background: #10B981; color: #fff; border: 1px solid #10B981;
+  background: #ec4899; color: #fff; border: 1px solid #ec4899;
 }
 .btn-primary:hover { filter: brightness(1.1); transform: translateY(-1px); }
 .btn-secondary {

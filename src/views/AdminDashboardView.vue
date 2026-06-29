@@ -408,7 +408,7 @@ onUnmounted(() => {
 .stat-card { background:#fff; border:1px solid var(--border); padding:24px; position:relative; overflow:hidden; transition:all .2s; }
 .stat-card::after { content:''; position:absolute; bottom:0; right:0; width:20px; height:20px; border-right:2px solid var(--accent-yellow); border-bottom:2px solid var(--accent-yellow); opacity:.5; }
 .stat-card.clickable { cursor:pointer; }
-.stat-card.clickable:hover { border-color:var(--accent-yellow); transform:translateY(-2px); box-shadow:0 4px 12px rgba(16,185,129,.1); }
+.stat-card.clickable:hover { border-color:var(--accent-yellow); transform:translateY(-2px); box-shadow:0 4px 12px rgba(236, 72, 153,.1); }
 .stat-title { font-size:13px; color:var(--text-dim); margin-bottom:8px; font-weight:500; }
 .stat-value { font-size:28px; font-weight:900; font-family:'Inter',sans-serif; letter-spacing:-.5px; }
 .stat-value.red { color:#ef4444; }
@@ -425,7 +425,7 @@ onUnmounted(() => {
 .quick-menu-section { min-width:0; }
 .quick-menu-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
 .menu-card { background:#f8fafc; border:1px solid var(--border); padding:20px; text-decoration:none; color:var(--text-main); transition:all .2s; display:flex; flex-direction:column; gap:10px; cursor:pointer; position:relative; }
-.menu-card:hover { border-color:var(--accent-yellow); background:#fff; transform:translateY(-2px); box-shadow:0 4px 12px rgba(16,185,129,.1); }
+.menu-card:hover { border-color:var(--accent-yellow); background:#fff; transform:translateY(-2px); box-shadow:0 4px 12px rgba(236, 72, 153,.1); }
 .menu-icon { color:var(--accent-yellow); }
 .menu-icon :deep(svg) { display:block; }
 .menu-name { font-size:13px; font-weight:700; }
@@ -447,9 +447,9 @@ tr:last-child td { border-bottom:none; }
 /* type badges */
 .type-badge { font-family:'Roboto Mono',monospace; font-size:10px; padding:2px 8px; border-radius:100px; background:#f1f5f9; color:var(--text-dim); white-space:nowrap; font-weight:600; }
 /* 구분 배지 */
-.type-badge.request          { background:#ecfdf5; color:#059669; }
+.type-badge.request          { background:#fdf2f8; color:#db2777; }
 /* 상태 배지 */
-.type-badge.open             { background:#ecfdf5; color:#059669; }
+.type-badge.open             { background:#fdf2f8; color:#db2777; }
 .type-badge.quoted           { background:#eff6ff; color:#2563eb; }
 .type-badge.in_progress      { background:#fef3c7; color:#d97706; }
 .type-badge.completed        { background:#f1f5f9; color:#475569; }

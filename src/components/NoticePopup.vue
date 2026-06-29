@@ -162,7 +162,7 @@ onMounted(loadPopupNotice)
   border-radius: 100px;
   letter-spacing: 0.5px;
 }
-.type-badge.notice  { background: #ecfdf5; color: #059669; }
+.type-badge.notice  { background: #fdf2f8; color: #db2777; }
 .type-badge.update  { background: #eff6ff; color: #2563eb; }
 .type-badge.event   { background: #fef3c7; color: #d97706; }
 

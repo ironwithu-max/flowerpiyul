@@ -683,7 +683,7 @@ onUnmounted(() => {
 
 <style scoped>
 .admin-page { min-height:100vh; background:var(--bg); }
-.bg-glow { position:fixed; top:-10%; right:-10%; width:60%; height:60%; background:radial-gradient(circle,rgba(16,185,129,.08) 0%,transparent 70%); pointer-events:none; z-index:0; }
+.bg-glow { position:fixed; top:-10%; right:-10%; width:60%; height:60%; background:radial-gradient(circle,rgba(236, 72, 153,.08) 0%,transparent 70%); pointer-events:none; z-index:0; }
 .admin-header { position:fixed; top:0; width:100%; padding:20px 40px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border); backdrop-filter:blur(20px); z-index:1000; background:rgba(255,255,255,.8); }
 .logo-area { display:flex; align-items:center; gap:12px; }
 .logo { font-weight:900; font-size:22px; letter-spacing:-1px; color:var(--text-main); text-decoration:none; }
@@ -708,7 +708,7 @@ onUnmounted(() => {
 .tab-cnt { font-size:10px; font-family:'Roboto Mono',monospace; opacity:.7; }
 .tab-cnt.red { color:#ef4444; opacity:1; font-weight:700; }
 .dot { width:7px; height:7px; border-radius:50%; display:inline-block; }
-.dot.red { background:#ef4444; } .dot.yellow { background:#f59e0b; } .dot.green { background:#10b981; }
+.dot.red { background:#ef4444; } .dot.yellow { background:#f59e0b; } .dot.green { background:#ec4899; }
 /* Alert banner */
 .alert-banner { display:flex; align-items:center; gap:8px; background:#fef2f2; border:1px solid #fecaca; color:#dc2626; padding:10px 16px; font-size:13px; margin-bottom:16px; border-radius:4px; }
 /* Table */
@@ -726,7 +726,7 @@ tr:last-child td { border-bottom:none; }
 /* Status badges */
 .badge { font-family:'Roboto Mono',monospace; font-size:10px; padding:2px 8px; border-radius:100px; font-weight:600; white-space:nowrap; }
 .badge.cat { background:#f1f5f9; color:#475569; }
-.badge.open { background:#ecfdf5; color:#059669; }
+.badge.open { background:#fdf2f8; color:#db2777; }
 .badge.quoted { background:#eff6ff; color:#2563eb; }
 .badge.in_progress { background:#fef3c7; color:#d97706; }
 .badge.completed { background:#f1f5f9; color:#475569; }
@@ -734,7 +734,7 @@ tr:last-child td { border-bottom:none; }
 /* Assignment badges */
 .assign-badge { display:flex; align-items:center; gap:5px; font-size:11px; font-family:'Roboto Mono',monospace; font-weight:700; white-space:nowrap; }
 .assign-badge.no-avail  { color:#ef4444; }
-.assign-badge.assigned  { color:#059669; }
+.assign-badge.assigned  { color:#db2777; }
 .assign-badge.assigning { color:#d97706; }
 .assign-badge.unassigned{ color:#94a3b8; }
 .assign-badge.cancelled-dim{ color:#cbd5e1; font-weight:600; }
@@ -746,7 +746,7 @@ tr:last-child td { border-bottom:none; }
 /* Action buttons */
 .action-btns { display:flex; gap:5px; flex-wrap:nowrap; }
 .btn-status { padding:4px 9px; background:#fefce8; color:#854d0e; border:1px solid #fef08a; font-size:11px; font-weight:700; cursor:pointer; border-radius:3px; white-space:nowrap; }
-.btn-auto { padding:4px 9px; background:#f0fdf4; color:#16a34a; border:1px solid #bbf7d0; font-size:11px; font-weight:700; cursor:pointer; border-radius:3px; white-space:nowrap; }
+.btn-auto { padding:4px 9px; background:#fdf2f8; color:#db2777; border:1px solid #fbcfe8; font-size:11px; font-weight:700; cursor:pointer; border-radius:3px; white-space:nowrap; }
 .btn-auto:disabled { opacity:.5; cursor:not-allowed; }
 .btn-force { padding:4px 9px; background:#eff6ff; color:#2563eb; border:1px solid #bfdbfe; font-size:11px; font-weight:700; cursor:pointer; border-radius:3px; white-space:nowrap; }
 .btn-force-urgent { background:#fef2f2 !important; color:#ef4444 !important; border:1px solid #fca5a5 !important; animation:badge-pulse 1.2s ease-in-out infinite; }
@@ -754,7 +754,7 @@ tr:last-child td { border-bottom:none; }
 /* 스마트 상태 뱃지 */
 .badge.status-paid      { background:#dbeafe; color:#1d4ed8; }
 .badge.status-assigning { background:#fef3c7; color:#d97706; }
-.badge.status-assigned  { background:#d1fae5; color:#059669; }
+.badge.status-assigned  { background:#fce7f3; color:#db2777; }
 .badge.status-urgent    { background:#fee2e2; color:#ef4444; animation:badge-pulse 1.2s ease-in-out infinite; }
 .btn-history { padding:4px 9px; background:#f8fafc; color:#475569; border:1px solid var(--border); font-size:11px; font-weight:600; cursor:pointer; border-radius:3px; }
 .btn-delete { padding:4px 9px; background:#fef2f2; color:#ef4444; border:1px solid #fecaca; font-size:11px; font-weight:700; cursor:pointer; border-radius:3px; white-space:nowrap; }
@@ -782,7 +782,7 @@ tr:last-child td { border-bottom:none; }
 .tech-name-row { display:flex; align-items:center; gap:6px; }
 .tech-name { font-weight:700; font-size:13px; }
 .corp-badge { font-size:10px; font-family:'Roboto Mono',monospace; font-weight:700; padding:1px 6px; border-radius:3px; background:#eff6ff; color:#2563eb; white-space:nowrap; }
-.tech-badge { font-size:10px; font-family:'Roboto Mono',monospace; font-weight:700; padding:1px 6px; border-radius:3px; background:#ecfdf5; color:#059669; white-space:nowrap; }
+.tech-badge { font-size:10px; font-family:'Roboto Mono',monospace; font-weight:700; padding:1px 6px; border-radius:3px; background:#fdf2f8; color:#db2777; white-space:nowrap; }
 .tech-meta { font-size:11px; color:var(--text-dim); margin-top:2px; display:flex; gap:4px; align-items:center; }
 .dot-sep { color:#cbd5e1; }
 .inactive-badge { display:inline-block; margin-top:4px; font-size:10px; background:#fef2f2; color:#ef4444; padding:1px 6px; border-radius:3px; font-family:'Roboto Mono',monospace; }
@@ -795,10 +795,10 @@ tr:last-child td { border-bottom:none; }
 .history-meta { font-size:11px; color:var(--text-dim); margin-top:1px; }
 .history-status { font-family:'Roboto Mono',monospace; font-size:11px; font-weight:700; padding:2px 8px; border-radius:100px; }
 .history-status.pending { background:#fef3c7; color:#d97706; }
-.history-status.accepted { background:#ecfdf5; color:#059669; }
+.history-status.accepted { background:#fdf2f8; color:#db2777; }
 .history-status.rejected { background:#fef2f2; color:#ef4444; }
 .history-actions { display:flex; gap:5px; }
-.btn-accept { padding:4px 10px; background:#ecfdf5; color:#059669; border:1px solid #bbf7d0; font-size:11px; font-weight:700; cursor:pointer; border-radius:3px; }
+.btn-accept { padding:4px 10px; background:#fdf2f8; color:#db2777; border:1px solid #fbcfe8; font-size:11px; font-weight:700; cursor:pointer; border-radius:3px; }
 .btn-reject { padding:4px 10px; background:#fef2f2; color:#ef4444; border:1px solid #fecaca; font-size:11px; font-weight:700; cursor:pointer; border-radius:3px; }
 .form-error { background:#fef2f2; color:#ef4444; padding:8px 12px; font-size:12px; margin-top:8px; border-radius:3px; }
 .modal-footer { display:flex; justify-content:flex-end; gap:10px; margin-top:16px; border-top:1px solid var(--border); padding-top:14px; }

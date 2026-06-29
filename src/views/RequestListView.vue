@@ -455,7 +455,7 @@ async function doCancel() {
   position: fixed;
   top: -10%; right: -5%;
   width: 55%; height: 55%;
-  background: radial-gradient(circle, rgba(16,185,129,0.07) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(236, 72, 153,0.07) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
@@ -619,7 +619,7 @@ async function doCancel() {
 }
 
 .tab-btn.active .tab-count {
-  background: rgba(16,185,129,0.12);
+  background: rgba(236, 72, 153,0.12);
   color: var(--accent-yellow);
 }
 
@@ -664,9 +664,9 @@ async function doCancel() {
 }
 
 .role-general {
-  background: rgba(16,185,129,0.08);
+  background: rgba(236, 72, 153,0.08);
   color: var(--accent-yellow);
-  border: 1px solid rgba(16,185,129,0.2);
+  border: 1px solid rgba(236, 72, 153,0.2);
 }
 
 /* ── loading / error ──────────────────────────── */
@@ -737,7 +737,7 @@ async function doCancel() {
 
 .request-card:hover {
   transform: scale(1.005);
-  border-color: rgba(16,185,129,0.4);
+  border-color: rgba(236, 72, 153,0.4);
   box-shadow: 0 8px 32px rgba(17,24,39,0.08);
 }
 
@@ -775,8 +775,8 @@ async function doCancel() {
 }
 
 .badge-urgent    { background: rgba(239,68,68,0.1); color: #EF4444; border: 1px solid rgba(239,68,68,0.25); }
-.badge-category  { background: rgba(16,185,129,0.08); color: var(--accent-yellow); border: 1px solid rgba(16,185,129,0.2); }
-.badge-confirmed { background: rgba(5,150,105,0.1); color: #059669; border: 1px solid rgba(5,150,105,0.25); }
+.badge-category  { background: rgba(236, 72, 153,0.08); color: var(--accent-yellow); border: 1px solid rgba(236, 72, 153,0.2); }
+.badge-confirmed { background: rgba(219, 39, 119,0.1); color: #db2777; border: 1px solid rgba(219, 39, 119,0.25); }
 .badge-unconfirmed { background: rgba(245,158,11,0.1); color: #D97706; border: 1px solid rgba(245,158,11,0.25); }
 
 .card-title {
@@ -829,7 +829,7 @@ async function doCancel() {
 .status-waiting          { background: #F3F4F6; color: #4B5563; }
 .status-payment-wait     { background: #FEF3C7; color: #D97706; border: 1px solid #FDE68A; }
 .status-pending-confirm  { background: #FEF3C7; color: #92400E; border: 1px solid #FDE68A; }
-.status-received         { background: #ECFDF5; color: #059669; }
+.status-received         { background: #fdf2f8; color: #db2777; }
 .status-ongoing          { background: #EFF6FF; color: #2563EB; }
 .status-completed        { background: #F8FAFC; color: #94A3B8; border: 1px solid var(--border); }
 .status-cancelled        { background: #FFF1F2; color: #F43F5E; }
@@ -842,7 +842,7 @@ async function doCancel() {
   white-space: nowrap;
 }
 
-.quote-green { background: rgba(16,185,129,0.1); color: var(--accent-yellow); }
+.quote-green { background: rgba(236, 72, 153,0.1); color: var(--accent-yellow); }
 .quote-blue  { background: rgba(37,99,235,0.1); color: #2563EB; }
 .quote-gray  { background: #F3F4F6; color: #6B7280; }
 
@@ -992,14 +992,14 @@ async function doCancel() {
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  box-shadow: 0 8px 32px rgba(16,185,129,0.4);
+  box-shadow: 0 8px 32px rgba(236, 72, 153,0.4);
   transition: transform 0.25s, box-shadow 0.25s;
   z-index: 500;
 }
 
 .fab:hover {
   transform: scale(1.1) rotate(90deg);
-  box-shadow: 0 12px 40px rgba(16,185,129,0.5);
+  box-shadow: 0 12px 40px rgba(236, 72, 153,0.5);
 }
 
 /* ── responsive ───────────────────────────────── */

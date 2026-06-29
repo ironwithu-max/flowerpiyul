@@ -611,7 +611,7 @@ async function handleSubmit(): Promise<void> {
 <style scoped>
 /* ── CSS vars ─────────────────────────────────── */
 .perf-page {
-  --accent-lime: #059669;
+  --accent-lime: #db2777;
   min-height: 100vh;
   background-color: var(--bg);
   padding-bottom: 120px;
@@ -623,7 +623,7 @@ async function handleSubmit(): Promise<void> {
   right: -10%;
   width: 60%;
   height: 60%;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.08) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
@@ -785,7 +785,7 @@ input[type='date']:focus,
 input[type='number']:focus,
 textarea:focus {
   border-color: var(--accent-yellow);
-  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+  box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.1);
 }
 
 input.is-error,
@@ -994,7 +994,7 @@ tr:last-child td {
 }
 
 .table-input:focus {
-  background: rgba(16, 185, 129, 0.05);
+  background: rgba(236, 72, 153, 0.05);
 }
 
 .table-input.mono {
@@ -1135,7 +1135,7 @@ tr:last-child td {
 
 .btn-submit:not(:disabled):hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.25);
+  box-shadow: 0 10px 30px rgba(236, 72, 153, 0.25);
 }
 
 .btn-submit:disabled {

@@ -1,14 +1,14 @@
 :root {
   --bg: #ffffff;
   --surface: #f8fafc;
-  --accent-yellow: #10b981;
+  --accent-yellow: #ec4899;
   --accent-red: #ef4444;
-  --accent-lime: #059669;
+  --accent-lime: #db2777;
   --text-main: #111827;
   --text-dim: rgba(17, 24, 39, 0.6);
   --border: rgba(17, 24, 39, 0.18);
   --glass: rgba(255, 255, 255, 0.8);
-  --glow-yellow: rgba(16, 185, 129, 0.3);
+  --glow-yellow: rgba(236, 72, 153, 0.3);
   --glow-red: rgba(239, 68, 68, 0.3);
 }
 
