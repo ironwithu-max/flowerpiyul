@@ -5,16 +5,30 @@
       <a class="g-insta" :href="instagramUrl" target="_blank" rel="noopener noreferrer">@flower_piyul →</a>
     </div>
 
-    <div class="g-grid">
-      <button
-        v-for="(p, i) in photos"
-        :key="p.id ?? i"
-        class="g-cell"
-        type="button"
-        @click="open(i)"
-      >
-        <img :src="p.image_url" :alt="p.caption || '꽃피율 꽃 사진'" loading="lazy" />
-      </button>
+    <div class="g-viewport">
+      <div class="g-track" :style="{ transform: `translateX(-${page * 100}%)` }">
+        <div v-for="(pg, pi) in pages" :key="pi" class="g-page">
+          <button
+            v-for="(p, ci) in pg"
+            :key="p.id ?? (pi + '-' + ci)"
+            class="g-cell"
+            type="button"
+            @click="open(pi * pageSize + ci)"
+          >
+            <img :src="p.image_url" :alt="p.caption || '꽃피율 꽃 사진'" loading="lazy" />
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div v-if="pages.length > 1" class="dots">
+      <span
+        v-for="(pg, i) in pages"
+        :key="i"
+        class="dot"
+        :class="{ active: i === page }"
+        @click="page = i"
+      />
     </div>
 
     <!-- 라이트박스 -->
@@ -33,7 +47,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { supabase } from '@/lib/supabase'
 
 const instagramUrl = 'https://www.instagram.com/flower_piyul'
@@ -56,6 +70,32 @@ const fallback: Photo[] = Object.keys(fb)
 const photos = ref<Photo[]>(fallback)
 const lightbox = ref(-1)
 
+// ── 2줄(3×2=6장) 단위 페이지로 묶어 가로 슬라이드 ──
+const pageSize = 6
+const pages = computed(() => {
+  const out: Photo[][] = []
+  for (let i = 0; i < photos.value.length; i += pageSize) {
+    out.push(photos.value.slice(i, i + pageSize))
+  }
+  return out
+})
+const page = ref(0)
+let slideTimer: ReturnType<typeof setInterval> | undefined
+
+function startSlide() {
+  stopSlide()
+  if (pages.value.length > 1) {
+    slideTimer = setInterval(() => {
+      page.value = (page.value + 1) % pages.value.length
+    }, 4000)
+  }
+}
+function stopSlide() {
+  if (slideTimer) { clearInterval(slideTimer); slideTimer = undefined }
+}
+onMounted(startSlide)
+onUnmounted(stopSlide)
+
 async function load() {
   try {
     const { data, error } = await supabase
@@ -68,6 +108,8 @@ async function load() {
     if (error) throw error
     if (data && data.length) {
       photos.value = data as Photo[]
+      page.value = 0
+      startSlide()
     }
   } catch (e) {
     // Supabase 미설정/오류 → 폴백 유지
@@ -76,8 +118,8 @@ async function load() {
 }
 onMounted(load)
 
-function open(i: number) { lightbox.value = i }
-function close() { lightbox.value = -1 }
+function open(i: number) { lightbox.value = i; stopSlide() }
+function close() { lightbox.value = -1; startSlide() }
 function prev() { lightbox.value = (lightbox.value - 1 + photos.value.length) % photos.value.length }
 function next() { lightbox.value = (lightbox.value + 1) % photos.value.length }
 </script>
@@ -108,10 +150,42 @@ function next() { lightbox.value = (lightbox.value + 1) % photos.value.length }
 }
 .g-insta:hover { text-decoration: underline; }
 
-.g-grid {
+/* ── 가로 슬라이드 캐러셀 (2줄=6장 단위) ───── */
+.g-viewport {
+  overflow: hidden;
+  width: 100%;
+}
+.g-track {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.g-page {
+  flex: 0 0 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
   gap: 6px;
+}
+
+/* 인디케이터 */
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 12px;
+}
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #f9a8d4;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.dot.active {
+  background: #ec4899;
+  width: 20px;
+  border-radius: 999px;
 }
 
 .g-cell {
