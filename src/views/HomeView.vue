@@ -12,7 +12,7 @@
       <div class="hero-text" ref="heroText">
         <div class="section-label" style="margin-bottom: 16px">동네꽃집 자동배정 · 꽃 주문 배달</div>
         <h1>
-          <span class="yellow">💐 꽃 주문 · 배달</span>
+          <span class="yellow">꽃 주문 · 배달</span>
           <div class="line2-row">
             <span class="line2 outline">가까운 꽃집이 바로 배송</span>
           </div>

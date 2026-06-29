@@ -1,7 +1,7 @@
 <template>
   <section class="gallery">
     <div class="gallery-head">
-      <span class="g-title">🌸 꽃피율 갤러리</span>
+      <span class="g-title">꽃피율 갤러리</span>
       <a class="g-insta" :href="instagramUrl" target="_blank" rel="noopener noreferrer">@flower_piyul →</a>
     </div>
 
@@ -45,7 +45,7 @@ interface Photo {
 }
 
 // Supabase에 사진이 없거나 연결 전일 때 보여줄 폴백 샘플
-const fb = import.meta.glob('../assets/hero/*.{jpg,jpeg,png,webp}', {
+const fb = import.meta.glob('../assets/hero/*.{jpg,jpeg,png,webp,avif}', {
   eager: true,
   import: 'default',
 }) as Record<string, string>
