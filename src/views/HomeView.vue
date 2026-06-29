@@ -20,11 +20,7 @@
       </div>
 
       <div class="hero-right" ref="heroVisual">
-        <div class="hero-visual" @click="goToUrgent" role="button" aria-label="긴급꽃배달 주문">
-          <div class="hud-overlay" />
-          <div class="hero-visual-emoji">🌸💐🌷</div>
-          <div class="hero-visual-tag">⚡ 30분 긴급배달 · AI 꽃추천</div>
-        </div>
+        <HeroSlideshow />
 
         <p class="hero-sub">
           주문 즉시 배달지에서 가장 가까운 꽃집에 자동 배정됩니다.
@@ -66,6 +62,7 @@ import { useAuth } from '@/composables/useAuth'
 import TheBottomNav from '@/components/TheBottomNav.vue'
 import TheFooter from '@/components/TheFooter.vue'
 import ServiceCard from '@/components/ServiceCard.vue'
+import HeroSlideshow from '@/components/HeroSlideshow.vue'
 import type { ServiceCategory } from '@/types'
 
 // ── 꽃 메인 카테고리 (10) ─────────────────────
@@ -238,10 +235,6 @@ async function handleLogout() {
   router.push('/')
 }
 
-function goToUrgent() {
-  router.push('/request/create?category=urgent')
-}
-
 // ── parallax scroll ───────────────────────────
 const heroText = ref<HTMLElement | null>(null)
 const heroVisual = ref<HTMLElement | null>(null)
@@ -297,68 +290,6 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   display: flex;
   flex-direction: column;
   gap: 20px;
-}
-
-/* ── hero visual panel ─────────────────────── */
-.hero-visual {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 45%, #f5d0fe 100%);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 40px 100px rgba(236, 72, 153, 0.18);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  cursor: pointer;
-}
-
-.hero-visual-emoji {
-  font-size: clamp(48px, 8vw, 72px);
-  line-height: 1;
-  filter: drop-shadow(0 6px 12px rgba(190, 24, 93, 0.25));
-}
-
-.hero-visual-tag {
-  font-family: 'Roboto Mono', monospace;
-  font-size: clamp(12px, 1.6vw, 15px);
-  font-weight: 700;
-  color: #be185d;
-  letter-spacing: 0.5px;
-}
-
-/* HUD corner brackets */
-.hud-overlay {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 2;
-}
-
-.hud-overlay::before,
-.hud-overlay::after {
-  content: '';
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  border-color: #ec4899;
-  border-style: solid;
-}
-
-.hud-overlay::before {
-  top: 10px;
-  left: 10px;
-  border-width: 2px 0 0 2px;
-}
-
-.hud-overlay::after {
-  bottom: 10px;
-  right: 10px;
-  border-width: 0 2px 2px 0;
 }
 
 /* ── services ──────────────────────────────── */
@@ -452,11 +383,6 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
     overflow-wrap: break-word;
   }
 
-  .hero-visual {
-    aspect-ratio: unset;
-    height: clamp(150px, 50vw, 200px);
-  }
-
   .hero-sub { display: none; }
 
   .services-section {
@@ -481,10 +407,6 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   .hero-text h1 {
     font-size: clamp(14px, 6.5vw, 18px);
     margin-bottom: 4px;
-  }
-
-  .hero-visual {
-    height: clamp(130px, 48vw, 160px);
   }
 
   .services-section {
