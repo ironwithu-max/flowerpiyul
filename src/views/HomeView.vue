@@ -47,7 +47,7 @@
           :category="category"
         >
           <template #icon>
-            <span class="card-emoji">{{ emojiMap[category.id] }}</span>
+            <img :src="category.image" :alt="category.title" />
           </template>
         </ServiceCard>
       </div>
@@ -68,20 +68,6 @@ import TheFooter from '@/components/TheFooter.vue'
 import ServiceCard from '@/components/ServiceCard.vue'
 import type { ServiceCategory } from '@/types'
 
-// ── 이모지 아이콘 맵 ──────────────────────────
-const emojiMap: Record<string, string> = {
-  urgent: '⚡',
-  bouquet: '💐',
-  propose: '💍',
-  wreath: '🌺',
-  plant: '🌿',
-  giftset: '🎁',
-  subscription: '📅',
-  styling: '🎪',
-  tracking: '🚚',
-  review: '⭐',
-}
-
 // ── 꽃 메인 카테고리 (10) ─────────────────────
 const categories: ServiceCategory[] = [
   {
@@ -96,6 +82,7 @@ const categories: ServiceCategory[] = [
     accentColor: '#ef4444',
     glowColor: 'rgba(239,68,68,0.3)',
     route: '/request/create?category=urgent',
+    image: '/icons/urgent.png',
   },
   {
     id: 'bouquet',
@@ -108,6 +95,7 @@ const categories: ServiceCategory[] = [
     accentColor: '#ec4899',
     glowColor: 'rgba(236,72,153,0.25)',
     route: '/request/create?category=bouquet',
+    image: '/icons/bouquet.png',
   },
   {
     id: 'propose',
@@ -120,6 +108,7 @@ const categories: ServiceCategory[] = [
     accentColor: '#f43f5e',
     glowColor: 'rgba(244,63,94,0.25)',
     route: '/request/create?category=propose',
+    image: '/icons/propose.png',
   },
   {
     id: 'wreath',
@@ -132,6 +121,7 @@ const categories: ServiceCategory[] = [
     accentColor: '#a855f7',
     glowColor: 'rgba(168,85,247,0.25)',
     route: '/request/create?category=wreath',
+    image: '/icons/wreath.png',
   },
   {
     id: 'plant',
@@ -144,6 +134,7 @@ const categories: ServiceCategory[] = [
     accentColor: '#16a34a',
     glowColor: 'rgba(22,163,74,0.25)',
     route: '/request/create?category=plant',
+    image: '/icons/plant.png',
   },
   {
     id: 'giftset',
@@ -156,6 +147,7 @@ const categories: ServiceCategory[] = [
     accentColor: '#f59e0b',
     glowColor: 'rgba(245,158,11,0.25)',
     route: '/request/create?category=giftset',
+    image: '/icons/giftset.png',
   },
   {
     id: 'subscription',
@@ -168,6 +160,7 @@ const categories: ServiceCategory[] = [
     accentColor: '#0d9488',
     glowColor: 'rgba(13,148,136,0.25)',
     route: '/request/create?category=subscription',
+    image: '/icons/subscription.png',
   },
   {
     id: 'styling',
@@ -181,6 +174,7 @@ const categories: ServiceCategory[] = [
     accentColor: '#6366f1',
     glowColor: 'rgba(99,102,241,0.25)',
     route: '/request/create?category=styling',
+    image: '/icons/styling.png',
   },
   {
     id: 'tracking',
@@ -193,6 +187,7 @@ const categories: ServiceCategory[] = [
     accentColor: '#0ea5e9',
     glowColor: 'rgba(14,165,233,0.25)',
     route: '/requests',
+    image: '/icons/tracking.png',
   },
   {
     id: 'review',
@@ -205,6 +200,7 @@ const categories: ServiceCategory[] = [
     accentColor: '#8b5cf6',
     glowColor: 'rgba(139,92,246,0.25)',
     route: '/requests',
+    image: '/icons/review.png',
   },
 ]
 
@@ -365,12 +361,6 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   border-width: 0 2px 2px 0;
 }
 
-/* ── 카드 이모지 아이콘 ─────────────────────── */
-.card-emoji {
-  font-size: 48px;
-  line-height: 1;
-}
-
 /* ── services ──────────────────────────────── */
 .services-section {
   padding: 80px 40px 160px;
@@ -479,8 +469,6 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
     grid-template-columns: repeat(2, 1fr);
     gap: clamp(4px, 1.5vw, 8px);
   }
-
-  .card-emoji { font-size: clamp(26px, 8vw, 34px); }
 }
 
 /* ── xs: 초소형 폰 (≤ 359px) ──────────────────────── */
