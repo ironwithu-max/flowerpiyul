@@ -4,7 +4,7 @@
 
     <header class="admin-header">
       <div class="logo-area">
-        <RouterLink to="/admin" class="logo"><img src="/fixhome-logo.gif" alt="FIXHOME" class="logo-img" /></RouterLink>
+        <RouterLink to="/admin" class="logo"><img src="/logo.png" alt="꽃피율" class="logo-img" /></RouterLink>
         <span class="admin-tag">관리자 접속</span>
       </div>
       <div class="system-status">

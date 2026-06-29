@@ -1,7 +1,7 @@
 <template>
   <div class="auth-wrap">
     <div class="auth-card">
-      <RouterLink to="/" class="brand"><img src="/fixhome-logo.gif" alt="FIXHOME" class="brand-img" /></RouterLink>
+      <RouterLink to="/" class="brand"><img src="/logo.png" alt="꽃피율" class="brand-img" /></RouterLink>
 
       <!-- ── 모드 1: 재설정 메일 요청 ── -->
       <template v-if="mode === 'request'">

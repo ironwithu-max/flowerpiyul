@@ -9,7 +9,7 @@
     <main class="login-container">
       <div class="auth-card">
         <!-- HUD corner brackets -->
-        <HudCorners color="#C1FF2C" />
+        <HudCorners color="#ec4899" />
 
         <!-- card header -->
         <div class="card-head">
@@ -27,7 +27,7 @@
               <input
                 v-model="form.email"
                 type="text"
-                placeholder="이메일 또는 아이디 (예: fixhome1)"
+                placeholder="이메일 주소를 입력하세요"
                 class="form-input"
                 :class="{ 'input-error': touched.email && !emailValid, 'input-ok': touched.email && emailValid }"
                 @blur="touched.email = true"
@@ -232,12 +232,12 @@ async function socialLogin(provider: 'kakao' | 'google') {
 .login-page {
   --bg: #f8fafc;
   --surface: #ffffff;
-  --accent-yellow: #00c875;
-  --accent-lime: #00c875;
+  --accent-yellow: #ec4899;
+  --accent-lime: #ec4899;
   --text-main: #0f172a;
   --text-dim: #64748b;
   --border: #e2e8f0;
-  --glow-yellow: rgba(0, 200, 117, 0.3);
+  --glow-yellow: rgba(236, 72, 153, 0.3);
 
   min-height: 100vh;
   background-color: var(--bg);
@@ -253,7 +253,7 @@ async function socialLogin(provider: 'kakao' | 'google') {
   right: -10%;
   width: 60%;
   height: 60%;
-  background: radial-gradient(circle, rgba(0, 200, 117, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.08) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
@@ -350,7 +350,7 @@ async function socialLogin(provider: 'kakao' | 'google') {
 
 .form-input:focus {
   border-color: var(--accent-yellow);
-  box-shadow: 0 0 0 3px rgba(0, 200, 117, 0.15);
+  box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.15);
 }
 
 .form-input.input-error {
@@ -430,7 +430,7 @@ async function socialLogin(provider: 'kakao' | 'google') {
 }
 
 .btn-primary:hover:not(:disabled) {
-  background: #00a660;
+  background: #db2777;
   box-shadow: 0 4px 12px var(--glow-yellow);
   transform: translateY(-2px);
 }
@@ -477,7 +477,7 @@ async function socialLogin(provider: 'kakao' | 'google') {
 }
 
 .auth-links .signup-link:hover {
-  color: #00a660;
+  color: #db2777;
 }
 
 .sep {

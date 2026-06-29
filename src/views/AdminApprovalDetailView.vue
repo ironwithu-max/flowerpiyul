@@ -5,7 +5,7 @@
     <!-- Header -->
     <header class="site-header">
       <div class="logo">
-        <img src="/fixhome-logo.gif" alt="FIXHOME" class="logo-img" />
+        <img src="/logo.png" alt="꽃피율" class="logo-img" />
         <span class="admin-badge">ADMIN</span>
       </div>
       <div class="system-status">

@@ -1,7 +1,7 @@
 <template>
   <div class="auth-wrap">
     <div class="auth-card">
-      <RouterLink to="/" class="brand"><img src="/fixhome-logo.gif" alt="FIXHOME" class="brand-img" /></RouterLink>
+      <RouterLink to="/" class="brand"><img src="/logo.png" alt="꽃피율" class="brand-img" /></RouterLink>
       <h1 class="auth-title">아이디(이메일) 찾기</h1>
       <p class="auth-sub">가입 시 등록한 휴대폰 번호를 입력하시면<br>아이디(이메일)를 일부 가려서 알려드립니다.</p>
 

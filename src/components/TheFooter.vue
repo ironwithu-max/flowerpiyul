@@ -5,7 +5,7 @@
       <!-- 상단: 브랜드 + 링크 -->
       <div class="footer-top">
         <div class="footer-brand">
-          <span class="brand-word">꽃<span class="brand-dot">:</span>피율</span>
+          <span class="brand-logo-chip"><img src="/logo.png" alt="꽃피율" class="brand-logo-img" /></span>
           <span class="brand-sub">성산점 · 24시 무인 꽃집</span>
         </div>
         <nav class="footer-links">
@@ -84,14 +84,17 @@ const year = new Date().getFullYear()
   gap: 12px;
 }
 
-.brand-word {
-  font-size: 22px;
-  font-weight: 900;
-  letter-spacing: -0.02em;
-  color: #f9a8d4;
+.brand-logo-chip {
+  display: inline-flex;
+  align-items: center;
+  background: #ffffff;
+  padding: 7px 12px;
+  border-radius: 10px;
 }
-.brand-dot {
-  color: #ec4899;
+.brand-logo-img {
+  height: 30px;
+  width: auto;
+  display: block;
 }
 
 .brand-sub {

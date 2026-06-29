@@ -10,7 +10,7 @@ import { computed } from 'vue'
 
 const props = withDefaults(
   defineProps<{ color?: string; size?: number; thickness?: number }>(),
-  { color: '#C1FF2C', size: 15, thickness: 2 },
+  { color: '#ec4899', size: 15, thickness: 2 },
 )
 
 const style = computed(() => ({
@@ -25,7 +25,7 @@ div {
   position: absolute;
   width: var(--hud-size, 15px);
   height: var(--hud-size, 15px);
-  border-color: var(--hud-color, #c1ff2c);
+  border-color: var(--hud-color, #ec4899);
   border-style: solid;
   pointer-events: none;
   z-index: 1;
