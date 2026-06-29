@@ -22,17 +22,19 @@
       <!-- 구분선 -->
       <div class="footer-divider" />
 
-      <!-- 매장 정보 -->
+      <!-- 사업자 정보 (전자상거래법 제10조 의무 표기) -->
       <div class="biz-info">
         <div class="biz-row">
-          <span><strong>상호</strong> 꽃:피율 (성산점)</span>
+          <span><strong>상호</strong> 꽃:피율</span>
+          <span><strong>대표</strong> 서혜림</span>
+          <span><strong>사업자등록번호</strong> 747-14-01497</span>
+        </div>
+        <div class="biz-row">
+          <span><strong>업종</strong> 도매 및 소매업 · 화훼류 및 식물 도매업</span>
+        </div>
+        <div class="biz-row">
+          <span><strong>주소</strong> 경상남도 창원시 성산구 창이대로719번길 25 (사파동)</span>
           <span><strong>운영</strong> 24시 무인 운영</span>
-        </div>
-        <div class="biz-row">
-          <span><strong>주소</strong> 창원시 성산구 창이대로719번길 25 (사파고 앞)</span>
-        </div>
-        <div class="biz-row">
-          <span><strong>취급</strong> 꽃 정기구독 / 꽃다발 / 식물 / 화분</span>
         </div>
         <div class="biz-row">
           <span><strong>예약 및 문의</strong> 010-5160-7684</span>
