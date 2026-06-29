@@ -53,6 +53,10 @@ export type ReviewInsert = Insert<'reviews'>
 export type Notification       = Row<'notifications'>
 export type NotificationInsert = Insert<'notifications'>
 
+export type GalleryPhoto       = Row<'gallery_photos'>
+export type GalleryPhotoInsert = Insert<'gallery_photos'>
+export type GalleryPhotoUpdate = Update<'gallery_photos'>
+
 /* ── Literal types ───────────────────────────── */
 export type UserType          = 'general' | 'corporate' | 'admin'
 export type ApplicationStatus = 'pending' | 'approved' | 'rejected'
@@ -287,6 +291,27 @@ export interface Database {
           created_at?: string
         }
         Update: Partial<Database['public']['Tables']['notifications']['Insert']>
+      }
+
+      gallery_photos: {
+        Row: {
+          id:           number
+          image_url:    string
+          storage_path: string | null
+          caption:      string | null
+          sort_order:   number
+          is_visible:   boolean
+          created_at:   string
+        }
+        Insert: {
+          image_url:     string
+          storage_path?: string | null
+          caption?:      string | null
+          sort_order?:   number
+          is_visible?:   boolean
+          created_at?:   string
+        }
+        Update: Partial<Database['public']['Tables']['gallery_photos']['Insert']>
       }
     }
 

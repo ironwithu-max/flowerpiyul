@@ -20,7 +20,7 @@
       </div>
 
       <div class="hero-right" ref="heroVisual">
-        <HeroSlideshow />
+        <HomeGallery />
 
         <p class="hero-sub">
           주문 즉시 배달지에서 가장 가까운 꽃집에 자동 배정됩니다.
@@ -62,7 +62,7 @@ import { useAuth } from '@/composables/useAuth'
 import TheBottomNav from '@/components/TheBottomNav.vue'
 import TheFooter from '@/components/TheFooter.vue'
 import ServiceCard from '@/components/ServiceCard.vue'
-import HeroSlideshow from '@/components/HeroSlideshow.vue'
+import HomeGallery from '@/components/HomeGallery.vue'
 import type { ServiceCategory } from '@/types'
 
 // ── 꽃 메인 카테고리 (10) ─────────────────────

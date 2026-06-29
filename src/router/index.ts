@@ -227,6 +227,12 @@ const router = createRouter({
           meta: { adminPerm: 'perm_notices' },
         },
         {
+          path: 'gallery',
+          name: 'admin-gallery',
+          component: () => import('@/views/AdminGalleryView.vue'),
+          meta: { adminPerm: 'perm_notices' },
+        },
+        {
           path: 'technicians',
           redirect: { name: 'admin-users', query: { tab: 'corporate' } },
         },
