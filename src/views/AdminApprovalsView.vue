@@ -342,7 +342,7 @@ const router = useRouter()
 const route  = useRoute()
 const { user } = useAuth()
 
-const isSuperAdmin = computed(() => user.value?.email === 'fixhome1@fixhome.kr')
+const isSuperAdmin = computed(() => user.value?.email === 'ironwithu@gmail.com')
 
 /* ── bulk ─────────────────────────────────────── */
 const selectedIds       = ref<number[]>([])

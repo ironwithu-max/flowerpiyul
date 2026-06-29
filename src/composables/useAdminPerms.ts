@@ -26,7 +26,7 @@ const ALL_TRUE: AdminPerms = {
   perm_notices:   true,
 }
 
-const SUPER_ADMIN_EMAIL = 'fixhome1@fixhome.kr'
+const SUPER_ADMIN_EMAIL = 'ironwithu@gmail.com'
 
 /* ── 모듈 레벨 상태 ─────────────────────────────── */
 const perms   = ref<AdminPerms | null>(null)
