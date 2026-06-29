@@ -44,7 +44,7 @@ const cardStyle = computed(() => ({
 /* ── 카드 기본 (가로 배열) ─────────────────── */
 .category-card {
   background: #ffffff;
-  border: 1px solid #a3e635;
+  border: none;
   border-radius: 16px;
   padding: 20px;
   position: relative;
@@ -69,16 +69,11 @@ const cardStyle = computed(() => ({
 }
 
 .category-card:hover {
-  border-color: var(--card-accent, var(--accent-yellow));
   transform: translateY(-3px);
   box-shadow: 0 8px 32px var(--card-glow, var(--glow-yellow));
 }
 
 .category-card:hover::before { height: 100%; }
-
-.category-card.emergency {
-  border-color: rgba(239, 68, 68, 0.3);
-}
 
 /* ── 이미지 영역 ────────────────────────────── */
 .card-image {

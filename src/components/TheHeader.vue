@@ -1,8 +1,7 @@
 <template>
   <header>
     <RouterLink to="/" class="logo">
-      <span class="logo-mark">🌸</span>
-      <span class="logo-word">꽃피율</span>
+      <img src="/logo.png" alt="꽃피율" class="logo-img" />
     </RouterLink>
 
     <div class="header-right">
@@ -57,25 +56,18 @@ header {
   text-decoration: none;
   display: flex;
   align-items: center;
-  gap: 8px;
 }
 
-.logo-mark {
-  font-size: 26px;
-  line-height: 1;
-}
-
-.logo-word {
-  font-family: 'Noto Sans KR', sans-serif;
-  font-size: 24px;
-  font-weight: 900;
-  letter-spacing: -0.02em;
-  color: #be185d;
+.logo-img {
+  height: 46px;
+  width: auto;
+  object-fit: contain;
 }
 
 @media (max-width: 640px) {
-  .logo-mark { font-size: 22px; }
-  .logo-word { font-size: 20px; }
+  .logo-img {
+    height: 40px;
+  }
 }
 
 .header-right {
