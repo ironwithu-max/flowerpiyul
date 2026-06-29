@@ -67,20 +67,11 @@ const UserIcon = defineComponent({
   ]),
 })
 
-const InfoIcon = defineComponent({
-  render: () => h('svg', { width:18, height:18, viewBox:'0 0 24 24', fill:'none', stroke:'currentColor', 'stroke-width':2 }, [
-    h('circle', { cx:12, cy:12, r:10 }),
-    h('line', { x1:12, y1:16, x2:12, y2:12 }),
-    h('line', { x1:12, y1:8, x2:'12.01', y2:8 }),
-  ]),
-})
-
 /* ── 역할에 따라 네비 아이템 동적 구성 ── */
 const navItems = computed(() => {
   const base = [
     { name: '홈', label: '홈', to: '/', routeName: 'home', icon: HomeIcon },
-    { name: '소개', label: '소개', to: '/about', routeName: 'about', icon: InfoIcon },
-    { name: '나의의뢰', label: '나의 의뢰', to: '/requests', routeName: 'requests', icon: RequestIcon },
+    { name: '나의주문', label: '나의 주문', to: '/requests', routeName: 'requests', icon: RequestIcon },
   ]
   // 기업/기사 회원에게만 "받은 의뢰" 탭 추가
   if (isCorporate.value && !isAdmin.value) {
