@@ -22,6 +22,23 @@ const router = createRouter({
       meta: { guest: true },
     },
 
+    /* ── 꽃 주문 (공개) ───────────────────────── */
+    {
+      path: '/order',
+      name: 'order-create',
+      component: () => import('@/views/OrderFormView.vue'),
+    },
+    {
+      path: '/order/track',
+      name: 'order-track',
+      component: () => import('@/views/OrderTrackView.vue'),
+    },
+    {
+      path: '/order/review',
+      name: 'order-review',
+      component: () => import('@/views/OrderReviewView.vue'),
+    },
+
     /* ── signup flow ─────────────────────────── */
     {
       path: '/signup',

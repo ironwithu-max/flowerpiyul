@@ -78,7 +78,7 @@ const categories: ServiceCategory[] = [
     variant: 'emergency',
     accentColor: '#ef4444',
     glowColor: 'rgba(239,68,68,0.3)',
-    route: '/request/create?category=urgent',
+    route: '/order?category=urgent',
     image: '/icons/urgent.png',
   },
   {
@@ -91,7 +91,7 @@ const categories: ServiceCategory[] = [
     variant: 'default',
     accentColor: '#ec4899',
     glowColor: 'rgba(236,72,153,0.25)',
-    route: '/request/create?category=bouquet',
+    route: '/order?category=bouquet',
     image: '/icons/bouquet.png',
   },
   {
@@ -104,7 +104,7 @@ const categories: ServiceCategory[] = [
     variant: 'default',
     accentColor: '#f43f5e',
     glowColor: 'rgba(244,63,94,0.25)',
-    route: '/request/create?category=propose',
+    route: '/order?category=propose',
     image: '/icons/propose.png',
   },
   {
@@ -117,7 +117,7 @@ const categories: ServiceCategory[] = [
     variant: 'default',
     accentColor: '#a855f7',
     glowColor: 'rgba(168,85,247,0.25)',
-    route: '/request/create?category=wreath',
+    route: '/order?category=wreath',
     image: '/icons/wreath.png',
   },
   {
@@ -130,7 +130,7 @@ const categories: ServiceCategory[] = [
     variant: 'default',
     accentColor: '#db2777',
     glowColor: 'rgba(219, 39, 119,0.25)',
-    route: '/request/create?category=plant',
+    route: '/order?category=plant',
     image: '/icons/plant.png',
   },
   {
@@ -143,7 +143,7 @@ const categories: ServiceCategory[] = [
     variant: 'default',
     accentColor: '#f59e0b',
     glowColor: 'rgba(245,158,11,0.25)',
-    route: '/request/create?category=giftset',
+    route: '/order?category=giftset',
     image: '/icons/giftset.png',
   },
   {
@@ -156,7 +156,7 @@ const categories: ServiceCategory[] = [
     variant: 'default',
     accentColor: '#0d9488',
     glowColor: 'rgba(13,148,136,0.25)',
-    route: '/request/create?category=subscription',
+    route: '/order?category=subscription',
     image: '/icons/subscription.png',
   },
   {
@@ -170,7 +170,7 @@ const categories: ServiceCategory[] = [
     variant: 'default',
     accentColor: '#6366f1',
     glowColor: 'rgba(99,102,241,0.25)',
-    route: '/request/create?category=styling',
+    route: '/order?category=styling',
     image: '/icons/styling.png',
   },
   {
@@ -183,7 +183,7 @@ const categories: ServiceCategory[] = [
     variant: 'default',
     accentColor: '#0ea5e9',
     glowColor: 'rgba(14,165,233,0.25)',
-    route: '/requests',
+    route: '/order/track',
     image: '/icons/tracking.png',
   },
   {
@@ -196,7 +196,7 @@ const categories: ServiceCategory[] = [
     variant: 'default',
     accentColor: '#8b5cf6',
     glowColor: 'rgba(139,92,246,0.25)',
-    route: '/requests',
+    route: '/order/review',
     image: '/icons/review.png',
   },
 ]
