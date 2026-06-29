@@ -128,7 +128,7 @@ import { supabase } from '@/lib/supabase'
 import { useAuth } from '@/composables/useAuth'
 
 const { user } = useAuth()
-const isSuperAdmin = computed(() => user.value?.email === 'ironwithu@gmail.com')
+const isSuperAdmin = computed(() => user.value?.email === 'maystroy@flowerpiyul.kr')
 
 /* ── clock ─────────────────────────────────────── */
 const clock = ref('00:00:00')

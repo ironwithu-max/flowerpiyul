@@ -70,7 +70,7 @@ const is       = (name: string)   => computed(() => route.name === name).value
 const isPrefix = (prefix: string) => computed(() => typeof route.name === 'string' && route.name.startsWith(prefix)).value
 
 /* 로그인된 유저의 이메일로 super-admin 여부 판단 */
-const isSuperAdmin = computed(() => user.value?.email === 'ironwithu@gmail.com')
+const isSuperAdmin = computed(() => user.value?.email === 'maystroy@flowerpiyul.kr')
 
 /* 권한 로드: user가 설정되면 한 번만 실행 */
 watch(user, async (u) => {

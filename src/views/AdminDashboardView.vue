@@ -164,7 +164,7 @@ async function logout() {
   }
 }
 
-const isSuperAdmin = computed(() => user.value?.email === 'ironwithu@gmail.com')
+const isSuperAdmin = computed(() => user.value?.email === 'maystroy@flowerpiyul.kr')
 const can = (p: string) => isSuperAdmin.value || (perms.value as Record<string,boolean> | null)?.[p] === true
 
 watch(user, async (u) => {

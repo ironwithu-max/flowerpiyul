@@ -168,10 +168,10 @@ async function handleSubmit() {
 
   if (!emailValid.value || !passwordValid.value) return
 
-  // @ 없이 아이디만 입력한 경우 @fixhome.kr 자동 보완 (관리자 계정용)
+  // @ 없이 아이디만 입력한 경우 @flowerpiyul.kr 자동 보완 (관리자 계정용)
   const loginEmail = form.email.includes('@')
     ? form.email
-    : `${form.email.trim()}@fixhome.kr`
+    : `${form.email.trim()}@flowerpiyul.kr`
 
   isLoading.value = true
   try {

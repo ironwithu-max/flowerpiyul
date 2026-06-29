@@ -3,7 +3,7 @@ import HomeView from '@/views/HomeView.vue'
 import { supabase } from '@/lib/supabase'
 import type { AdminPerms } from '@/composables/useAdminPerms'
 
-const SUPER_ADMIN_EMAIL = 'ironwithu@gmail.com'
+const SUPER_ADMIN_EMAIL = 'maystroy@flowerpiyul.kr'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
