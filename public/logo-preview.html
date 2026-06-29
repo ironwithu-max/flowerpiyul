@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  body { background: #fff; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; flex-direction: column; gap: 40px; }
+  .logo-wrap { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+  .logo-text {
+    font-family: 'Arial Black', 'Impact', sans-serif;
+    font-weight: 900;
+    font-size: 28px;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #f97316 0%, #f97316 20%, #10b981 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-style: italic;
+  }
+  .label { font-family: sans-serif; font-size: 12px; color: #999; }
+</style>
+</head>
+<body>
+
+<div class="label">▼ 재현 로고 (오렌지 20% → 초록 80%)</div>
+
+<div class="logo-wrap">
+  <svg width="90" height="64" viewBox="0 0 90 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%"   stop-color="#f97316"/>
+        <stop offset="20%"  stop-color="#f97316"/>
+        <stop offset="100%" stop-color="#10b981"/>
+      </linearGradient>
+    </defs>
+
+    <!-- ── 렌치 (지붕 왼쪽 위에 겹침) ── -->
+    <!-- 렌치 헤드 (오픈엔드) -->
+    <g transform="translate(6, 2) rotate(-30, 14, 14)">
+      <!-- 렌치 손잡이 -->
+      <rect x="12" y="12" width="5" height="20" rx="2" fill="url(#g1)"/>
+      <!-- 렌치 헤드 링 -->
+      <path d="M7 8 Q7 1 14 1 Q21 1 21 8 Q21 12 17 13 L17 15 L11 15 L11 13 Q7 12 7 8Z"
+            fill="url(#g1)"/>
+      <!-- 렌치 헤드 내부 구멍 -->
+      <circle cx="14" cy="8" r="3.5" fill="white"/>
+    </g>
+
+    <!-- ── 지붕 ── -->
+    <path d="M5 36 L45 8 L85 36"
+          stroke="url(#g1)" stroke-width="3.5"
+          stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+    <!-- ── 집 몸통 ── -->
+    <path d="M14 36 L14 60 L76 60 L76 36"
+          stroke="url(#g1)" stroke-width="3.5"
+          stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+    <!-- ── 문 (아치형) ── -->
+    <path d="M36 60 L36 49 Q45 43 54 49 L54 60"
+          stroke="url(#g1)" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </svg>
+
+  <div class="logo-text">FIXHOME</div>
+</div>
+
+</body>
+</html>
