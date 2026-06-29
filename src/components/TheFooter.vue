@@ -5,11 +5,11 @@
       <!-- 상단: 브랜드 + 링크 -->
       <div class="footer-top">
         <div class="footer-brand">
-          <img src="/fixhome-logo.gif" alt="FIXHOME" class="brand-logo-img" />
-          <span class="brand-sub">주식회사 미남테크</span>
+          <span class="brand-word">꽃<span class="brand-dot">:</span>피율</span>
+          <span class="brand-sub">성산점 · 24시 무인 꽃집</span>
         </div>
         <nav class="footer-links">
-          <RouterLink to="/about">픽스홈 소개 · 견적기준</RouterLink>
+          <RouterLink to="/about">꽃피율 소개</RouterLink>
           <span class="divider">|</span>
           <RouterLink to="/terms">이용약관</RouterLink>
           <span class="divider">|</span>
@@ -22,27 +22,27 @@
       <!-- 구분선 -->
       <div class="footer-divider" />
 
-      <!-- 사업자 정보 (전자상거래법 제10조 의무 표기) -->
+      <!-- 매장 정보 -->
       <div class="biz-info">
         <div class="biz-row">
-          <span><strong>상호</strong> 주식회사 미남테크</span>
-          <span><strong>대표자</strong> 하현주</span>
-          <span><strong>사업자등록번호</strong> 286-88-02731</span>
+          <span><strong>상호</strong> 꽃:피율 (성산점)</span>
+          <span><strong>운영</strong> 24시 무인 운영</span>
         </div>
         <div class="biz-row">
-          <span><strong>통신판매업신고번호</strong> 제2024-경남김해-1397호</span>
-          <span><strong>주소</strong> 경상남도 김해시 서김해산단안길 66, 3층 303호 (풍유동, 하이원빌딩)</span>
+          <span><strong>주소</strong> 창원시 성산구 창이대로719번길 25 (사파고 앞)</span>
         </div>
         <div class="biz-row">
-          <span><strong>대표이메일</strong> mm9820@daum.net</span>
-          <span><strong>고객센터</strong> 1533-9820 (평일 09:00~18:00)</span>
+          <span><strong>취급</strong> 꽃 정기구독 / 꽃다발 / 식물 / 화분</span>
+        </div>
+        <div class="biz-row">
+          <span><strong>예약 및 문의</strong> 010-5160-7684</span>
         </div>
       </div>
 
       <!-- 하단 카피라이트 -->
       <div class="footer-copy">
-        <span>© {{ year }} 주식회사 미남테크 (FIXHOME). All rights reserved.</span>
-        <span class="copy-sub">픽스홈(FIXHOME)은 통신판매중개업자로서 거래 당사자가 아니며, 서비스 이용과 관련한 의무와 책임은 각 거래 당사자에게 있습니다.</span>
+        <span>© {{ year }} 꽃:피율. All rights reserved.</span>
+        <span class="copy-sub">꽃피율은 통신판매중개 플랫폼으로서 거래 당사자가 아니며, 서비스 이용과 관련한 의무와 책임은 각 거래 당사자에게 있습니다.</span>
       </div>
 
     </div>
@@ -84,10 +84,14 @@ const year = new Date().getFullYear()
   gap: 12px;
 }
 
-.brand-logo-img {
-  height: 30px;
-  width: auto;
-  display: block;
+.brand-word {
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: #f9a8d4;
+}
+.brand-dot {
+  color: #ec4899;
 }
 
 .brand-sub {
