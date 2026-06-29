@@ -55,7 +55,6 @@ const cardStyle = computed(() => ({
   flex-direction: row;
   align-items: center;
   gap: 18px;
-  box-shadow: 0 2px 8px rgba(17, 24, 39, 0.06);
 }
 
 /* left accent bar */
@@ -70,7 +69,6 @@ const cardStyle = computed(() => ({
 
 .category-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 32px var(--card-glow, var(--glow-yellow));
 }
 
 .category-card:hover::before { height: 100%; }
