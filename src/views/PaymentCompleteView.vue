@@ -157,7 +157,7 @@ onMounted(async () => {
       const pay = Array.isArray((inv as any).payments) ? (inv as any).payments[0] : (inv as any).payments
       const req = (inv as any).service_requests as { id?: number; title?: string } | null
       receipt.value = {
-        orderName:  req?.title ?? '픽스홈 서비스',
+        orderName:  req?.title ?? '꽃피율 서비스',
         amount:     inv.amount,
         paymentKey,
         paidAt:     pay?.paid_at ?? data.approvedAt ?? new Date().toISOString(),
@@ -166,7 +166,7 @@ onMounted(async () => {
       }
     } else {
       receipt.value = {
-        orderName:  '픽스홈 서비스',
+        orderName:  '꽃피율 서비스',
         amount,
         paymentKey,
         paidAt:     data.approvedAt ?? new Date().toISOString(),

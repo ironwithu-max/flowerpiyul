@@ -5,7 +5,7 @@
     <main class="legal-container">
       <div class="legal-header">
         <div class="legal-badge">개인정보처리방침</div>
-        <h1>픽스홈 개인정보처리방침</h1>
+        <h1>꽃피율 개인정보처리방침</h1>
         <p class="effective-date">시행일: 2025년 1월 1일 &nbsp;|&nbsp; 최종 개정: 2025년 1월 1일</p>
       </div>
 

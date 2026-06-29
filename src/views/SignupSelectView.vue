@@ -10,7 +10,7 @@
       <div class="page-header">
         <span class="mono-label">회원 가입</span>
         <h1>회원 유형 선택</h1>
-        <p class="subtitle">픽스홈의 서비스 이용을 위해 회원 유형을 선택해 주세요.</p>
+        <p class="subtitle">꽃피율의 서비스 이용을 위해 회원 유형을 선택해 주세요.</p>
       </div>
 
       <!-- ── selection cards ── -->

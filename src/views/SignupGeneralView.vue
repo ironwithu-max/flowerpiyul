@@ -11,7 +11,7 @@
         <div class="card-head">
           <span class="mono-label">일반 회원 가입</span>
           <h2>일반회원 가입</h2>
-          <p class="subtitle">픽스홈 서비스 이용을 위한 계정을 생성합니다.</p>
+          <p class="subtitle">꽃피율 서비스 이용을 위한 계정을 생성합니다.</p>
         </div>
 
         <!-- ── social signup ── -->
@@ -289,7 +289,7 @@
 
           <!-- ── submit ── -->
           <button type="submit" class="btn-primary" :disabled="isSubmitting">
-            <span>{{ isSubmitting ? '처리 중...' : 'FIXHOME 시작하기' }}</span>
+            <span>{{ isSubmitting ? '처리 중...' : '꽃피율 시작하기' }}</span>
             <svg v-if="!isSubmitting" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
               <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>

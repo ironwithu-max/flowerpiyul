@@ -937,7 +937,7 @@ async function payExistingInvoice(method: string, easyPayProvider?: string) {
       method,
       amount:    { value: invoiceAmount.value, currency: 'KRW' },
       orderId:   `FH${String(invoiceId.value).padStart(6,'0')}${Math.random().toString(36).slice(2,8).toUpperCase()}`,
-      orderName: request.value?.title ?? '픽스홈 서비스',
+      orderName: request.value?.title ?? '꽃피율 서비스',
       successUrl: `${window.location.origin}/payment-complete?invoiceId=${invoiceId.value}`,
       failUrl:    `${window.location.origin}/payment-fail`,
     }

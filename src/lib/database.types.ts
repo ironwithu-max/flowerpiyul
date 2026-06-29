@@ -1,5 +1,5 @@
 // ============================================================
-//  FIXHOME  ·  Supabase Database Types
+//  꽃피율  ·  Supabase Database Types
 //  supabase gen types typescript --project-id <id> 로 자동 생성 가능
 // ============================================================
 

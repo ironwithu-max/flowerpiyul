@@ -49,7 +49,7 @@
             <span class="section-label">결제 정보</span>
             <div class="summary-row">
               <span>의뢰 제목</span>
-              <span>{{ invoice.request_title || '픽스홈 서비스' }}</span>
+              <span>{{ invoice.request_title || '꽃피율 서비스' }}</span>
             </div>
             <div class="summary-row">
               <span>청구서 번호</span>
@@ -246,7 +246,7 @@ async function payWith(method: string, easyPayProvider?: string) {
       method,
       amount:    { value: invoice.value.amount, currency: 'KRW' },
       orderId,
-      orderName: invoice.value.request_title ?? '픽스홈 서비스',
+      orderName: invoice.value.request_title ?? '꽃피율 서비스',
       successUrl: `${window.location.origin}/payment-complete?invoiceId=${invId}`,
       failUrl:    `${window.location.origin}/payment-fail`,
     }

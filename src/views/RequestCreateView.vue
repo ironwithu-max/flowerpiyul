@@ -530,7 +530,7 @@ const submitted     = ref(false)
 const redirectCountdown = ref(3)
 
 /* ── 3-tier system ──────────────────── */
-const TIER1 = ['emergency', 'electrical']   // 픽스홈 표준견적 · 즉시결제 (긴급수리, 생활수리·기기설치)
+const TIER1 = ['emergency', 'electrical']   // 꽃피율 표준견적 · 즉시결제 (긴급수리, 생활수리·기기설치)
 const TIER3 = ['ev-solar']                               // 전기차·태양광 컨설팅
 
 const serviceType = computed((): 'standard' | 'consultation' | 'consulting' => {
@@ -1048,7 +1048,7 @@ async function confirmPayment(method = 'CARD', easyPayProvider?: string) {
       method,
       amount:    { value: depositAmount.value, currency: 'KRW' },
       orderId:   `FH${String(inv.id).padStart(6,'0')}${Math.random().toString(36).slice(2,8).toUpperCase()}`,
-      orderName: form.title.trim() || '픽스홈 서비스',
+      orderName: form.title.trim() || '꽃피율 서비스',
       successUrl: `${window.location.origin}/payment-complete?invoiceId=${inv.id}`,
       failUrl:    `${window.location.origin}/payment-fail`,
     }
