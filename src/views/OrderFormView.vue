@@ -112,6 +112,9 @@ import TheHeader from '@/components/TheHeader.vue'
 import TheBottomNav from '@/components/TheBottomNav.vue'
 import { getOrderSchema, PRICE_OPTIONS, type OrderSchema } from '@/lib/orderForms'
 import { supabase } from '@/lib/supabase'
+import { useAuth } from '@/composables/useAuth'
+
+const { user } = useAuth()
 
 interface Person { name: string; phone: string }
 interface DateTime { date: string; time: string }
@@ -197,15 +200,32 @@ async function onSubmit() {
     first?.scrollIntoView({ behavior: 'smooth', block: 'center' })
     return
   }
-  // 신청자/보내는 분 성함 추출 (접수 안내 문구용)
+  // 신청자/보내는 분 성함·연락처 추출
   const who = (form['sender'] || form['applicant']) as Person | undefined
   contactName.value = who?.name?.trim() || '신청자'
+  const summaryText = buildSummary()
 
-  // 사장님(발신번호)에게 주문 내용 SMS 발송
   sending.value = true
+
+  // 1) 주문 DB 저장
+  try {
+    const { error: insErr } = await supabase.from('orders').insert({
+      user_id: user.value?.id ?? null,
+      category: schema.value?.id ?? '',
+      category_label: schema.value?.title ?? null,
+      summary: summaryText,
+      customer_name: who?.name?.trim() || null,
+      customer_phone: who?.phone?.trim() || null,
+    })
+    if (insErr) console.warn('[order] 저장 실패:', insErr.message)
+  } catch (e) {
+    console.warn('[order] 저장 예외:', e)
+  }
+
+  // 2) 사장님(발신번호)에게 주문 내용 SMS 발송
   try {
     const { data, error } = await supabase.functions.invoke('send-order-sms', {
-      body: { title: schema.value?.title, summary: buildSummary() },
+      body: { title: schema.value?.title, summary: summaryText },
     })
     if (error || data?.error) {
       console.warn('[order-sms] 발송 실패:', error || data?.error)

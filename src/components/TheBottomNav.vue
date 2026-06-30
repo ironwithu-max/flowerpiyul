@@ -24,9 +24,9 @@ const { isCorporate, isAdmin } = useAuth()
 
 /* routes that should highlight a given nav item */
 const activeRouteGroups: Record<string, string[]> = {
-  requests:         ['requests', 'request-create', 'request-detail', 'quote-create', 'quote-detail', 'performance-create', 'invoice-detail', 'payment', 'payment-complete', 'review-write'],
-  'partner-requests': ['partner-requests'],
-  mypage:           ['mypage', 'payment-history', 'profile-edit', 'notifications'],
+  'my-orders':      ['my-orders'],
+  'partner-orders': ['partner-orders'],
+  mypage:           ['mypage', 'profile-edit', 'notifications'],
 }
 
 function isActive(routeName: string): boolean {
@@ -71,11 +71,12 @@ const UserIcon = defineComponent({
 const navItems = computed(() => {
   const base = [
     { name: '홈', label: '홈', to: '/', routeName: 'home', icon: HomeIcon },
-    { name: '나의주문', label: '나의 주문', to: '/requests', routeName: 'requests', icon: RequestIcon },
   ]
-  // 기업/기사 회원에게만 "받은 의뢰" 탭 추가
+  // 기업회원(꽃집) → 받은 주문 / 그 외 → 나의 주문
   if (isCorporate.value && !isAdmin.value) {
-    base.push({ name: '받은의뢰', label: '받은 의뢰', to: '/partner-requests', routeName: 'partner-requests', icon: InboxIcon })
+    base.push({ name: '받은주문', label: '받은 주문', to: '/partner-orders', routeName: 'partner-orders', icon: InboxIcon })
+  } else {
+    base.push({ name: '나의주문', label: '나의 주문', to: '/my-orders', routeName: 'my-orders', icon: RequestIcon })
   }
   base.push({ name: '마이페이지', label: '마이페이지', to: '/mypage', routeName: 'mypage', icon: UserIcon })
   return base

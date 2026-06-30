@@ -32,6 +32,18 @@ export interface OrderSchema {
   fields: OrderField[]
 }
 
+/* 주문 진행 상태 */
+export const ORDER_STATUS: Record<string, { label: string; color: string }> = {
+  received:   { label: '접수',   color: '#0ea5e9' },
+  accepted:   { label: '수락',   color: '#8b5cf6' },
+  making:     { label: '제작중', color: '#f59e0b' },
+  delivering: { label: '배송중', color: '#ec4899' },
+  done:       { label: '완료',   color: '#16a34a' },
+  cancelled:  { label: '취소',   color: '#ef4444' },
+}
+/* 정상 진행 순서 (다음 상태 버튼용) */
+export const ORDER_FLOW = ['received', 'accepted', 'making', 'delivering', 'done'] as const
+
 export const PRICE_OPTIONS = [
   '3만원 이하',
   '3~5만원',

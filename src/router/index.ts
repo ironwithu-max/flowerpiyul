@@ -39,6 +39,20 @@ const router = createRouter({
       component: () => import('@/views/OrderReviewView.vue'),
     },
 
+    /* ── 역할별 주문 페이지 ───────────────────── */
+    {
+      path: '/my-orders',
+      name: 'my-orders',
+      component: () => import('@/views/MyOrdersView.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
+      path: '/partner-orders',
+      name: 'partner-orders',
+      component: () => import('@/views/PartnerOrdersView.vue'),
+      meta: { requiresAuth: true },
+    },
+
     /* ── signup flow ─────────────────────────── */
     {
       path: '/signup',
@@ -81,80 +95,8 @@ const router = createRouter({
     },
 
     /* ── requests ────────────────────────────── */
-    {
-      path: '/requests',
-      name: 'requests',
-      component: () => import('@/views/RequestListView.vue'),
-      meta: { requiresAuth: true },
-    },
-    {
-      path: '/partner-requests',
-      name: 'partner-requests',
-      component: () => import('@/views/PartnerRequestsView.vue'),
-      meta: { requiresAuth: true, requiresCorporate: true },
-    },
-    {
-      path: '/request/create',
-      name: 'request-create',
-      component: () => import('@/views/RequestCreateView.vue'),
-      meta: { requiresAuth: true },
-    },
-    {
-      path: '/request/:id',
-      name: 'request-detail',
-      component: () => import('@/views/RequestDetailView.vue'),
-      meta: { requiresAuth: true },
-    },
-    {
-      path: '/request/:id/quote',
-      name: 'quote-create',
-      component: () => import('@/views/QuoteCreateView.vue'),
-      meta: { requiresAuth: true },
-    },
-
-    /* ── quotes ──────────────────────────────── */
-    {
-      path: '/quotes/:quoteId',
-      name: 'quote-detail',
-      component: () => import('@/views/QuoteDetailView.vue'),
-      meta: { requiresAuth: true },
-    },
-
-    /* ── performance ─────────────────────────── */
-    {
-      path: '/request/:id/performance',
-      name: 'performance-create',
-      component: () => import('@/views/PerformanceCreateView.vue'),
-      meta: { requiresAuth: true },
-    },
-
-    /* ── invoice ──────────────────────────────── */
-    {
-      path: '/invoice/:invoiceId',
-      name: 'invoice-detail',
-      component: () => import('@/views/InvoiceDetailView.vue'),
-      meta: { requiresAuth: true },
-    },
-
-    /* ── payment ──────────────────────────────── */
-    {
-      path: '/payment/:invoiceId',
-      name: 'payment',
-      component: () => import('@/views/PaymentView.vue'),
-      meta: { requiresAuth: true },
-    },
-    {
-      path: '/payment-complete',
-      name: 'payment-complete',
-      component: () => import('@/views/PaymentCompleteView.vue'),
-      meta: { requiresAuth: true },
-    },
-    {
-      path: '/payment-fail',
-      name: 'payment-fail',
-      component: () => import('@/views/PaymentFailView.vue'),
-      meta: { requiresAuth: true },
-    },
+    /* ── (구 fix-home 의뢰/견적/결제 → 주문 페이지로 정리) ── */
+    { path: '/requests', redirect: '/my-orders' },
 
     /* ── mypage ──────────────────────────────── */
     {
@@ -198,44 +140,18 @@ const router = createRouter({
       children: [
         {
           path: '',
-          name: 'admin-dashboard',
-          component: () => import('@/views/AdminDashboardView.vue'),
+          redirect: { name: 'admin-orders' },
         },
         {
-          path: 'approvals',
-          name: 'admin-approvals',
-          component: () => import('@/views/AdminApprovalsView.vue'),
-          meta: { adminPerm: 'perm_approvals' },
-        },
-        {
-          path: 'approvals/:approvalId',
-          name: 'admin-approval-detail',
-          component: () => import('@/views/AdminApprovalDetailView.vue'),
-          meta: { adminPerm: 'perm_approvals' },
+          path: 'orders',
+          name: 'admin-orders',
+          component: () => import('@/views/AdminOrdersView.vue'),
         },
         {
           path: 'users',
           name: 'admin-users',
           component: () => import('@/views/AdminUsersView.vue'),
           meta: { adminPerm: 'perm_users' },
-        },
-        {
-          path: 'requests',
-          name: 'admin-requests',
-          component: () => import('@/views/AdminRequestsView.vue'),
-          meta: { adminPerm: 'perm_requests' },
-        },
-        {
-          path: 'payments',
-          name: 'admin-payments',
-          component: () => import('@/views/AdminPaymentsView.vue'),
-          meta: { adminPerm: 'perm_payments' },
-        },
-        {
-          path: 'reviews',
-          name: 'admin-reviews',
-          component: () => import('@/views/AdminReviewsView.vue'),
-          meta: { adminPerm: 'perm_reviews' },
         },
         {
           path: 'notices',
@@ -248,16 +164,6 @@ const router = createRouter({
           name: 'admin-gallery',
           component: () => import('@/views/AdminGalleryView.vue'),
           meta: { adminPerm: 'perm_notices' },
-        },
-        {
-          path: 'technicians',
-          redirect: { name: 'admin-users', query: { tab: 'corporate' } },
-        },
-        {
-          path: 'permissions',
-          name: 'admin-permissions',
-          component: () => import('@/views/AdminPermissionsView.vue'),
-          meta: { requiresSuperAdmin: true },
         },
       ],
     },

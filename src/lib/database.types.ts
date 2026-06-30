@@ -57,6 +57,10 @@ export type GalleryPhoto       = Row<'gallery_photos'>
 export type GalleryPhotoInsert = Insert<'gallery_photos'>
 export type GalleryPhotoUpdate = Update<'gallery_photos'>
 
+export type Order       = Row<'orders'>
+export type OrderInsert = Insert<'orders'>
+export type OrderUpdate = Update<'orders'>
+
 /* ── Literal types ───────────────────────────── */
 export type UserType          = 'general' | 'corporate' | 'admin'
 export type ApplicationStatus = 'pending' | 'approved' | 'rejected'
@@ -312,6 +316,33 @@ export interface Database {
           created_at?:   string
         }
         Update: Partial<Database['public']['Tables']['gallery_photos']['Insert']>
+      }
+
+      orders: {
+        Row: {
+          id:             number
+          user_id:        string | null
+          partner_id:     string | null
+          category:       string
+          category_label: string | null
+          summary:        string
+          customer_name:  string | null
+          customer_phone: string | null
+          status:         string
+          created_at:     string
+        }
+        Insert: {
+          user_id?:        string | null
+          partner_id?:     string | null
+          category:        string
+          category_label?: string | null
+          summary:         string
+          customer_name?:  string | null
+          customer_phone?: string | null
+          status?:         string
+          created_at?:     string
+        }
+        Update: Partial<Database['public']['Tables']['orders']['Insert']>
       }
     }
 
