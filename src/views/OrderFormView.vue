@@ -98,7 +98,7 @@
 
       <p class="notice">※ 결제·상세 견적은 접수 후 담당 꽃집과 확인하여 안내드립니다.</p>
 
-      <button type="submit" class="btn-accent submit">주문 접수하기</button>
+      <button type="submit" class="btn-accent submit" :disabled="sending">{{ sending ? '접수 중…' : '주문 접수하기' }}</button>
     </form>
   </main>
 
@@ -111,6 +111,7 @@ import { useRoute } from 'vue-router'
 import TheHeader from '@/components/TheHeader.vue'
 import TheBottomNav from '@/components/TheBottomNav.vue'
 import { getOrderSchema, PRICE_OPTIONS, type OrderSchema } from '@/lib/orderForms'
+import { supabase } from '@/lib/supabase'
 
 interface Person { name: string; phone: string }
 interface DateTime { date: string; time: string }
@@ -163,7 +164,33 @@ function validate(): boolean {
   return ok
 }
 
-function onSubmit() {
+/* 주문 내용을 SMS 본문용 텍스트로 정리 */
+function buildSummary(): string {
+  if (!schema.value) return ''
+  const lines: string[] = []
+  for (const field of schema.value.fields) {
+    const v = form[field.key]
+    let text = ''
+    if (field.type === 'person') {
+      const p = v as Person
+      text = [p.name, p.phone].filter(Boolean).join(' / ')
+    } else if (field.type === 'datetime') {
+      const d = v as DateTime
+      text = [d.date, d.time].filter(Boolean).join(' ')
+    } else if (field.type === 'file') {
+      continue
+    } else {
+      text = String(v ?? '')
+    }
+    if (text.trim()) lines.push(`${field.label}: ${text}`)
+  }
+  return lines.join('\n')
+}
+
+const sending = ref(false)
+
+async function onSubmit() {
+  if (sending.value) return
   if (!validate()) {
     // 첫 오류로 스크롤
     const first = document.querySelector('.field.invalid')
@@ -174,7 +201,21 @@ function onSubmit() {
   const who = (form['sender'] || form['applicant']) as Person | undefined
   contactName.value = who?.name?.trim() || '신청자'
 
-  // TODO: Supabase orders 테이블 연동 (현재는 접수 확인까지)
+  // 사장님(발신번호)에게 주문 내용 SMS 발송
+  sending.value = true
+  try {
+    const { data, error } = await supabase.functions.invoke('send-order-sms', {
+      body: { title: schema.value?.title, summary: buildSummary() },
+    })
+    if (error || data?.error) {
+      console.warn('[order-sms] 발송 실패:', error || data?.error)
+    }
+  } catch (e) {
+    console.warn('[order-sms] 발송 예외:', e)
+  } finally {
+    sending.value = false
+  }
+
   submitted.value = true
   window.scrollTo({ top: 0, behavior: 'smooth' })
 }
