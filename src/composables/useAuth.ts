@@ -126,23 +126,18 @@ export function useAuth() {
     name: string,
     phone: string,
   ): Promise<void> {
-    const { data, error } = await supabase.auth.signUp({
+    // 메타데이터로 넘기면 가입 트리거가 프로필을 자동 생성(이메일 확인 여부 무관)
+    const { error } = await supabase.auth.signUp({
       email,
       password,
-      options: { data: { name } },
+      options: { data: { name, phone, type: 'general' } },
     })
     if (error) throw error
-
-    // 트리거가 profiles 행 생성 → phone 추가 업데이트
-    if (data.user) {
-      await supabase
-        .from('profiles')
-        .update({ phone, name })
-        .eq('id', data.user.id)
-    }
   }
 
-  /* ── 기업 회원 가입 ────────────────────────── */
+  /* ── 기업(꽃집) 회원 가입 ──────────────────────
+   *  메타데이터로 넘기면 가입 트리거가 type='corporate' 프로필을 자동 생성.
+   * ─────────────────────────────────────────── */
   async function signUpCorporate(
     email: string,
     password: string,
@@ -151,61 +146,29 @@ export function useAuth() {
       phone: string
       companyName: string
       bizNumber: string
-      ceoName: string
-      bizType: string
-      serviceArea: string
-      contactName: string
-      contactPhone: string
-      contactEmail: string
-      memberType: 'company' | 'technician'
-      jobRoles?: string
+      address: string
+      deliveryArea: string
     },
-  ): Promise<{ userId: string; applicationId: number }> {
+  ): Promise<void> {
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
-      options: { data: { name: info.name } },
+      options: {
+        data: {
+          name:          info.name,
+          phone:         info.phone,
+          type:          'corporate',
+          company_name:  info.companyName,
+          biz_number:    info.bizNumber,
+          address:       info.address,
+          delivery_area: info.deliveryArea,
+        },
+      },
     })
     if (error) throw error
-
-    const userId = data.user?.id
-    if (!userId) throw new Error('사용자 생성에 실패했습니다.')
-
-    // 이미 가입된 이메일 감지: Supabase는 이메일 확인이 켜진 경우
-    // 기존 미확인 계정으로 signUp 재시도 시 identities 배열이 비어 있음
     if ((data.user?.identities?.length ?? 1) === 0) {
       throw new Error('이미 가입된 이메일입니다.')
     }
-
-    // 프로필 업데이트 (type='corporate' 설정 → 트리거가 있으면 corporate_applications placeholder 생성)
-    await supabase
-      .from('profiles')
-      .update({ phone: info.phone, type: 'corporate', name: info.name, company_name: info.companyName })
-      .eq('id', userId)
-
-    // upsert: 트리거 placeholder가 이미 있으면 실데이터로 덮어쓰고, 없으면 신규 삽입
-    const { data: appData, error: appError } = await supabase
-      .from('corporate_applications')
-      .upsert({
-        user_id:        userId,
-        company_name:   info.companyName,
-        biz_number:     info.bizNumber,
-        ceo_name:       info.ceoName,
-        biz_type:       info.bizType,
-        service_area:   info.serviceArea,
-        contact_name:   info.contactName,
-        contact_phone:  info.contactPhone,
-        contact_email:  info.contactEmail,
-        submitted_at:   new Date().toISOString(),
-        status:         'pending',
-        applicant_type: info.memberType,
-        job_roles:      info.jobRoles ?? '',
-      }, { onConflict: 'user_id' })
-      .select('id')
-      .single()
-    if (appError) throw appError
-
-    return { userId, applicationId: appData.id }
   }
 
   /* ── 로그아웃 ──────────────────────────────── */

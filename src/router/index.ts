@@ -322,39 +322,7 @@ router.beforeEach(async (to) => {
     return { name: 'login', query: { redirect: to.fullPath } }
   }
 
-  /* ── 기업회원 미승인 차단 ─────────────────────
-   *  requiresAuth 페이지에서 기업회원이 아직 미승인이면
-   *  approval-pending으로 리다이렉트. admin 페이지 제외.
-   * ─────────────────────────────────────────── */
-  if (
-    to.meta.requiresAuth &&
-    !to.meta.requiresAdmin &&
-    to.name !== 'approval-pending' &&
-    isLoggedIn
-  ) {
-    const userId = session!.user.id
-    if (_corpCacheId !== userId) {
-      const { data: pData } = await supabase
-        .from('profiles')
-        .select('type')
-        .eq('id', userId)
-        .single()
-      if (pData?.type === 'corporate') {
-        const { data: aData } = await supabase
-          .from('corporate_applications')
-          .select('status')
-          .eq('user_id', userId)
-          .maybeSingle()
-        _corpStatus = aData?.status ?? 'pending'
-      } else {
-        _corpStatus = null  // general / admin → 제한 없음
-      }
-      _corpCacheId = userId
-    }
-    if (_corpStatus && _corpStatus !== 'approved') {
-      return { name: 'approval-pending' }
-    }
-  }
+  /* (기업회원 승인 단계 제거 — 휴대폰 인증만으로 가입 완료) */
 
   /* ── 기업회원 전용 페이지 ──────────────────── */
   if (to.meta.requiresCorporate) {

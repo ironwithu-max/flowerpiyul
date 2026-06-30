@@ -77,24 +77,30 @@ export interface Database {
     Tables: {
       profiles: {
         Row: {
-          id:           string
-          name:         string
-          phone:        string | null
-          type:         UserType
-          company_name: string | null
-          avatar_url:   string | null
-          created_at:   string
-          updated_at:   string
-        }
-        Insert: {
           id:            string
           name:          string
-          phone?:        string | null
-          type?:         UserType
-          company_name?: string | null
-          avatar_url?:   string | null
-          created_at?:   string
-          updated_at?:   string
+          phone:         string | null
+          type:          UserType
+          company_name:  string | null
+          biz_number:    string | null
+          address:       string | null
+          delivery_area: string | null
+          avatar_url:    string | null
+          created_at:    string
+          updated_at:    string
+        }
+        Insert: {
+          id:             string
+          name:           string
+          phone?:         string | null
+          type?:          UserType
+          company_name?:  string | null
+          biz_number?:    string | null
+          address?:       string | null
+          delivery_area?: string | null
+          avatar_url?:    string | null
+          created_at?:    string
+          updated_at?:    string
         }
         Update: Partial<Database['public']['Tables']['profiles']['Insert']>
       }
