@@ -44,11 +44,9 @@ export const ORDER_STATUS: Record<string, { label: string; color: string }> = {
 /* 정상 진행 순서 (다음 상태 버튼용) */
 export const ORDER_FLOW = ['received', 'accepted', 'making', 'delivering', 'done'] as const
 
+// 3만원부터 만원 단위로 선택 (배송 최소 3만원)
 export const PRICE_OPTIONS = [
-  '3만원 이하',
-  '3~5만원',
-  '5~10만원',
-  '10~20만원',
+  ...Array.from({ length: 18 }, (_, i) => `${i + 3}만원`),   // 3만원 ~ 20만원
   '20만원 이상',
   '상담 후 결정',
 ]
