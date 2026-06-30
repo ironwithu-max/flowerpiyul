@@ -72,11 +72,9 @@ const navItems = computed(() => {
   const base = [
     { name: '홈', label: '홈', to: '/', routeName: 'home', icon: HomeIcon },
   ]
-  // 기업회원(꽃집) → 받은 주문 / 그 외 → 나의 주문
+  // 기업회원(꽃집)만 '받은 주문' 탭 노출 / 일반회원은 홈·마이페이지 2개 (주문은 마이페이지 안)
   if (isCorporate.value && !isAdmin.value) {
     base.push({ name: '받은주문', label: '받은 주문', to: '/partner-orders', routeName: 'partner-orders', icon: InboxIcon })
-  } else {
-    base.push({ name: '나의주문', label: '나의 주문', to: '/my-orders', routeName: 'my-orders', icon: RequestIcon })
   }
   base.push({ name: '마이페이지', label: '마이페이지', to: '/mypage', routeName: 'mypage', icon: UserIcon })
   return base
