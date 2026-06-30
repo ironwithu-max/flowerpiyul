@@ -1,16 +1,15 @@
 <template>
-  <button v-if="visible" class="install-fab" @click="install">
+  <button v-if="show" class="install-fab" @click="onClick">
     <span class="i">📱</span> 앱 설치
   </button>
 
   <Transition name="fade">
-    <div v-if="showIosGuide" class="ios-backdrop" @click.self="showIosGuide = false">
+    <div v-if="guide" class="ios-backdrop" @click.self="guide = false">
       <div class="ios-modal">
         <div class="ios-emoji">📲</div>
-        <h3>홈 화면에 앱 추가</h3>
-        <p>사파리 하단의 <strong>공유 버튼</strong>을 누른 뒤<br><strong>"홈 화면에 추가"</strong>를 선택하세요.</p>
-        <div class="ios-steps">⬆️ 공유 &nbsp;→&nbsp; ➕ 홈 화면에 추가</div>
-        <button class="ios-ok" @click="showIosGuide = false">확인</button>
+        <h3>꽃피율 앱 설치</h3>
+        <p class="guide-body" v-html="guideText" />
+        <button class="ios-ok" @click="guide = false">확인</button>
       </div>
     </div>
   </Transition>
@@ -25,49 +24,45 @@ interface BIPEvent extends Event {
 }
 
 const deferred = ref<BIPEvent | null>(null)
-const visible = ref(false)
-const showIosGuide = ref(false)
-
-const DISMISS_KEY = 'kkochpiyul_install_dismissed'
+const show = ref(false)
+const guide = ref(false)
+const guideText = ref('')
 
 function isStandalone(): boolean {
   return window.matchMedia('(display-mode: standalone)').matches ||
     (navigator as unknown as { standalone?: boolean }).standalone === true
 }
-function isIos(): boolean {
-  return /iphone|ipad|ipod/i.test(navigator.userAgent)
-}
 
 onMounted(() => {
-  if (isStandalone()) return                       // 이미 앱으로 실행 중
-  if (localStorage.getItem(DISMISS_KEY)) return    // 사용자가 닫음
+  if (isStandalone()) return        // 이미 앱으로 실행 중이면 숨김
+  show.value = true                 // 설치 전이면 항상 버튼 표시
 
-  // 안드로이드/크롬: 설치 가능 시점에 이벤트 발생 → 버튼 표시
   window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault()
-    deferred.value = e as BIPEvent
-    visible.value = true
+    deferred.value = e as BIPEvent  // 네이티브 설치 가능 → 저장
   })
-
-  // iOS 사파리: beforeinstallprompt 미지원 → 안내 버튼 노출
-  const ua = navigator.userAgent
-  if (isIos() && /safari/i.test(ua) && !/crios|fxios|edgios/i.test(ua)) {
-    visible.value = true
-  }
-
-  // 설치 완료되면 버튼 숨김
-  window.addEventListener('appinstalled', () => { visible.value = false })
+  window.addEventListener('appinstalled', () => { show.value = false })
 })
 
-async function install() {
+async function onClick() {
+  // 네이티브 설치 프롬프트가 준비됐으면 바로 설치
   if (deferred.value) {
     await deferred.value.prompt()
     await deferred.value.userChoice
     deferred.value = null
-    visible.value = false
-  } else if (isIos()) {
-    showIosGuide.value = true
+    show.value = false
+    return
   }
+  // 아니면 기기별 설치 안내
+  const ua = navigator.userAgent
+  if (/iphone|ipad|ipod/i.test(ua)) {
+    guideText.value = '사파리 하단의 <b>공유 버튼(□↑)</b> 을 누른 뒤<br><b>"홈 화면에 추가"</b> 를 선택하세요.'
+  } else if (/android/i.test(ua)) {
+    guideText.value = '크롬 우측 상단 <b>⋮ 메뉴</b> → <b>"앱 설치"</b><br>또는 <b>"홈 화면에 추가"</b> 를 선택하세요.'
+  } else {
+    guideText.value = '크롬 주소창 오른쪽의 <b>설치 아이콘(⊕)</b> 을 클릭하거나,<br><b>⋮ 메뉴 → 앱 설치</b> 를 선택하세요.'
+  }
+  guide.value = true
 }
 </script>
 
@@ -89,7 +84,7 @@ async function install() {
   font-weight: 800;
   font-family: inherit;
   cursor: pointer;
-  box-shadow: 0 8px 24px rgba(236, 72, 153, 0.4);
+  box-shadow: 0 8px 24px rgba(236, 72, 153, 0.45);
   animation: pop 0.4s ease;
 }
 .install-fab .i { font-size: 16px; }
@@ -102,12 +97,11 @@ async function install() {
   display: flex; align-items: center; justify-content: center; padding: 24px;
 }
 .ios-modal {
-  background: #fff; border-radius: 18px; padding: 28px 24px; max-width: 340px; text-align: center;
+  background: #fff; border-radius: 18px; padding: 28px 24px; max-width: 360px; text-align: center;
 }
 .ios-emoji { font-size: 44px; margin-bottom: 8px; }
-.ios-modal h3 { font-size: 18px; font-weight: 900; margin-bottom: 10px; }
-.ios-modal p { font-size: 14px; color: var(--text-dim); line-height: 1.7; }
-.ios-steps { margin: 16px 0; font-size: 13px; font-weight: 700; color: #be185d; background: #fdf2f8; padding: 10px; border-radius: 10px; }
+.ios-modal h3 { font-size: 18px; font-weight: 900; margin-bottom: 12px; }
+.guide-body { font-size: 14px; color: var(--text-dim); line-height: 1.8; margin-bottom: 18px; }
 .ios-ok { background: #ec4899; color: #fff; border: none; border-radius: 10px; padding: 12px 28px; font-size: 14px; font-weight: 800; cursor: pointer; font-family: inherit; }
 
 .fade-enter-active, .fade-leave-active { transition: opacity 0.2s; }
