@@ -117,7 +117,7 @@ serve(async (req: Request) => {
     if (insertErr) throw new Error(`DB 오류: ${insertErr.message}`)
 
     /* 솔라피로 OTP 발송 (알림톡 설정 있으면 알림톡, 없으면 SMS) */
-    const msg = `[FIXHOME] 인증번호 [${code}] 를 입력해 주세요.`
+    const msg = `[꽃피율] 인증번호 [${code}] 를 입력해 주세요.`
     const r = await sendSolapi(digits, msg, code)
     if (!r.ok) {
       await supabase.from('phone_verifications').delete().eq('phone', digits)

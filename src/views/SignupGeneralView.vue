@@ -141,24 +141,73 @@
               <span v-else class="hint">비밀번호가 일치해야 합니다</span>
             </div>
 
-            <!-- 휴대폰 번호 -->
+            <!-- 휴대폰 번호 + 인증 -->
             <div class="field-group">
-              <label class="field-label">
-                휴대폰 번호
-                <span class="optional-badge">선택</span>
-              </label>
-              <input
-                v-model="form.phone"
-                type="tel"
-                placeholder="010-0000-0000"
-                class="form-input"
-                :class="fieldClass('phone')"
-                @blur="touched.phone = true"
-                autocomplete="tel"
-              />
+              <label class="field-label">휴대폰 번호</label>
+              <div class="input-row">
+                <input
+                  v-model="form.phone"
+                  type="tel"
+                  placeholder="010-0000-0000"
+                  class="form-input"
+                  :class="fieldClass('phone')"
+                  @blur="touched.phone = true"
+                  :disabled="smsState === 'verified'"
+                  autocomplete="tel"
+                />
+                <button
+                  v-if="smsState !== 'verified'"
+                  type="button"
+                  class="inline-btn"
+                  :disabled="smsState === 'sending' || !form.phone"
+                  @click="requestSms"
+                >
+                  <span v-if="smsState === 'sending'" class="spin-wrap">
+                    <svg class="spin" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>
+                  </span>
+                  <span v-else-if="smsState === 'sent'">재전송</span>
+                  <span v-else>인증요청</span>
+                </button>
+                <span v-else class="verified-badge">인증완료 ✓</span>
+              </div>
               <span v-if="touched.phone && errors.phone" class="hint hint-error">{{ errors.phone }}</span>
-              <span v-else class="hint">주문·배송 연락용 (선택 입력)</span>
+              <span v-else-if="smsError" class="hint hint-error">{{ smsError }}</span>
+              <span v-else class="hint">가입을 위해 휴대폰 인증이 필요합니다</span>
             </div>
+
+            <!-- 인증번호 -->
+            <Transition name="slide-down">
+              <div v-if="smsState === 'sent' || smsState === 'verifying'" class="field-group">
+                <label class="field-label">인증번호</label>
+                <div class="input-row">
+                  <div class="input-wrapper" style="flex:1">
+                    <input
+                      v-model="form.smsCode"
+                      type="text"
+                      inputmode="numeric"
+                      maxlength="6"
+                      placeholder="6자리 입력"
+                      class="form-input"
+                      :class="{ 'input-error': smsCodeError }"
+                    />
+                    <span class="sms-timer" :class="{ 'timer-urgent': smsTimer <= 30 }">{{ timerDisplay }}</span>
+                  </div>
+                  <button
+                    type="button"
+                    class="inline-btn"
+                    :disabled="smsState === 'verifying' || form.smsCode.length !== 6"
+                    @click="verifySms"
+                  >
+                    <span v-if="smsState === 'verifying'" class="spin-wrap">
+                      <svg class="spin" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>
+                    </span>
+                    <span v-else>확인</span>
+                  </button>
+                </div>
+                <span v-if="smsCodeError" class="hint hint-error">{{ smsCodeError }}</span>
+                <span v-else class="hint">SMS로 전송된 6자리 코드를 입력하세요</span>
+              </div>
+            </Transition>
 
           </div>
 
@@ -243,14 +292,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, computed } from 'vue'
+import { ref, reactive, computed, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 import TheHeader from '@/components/TheHeader.vue'
 import { useAuth } from '@/composables/useAuth'
 import { supabase } from '@/lib/supabase'
 
 const router = useRouter()
-const { signUpGeneral } = useAuth()
+const { sendPhoneOtp, verifyPhoneOtp, signUpGeneral } = useAuth()
 
 /* ── form state ────────────────────────────────── */
 const form = reactive({
@@ -259,6 +308,7 @@ const form = reactive({
   password: '',
   passwordConfirm: '',
   phone: '',
+  smsCode: '',
 })
 
 const touched = reactive({
@@ -274,6 +324,14 @@ const showPwConfirm = ref(false)
 const isSubmitting = ref(false)
 const submitError = ref('')
 const showTermsError = ref(false)
+
+/* ── sms 인증 state ────────────────────────────── */
+type SmsState = 'idle' | 'sending' | 'sent' | 'verifying' | 'verified'
+const smsState = ref<SmsState>('idle')
+const smsTimer = ref(180)
+const smsError = ref('')
+const smsCodeError = ref('')
+let smsInterval: ReturnType<typeof setInterval> | null = null
 
 /* ── terms state ───────────────────────────────── */
 const terms = reactive({
@@ -315,8 +373,9 @@ const errors = computed(() => {
   if (!form.passwordConfirm) e.passwordConfirm = '비밀번호를 한 번 더 입력해 주세요.'
   else if (form.password !== form.passwordConfirm) e.passwordConfirm = '비밀번호가 일치하지 않습니다.'
 
-  // 휴대폰 번호는 선택 사항 — 입력 시 형식만 체크
-  if (form.phone && !/^01[016789]\d{7,8}$/.test(form.phone.replace(/-/g, ''))) {
+  // 휴대폰 번호 필수 + 형식 체크
+  if (!form.phone) e.phone = '휴대폰 번호를 입력해 주세요.'
+  else if (!/^01[016789]\d{7,8}$/.test(form.phone.replace(/-/g, ''))) {
     e.phone = '올바른 휴대폰 번호를 입력해 주세요.'
   }
 
@@ -346,6 +405,61 @@ function fieldClass(field: keyof typeof touched) {
   return errors.value[field] ? 'input-error' : 'input-ok'
 }
 
+/* ── 인증 타이머 표시 ──────────────────────────── */
+const timerDisplay = computed(() => {
+  const m = Math.floor(smsTimer.value / 60)
+  const s = smsTimer.value % 60
+  return `${m}:${s.toString().padStart(2, '0')}`
+})
+
+/* ── SMS 인증요청 (솔라피) ─────────────────────── */
+async function requestSms() {
+  touched.phone = true
+  const digits = form.phone.replace(/-/g, '')
+  if (!/^01[016789]\d{7,8}$/.test(digits)) return
+
+  smsState.value = 'sending'
+  smsError.value = ''
+  try {
+    await sendPhoneOtp(form.phone)
+    smsState.value = 'sent'
+    smsTimer.value = 180
+    form.smsCode = ''
+    if (smsInterval) clearInterval(smsInterval)
+    smsInterval = setInterval(() => {
+      smsTimer.value--
+      if (smsTimer.value <= 0) {
+        clearInterval(smsInterval!)
+        smsInterval = null
+        if (smsState.value === 'sent') smsState.value = 'idle'
+      }
+    }, 1000)
+  } catch (err: unknown) {
+    smsState.value = 'idle'
+    const msg = err instanceof Error ? err.message : String(err)
+    if (msg.includes('60초')) smsError.value = '60초 후 재전송 가능합니다.'
+    else if (msg.includes('발신번호') || msg.includes('승인')) smsError.value = '발신번호 승인 대기 중입니다. 잠시 후 다시 시도해 주세요.'
+    else smsError.value = 'SMS 발송 중 오류가 발생했습니다. 다시 시도해 주세요.'
+  }
+}
+
+/* ── SMS 인증번호 확인 ─────────────────────────── */
+async function verifySms() {
+  if (form.smsCode.length !== 6) return
+  smsState.value = 'verifying'
+  smsCodeError.value = ''
+  try {
+    await verifyPhoneOtp(form.phone, form.smsCode)
+    if (smsInterval) { clearInterval(smsInterval); smsInterval = null }
+    smsState.value = 'verified'
+  } catch (err: unknown) {
+    smsState.value = 'sent'
+    const msg = err instanceof Error ? err.message : String(err)
+    if (msg.includes('만료')) smsCodeError.value = '인증번호가 만료되었습니다. 재전송해 주세요.'
+    else smsCodeError.value = '인증번호가 올바르지 않습니다.'
+  }
+}
+
 /* ── 회원가입 제출 (실제 Supabase signUpGeneral) ─ */
 async function handleSubmit() {
   Object.keys(touched).forEach((k) => {
@@ -359,6 +473,12 @@ async function handleSubmit() {
 
   if (!requiredTermsOk) showTermsError.value = true
   if (hasErrors || !requiredTermsOk) return
+
+  // 휴대폰 인증 필수
+  if (smsState.value !== 'verified') {
+    submitError.value = '휴대폰 인증을 완료해 주세요.'
+    return
+  }
 
   isSubmitting.value = true
   try {
@@ -392,6 +512,11 @@ async function socialSignup(provider: 'kakao' | 'google') {
     submitError.value = `${provider === 'kakao' ? '카카오' : '구글'} 로그인 오류: ${error.message}`
   }
 }
+
+/* ── cleanup ───────────────────────────────────── */
+onUnmounted(() => {
+  if (smsInterval) clearInterval(smsInterval)
+})
 </script>
 
 <style scoped>
