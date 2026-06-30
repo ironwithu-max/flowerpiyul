@@ -59,7 +59,7 @@
           <!-- 가격대 -->
           <select v-else-if="field.type === 'price'" v-model="form[field.key] as string">
             <option value="" disabled>가격대를 선택하세요</option>
-            <option v-for="p in PRICE_OPTIONS" :key="p" :value="p">{{ p }}</option>
+            <option v-for="p in priceOpts" :key="p" :value="p">{{ p }}</option>
           </select>
 
           <!-- 선택 -->
@@ -110,7 +110,7 @@ import { ref, reactive, computed, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import TheHeader from '@/components/TheHeader.vue'
 import TheBottomNav from '@/components/TheBottomNav.vue'
-import { getOrderSchema, PRICE_OPTIONS, type OrderSchema } from '@/lib/orderForms'
+import { getOrderSchema, PRICE_OPTIONS, PRICE_BY_CATEGORY, type OrderSchema } from '@/lib/orderForms'
 import { supabase } from '@/lib/supabase'
 import { useAuth } from '@/composables/useAuth'
 
@@ -122,6 +122,7 @@ type FieldValue = string | Person | DateTime | File | null
 
 const route = useRoute()
 const schema = computed<OrderSchema | null>(() => getOrderSchema(route.query.category as string))
+const priceOpts = computed(() => PRICE_BY_CATEGORY[schema.value?.id ?? ''] ?? PRICE_OPTIONS)
 
 const form = reactive<Record<string, FieldValue>>({})
 const errors = reactive<Record<string, string>>({})

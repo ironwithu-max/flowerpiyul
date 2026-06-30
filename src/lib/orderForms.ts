@@ -19,8 +19,22 @@ export interface OrderField {
   label: string
   type: FieldType
   options?: string[]
+  priceOptions?: string[]   // type==='price' 일 때 카테고리별 가격 옵션
   optional?: boolean
   placeholder?: string
+}
+
+/* 카테고리별 가격대 옵션 */
+export const PRICE_BY_CATEGORY: Record<string, string[]> = {
+  urgent:       ['3만원', '5만원', '8만원', '10만원', '15만원', '20만원', '20만원 이상', '상담 후 결정'],
+  // 꽃다발/꽃바구니 병합 — 꽃다발 기준(꽃바구니 5만원~ 포함)
+  bouquet:      ['3만원 이하 (배송불가)', '3만원', '5만원', '8만원', '10만원', '15만원', '20만원', '20만원 이상', '상담 후 결정'],
+  propose:      ['15만원', '20만원', '30만원', '40만원', '50만원 이상', '상담 후 결정'],
+  wreath:       ['7만원', '10만원', '15만원', '20만원', '20만원 이상', '상담 후 결정'],
+  plant:        ['5만원', '8만원', '10만원', '15만원', '20만원', '20만원 이상', '상담 후 결정'],
+  giftset:      ['5만원', '10만원', '15만원', '20만원', '20만원 이상', '상담 후 결정'],
+  subscription: ['5만원', '8만원', '10만원', '15만원', '20만원', '20만원 이상', '상담 후 결정'],
+  styling:      ['상담 후 결정'],
 }
 
 export interface OrderSchema {
