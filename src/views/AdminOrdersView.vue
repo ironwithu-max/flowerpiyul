@@ -77,15 +77,23 @@ const loading = ref(true)
 const filter = ref('all')
 const filters = [
   { v: 'all', label: '전체' },
-  { v: 'received', label: '접수' },
-  { v: 'making', label: '제작중' },
-  { v: 'delivering', label: '배송중' },
-  { v: 'done', label: '완료' },
+  { v: 'received', label: '주문접수' },
+  { v: 'assigned', label: '배당' },
+  { v: 'unassigned', label: '미배당' },
+  { v: 'delivering', label: '배달중' },
+  { v: 'done', label: '배달완료' },
 ]
 
-const filtered = computed(() =>
-  filter.value === 'all' ? orders.value : orders.value.filter(o => o.status === filter.value),
-)
+const filtered = computed(() => orders.value.filter(o => {
+  switch (filter.value) {
+    case 'received':   return o.status === 'received'
+    case 'assigned':   return !!o.partner_id
+    case 'unassigned': return !o.partner_id
+    case 'delivering': return o.status === 'delivering'
+    case 'done':       return o.status === 'done'
+    default:           return true
+  }
+}))
 
 function statusInfo(s: string) { return ORDER_STATUS[s] ?? { label: s, color: '#64748b' } }
 function fmtDate(iso: string) { return (iso ?? '').slice(0, 16).replace('T', ' ') }

@@ -140,18 +140,44 @@ const router = createRouter({
       children: [
         {
           path: '',
-          redirect: { name: 'admin-orders' },
+          name: 'admin-dashboard',
+          component: () => import('@/views/AdminDashboardView.vue'),
         },
         {
           path: 'orders',
           name: 'admin-orders',
           component: () => import('@/views/AdminOrdersView.vue'),
+          meta: { adminPerm: 'perm_requests' },
+        },
+        {
+          path: 'approvals',
+          name: 'admin-approvals',
+          component: () => import('@/views/AdminApprovalsView.vue'),
+          meta: { adminPerm: 'perm_approvals' },
+        },
+        {
+          path: 'approvals/:approvalId',
+          name: 'admin-approval-detail',
+          component: () => import('@/views/AdminApprovalDetailView.vue'),
+          meta: { adminPerm: 'perm_approvals' },
         },
         {
           path: 'users',
           name: 'admin-users',
           component: () => import('@/views/AdminUsersView.vue'),
           meta: { adminPerm: 'perm_users' },
+        },
+        {
+          path: 'payments',
+          name: 'admin-payments',
+          component: () => import('@/views/AdminPaymentsView.vue'),
+          meta: { adminPerm: 'perm_payments' },
+        },
+        {
+          path: 'reviews',
+          name: 'admin-reviews',
+          component: () => import('@/views/AdminReviewsView.vue'),
+          meta: { adminPerm: 'perm_reviews' },
         },
         {
           path: 'notices',
@@ -164,6 +190,16 @@ const router = createRouter({
           name: 'admin-gallery',
           component: () => import('@/views/AdminGalleryView.vue'),
           meta: { adminPerm: 'perm_notices' },
+        },
+        {
+          path: 'technicians',
+          redirect: { name: 'admin-users', query: { tab: 'corporate' } },
+        },
+        {
+          path: 'permissions',
+          name: 'admin-permissions',
+          component: () => import('@/views/AdminPermissionsView.vue'),
+          meta: { requiresSuperAdmin: true },
         },
       ],
     },
