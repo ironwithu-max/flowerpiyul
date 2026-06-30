@@ -16,8 +16,21 @@
       </div>
     </section>
 
-    <!-- 나의 주문 현황 -->
-    <section class="block">
+    <!-- 가게 정보 (기업회원=꽃집) -->
+    <section v-if="isCorporate" class="block">
+      <h3>가게 정보</h3>
+      <div class="store-info">
+        <div class="si-row"><span class="si-key">업체명</span><span>{{ profile?.company_name || '-' }}</span></div>
+        <div class="si-row"><span class="si-key">사업자번호</span><span>{{ profile?.biz_number || '-' }}</span></div>
+        <div class="si-row"><span class="si-key">위치</span><span>{{ profile?.address || '-' }}</span></div>
+        <div class="si-row"><span class="si-key">배달 가능 지역</span><span>{{ profile?.delivery_area || '-' }}</span></div>
+        <div class="si-row"><span class="si-key">연락처</span><span>{{ profile?.phone || '-' }}</span></div>
+      </div>
+      <RouterLink to="/partner-orders" class="link-btn">받은 주문 보러가기 →</RouterLink>
+    </section>
+
+    <!-- 나의 주문 현황 (일반회원) -->
+    <section v-else class="block">
       <div class="block-head">
         <h3>나의 주문 현황</h3>
         <button class="refresh" :disabled="ordersLoading" @click="loadOrders">새로고침</button>
@@ -129,6 +142,11 @@ async function handleLogout() {
 .status { color: #fff; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; }
 .summary { font-family: inherit; font-size: 12px; color: var(--text-dim); white-space: pre-wrap; word-break: break-word; margin: 0 0 8px; line-height: 1.6; }
 .date { font-family: 'Roboto Mono', monospace; font-size: 11px; color: var(--text-dim); }
+
+.store-info { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+.si-row { display: flex; gap: 12px; font-size: 14px; }
+.si-key { flex-shrink: 0; width: 92px; color: var(--text-dim); font-weight: 600; }
+.link-btn { display: inline-block; margin-top: 12px; color: #ec4899; font-weight: 700; font-size: 14px; text-decoration: none; }
 
 .acc-list { display: flex; flex-direction: column; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
 .acc-item { padding: 15px 16px; font-size: 14px; font-weight: 600; text-decoration: none; color: var(--text-main); background: #fff; border: none; border-bottom: 1px solid var(--border); text-align: left; cursor: pointer; font-family: inherit; }
