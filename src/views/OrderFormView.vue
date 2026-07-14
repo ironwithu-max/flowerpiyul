@@ -168,6 +168,15 @@ function validate(): boolean {
   return ok
 }
 
+/* 배송지 주소 추출 (카테고리마다 키가 다름: address / venue_address / place) */
+function extractAddress(): string {
+  for (const key of ['address', 'venue_address', 'place']) {
+    const v = form[key]
+    if (typeof v === 'string' && v.trim()) return v.trim()
+  }
+  return ''
+}
+
 /* 주문 내용을 SMS 본문용 텍스트로 정리 */
 function buildSummary(): string {
   if (!schema.value) return ''
@@ -208,6 +217,24 @@ async function onSubmit() {
 
   sending.value = true
 
+  // 0) 배송지 주소 → 좌표 변환 (자동배정용). 실패해도 주문은 계속 진행.
+  const deliveryAddress = extractAddress()
+  let lat: number | null = null
+  let lng: number | null = null
+  if (deliveryAddress) {
+    try {
+      const { data: geo } = await supabase.functions.invoke('geocode-address', {
+        body: { address: deliveryAddress },
+      })
+      if (typeof geo?.lat === 'number' && typeof geo?.lng === 'number') {
+        lat = geo.lat
+        lng = geo.lng
+      }
+    } catch (e) {
+      console.warn('[order] 주소 좌표 변환 실패:', e)
+    }
+  }
+
   // 1) 주문 DB 저장
   try {
     const { error: insErr } = await supabase.from('orders').insert({
@@ -217,6 +244,9 @@ async function onSubmit() {
       summary: summaryText,
       customer_name: who?.name?.trim() || null,
       customer_phone: who?.phone?.trim() || null,
+      delivery_address: deliveryAddress || null,
+      latitude: lat,
+      longitude: lng,
     })
     if (insErr) console.warn('[order] 저장 실패:', insErr.message)
   } catch (e) {

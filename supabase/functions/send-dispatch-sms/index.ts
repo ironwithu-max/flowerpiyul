@@ -54,15 +54,15 @@ serve(async (req: Request) => {
   try {
     const { phone, techName, requestTitle, requestId } = await req.json()
     if (!phone) return json({ error: '전화번호가 필요합니다.' }, 400)
-    if (!requestTitle) return json({ error: '의뢰 제목이 필요합니다.' }, 400)
+    if (!requestTitle) return json({ error: '주문 제목이 필요합니다.' }, 400)
 
     const digits = phone.replace(/\D/g, '')
     if (!/^01[016789]\d{7,8}$/.test(digits)) {
       return json({ error: '올바른 휴대폰 번호가 아닙니다.' }, 400)
     }
 
-    const name = techName ? `${techName}님, ` : ''
-    const msg  = `[FIXHOME] ${name}새 의뢰가 배당되었습니다.\n의뢰: ${requestTitle}\n앱에서 확인해 주세요.\n(의뢰 #${requestId})`
+    const name = techName ? `${techName} ` : ''
+    const msg  = `[꽃피율] ${name}새 주문이 배정되었습니다.\n주문: ${requestTitle}\n관리자 화면에서 확인해 주세요.\n(주문 #${requestId})`
 
     const r = await sendSolapi(digits, msg)
     if (!r.ok) {

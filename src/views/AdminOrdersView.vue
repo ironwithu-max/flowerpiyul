@@ -22,8 +22,13 @@
           <h1>주문 관리</h1>
           <p class="page-desc">전체 주문을 확인하고 꽃집 배정·상태를 관리합니다.</p>
         </div>
-        <div class="filter">
-          <button v-for="f in filters" :key="f.v" class="chip" :class="{ on: filter === f.v }" @click="filter = f.v">{{ f.label }}</button>
+        <div class="header-actions">
+          <button class="btn-backfill" :disabled="backfillBusy" @click="backfillCoords">
+            {{ backfillBusy ? '좌표 갱신 중…' : '📍 꽃집 좌표 채우기' }}
+          </button>
+          <div class="filter">
+            <button v-for="f in filters" :key="f.v" class="chip" :class="{ on: filter === f.v }" @click="filter = f.v">{{ f.label }}</button>
+          </div>
         </div>
       </div>
 
@@ -40,6 +45,12 @@
             {{ o.customer_name }} <span v-if="o.customer_phone">· {{ o.customer_phone }}</span>
           </div>
           <pre class="order-summary">{{ o.summary }}</pre>
+          <button
+            v-if="!o.partner_id"
+            class="btn-auto"
+            :disabled="autoBusy === o.id"
+            @click="autoAssign(o)"
+          >{{ autoBusy === o.id ? '배정 중…' : '📍 가까운 꽃집 자동배정' }}</button>
           <div class="ctrl">
             <label>배정
               <select :value="o.partner_id ?? ''" @change="assign(o, ($event.target as HTMLSelectElement).value)">
@@ -75,6 +86,8 @@ const orders = ref<Order[]>([])
 const partners = ref<Partner[]>([])
 const loading = ref(true)
 const filter = ref('all')
+const autoBusy = ref<number | null>(null)
+const backfillBusy = ref(false)
 const filters = [
   { v: 'all', label: '전체' },
   { v: 'received', label: '주문접수' },
@@ -117,6 +130,76 @@ async function load() {
 }
 onMounted(load)
 
+/* 거리 기반 자동배정 — 가장 가까운 꽃집 배정 + 문자 알림 */
+async function autoAssign(o: Order) {
+  autoBusy.value = o.id
+  try {
+    const { data, error } = await supabase.rpc('auto_assign_order', { p_order_id: o.id })
+    if (error) throw error
+    if (!data?.assigned) {
+      const reasons: Record<string, string> = {
+        already_assigned:     '이미 배정된 주문입니다.',
+        no_order_coords:      '이 주문은 배송지 좌표가 없어 자동배정할 수 없습니다.\n(주소 미입력 또는 인식 실패 — 수동으로 배정하세요)',
+        no_available_partner: '배정 가능한 꽃집이 없습니다.\n먼저 상단 "꽃집 좌표 채우기"를 실행하세요.',
+        order_not_found:      '주문을 찾을 수 없습니다.',
+      }
+      alert(reasons[data?.reason as string] ?? '자동배정에 실패했습니다.')
+      return
+    }
+    o.partner_id = data.partner_id
+    alert(`✅ ${data.partner_name} 자동배정 완료 (약 ${data.distance_km}km)`)
+    // 배정된 꽃집에 문자 알림
+    if (data.partner_phone) {
+      try {
+        await supabase.functions.invoke('send-dispatch-sms', {
+          body: {
+            phone: data.partner_phone,
+            techName: data.partner_name,
+            requestTitle: o.category_label || o.category,
+            requestId: o.id,
+          },
+        })
+      } catch (e) { console.warn('[auto-assign sms]', e) }
+    }
+  } catch (e: any) {
+    alert('자동배정 오류: ' + (e.message ?? e))
+  } finally {
+    autoBusy.value = null
+  }
+}
+
+/* 기존 꽃집 좌표 일괄 채우기 (좌표 없는 기업회원 주소 → 좌표) */
+async function backfillCoords() {
+  if (!confirm('좌표가 없는 꽃집들의 주소를 좌표로 변환합니다.\n계속할까요?')) return
+  backfillBusy.value = true
+  try {
+    const { data: parts, error } = await supabase
+      .from('profiles')
+      .select('id, company_name, name, address, latitude, longitude')
+      .eq('type', 'corporate')
+    if (error) throw error
+    const targets = (parts ?? []).filter((p: any) => p.address && (p.latitude == null || p.longitude == null))
+    if (targets.length === 0) { alert('좌표를 채울 꽃집이 없습니다. (모두 완료됨)'); return }
+    let ok = 0, fail = 0
+    for (const p of targets as any[]) {
+      try {
+        const { data: geo } = await supabase.functions.invoke('geocode-address', { body: { address: p.address } })
+        if (typeof geo?.lat === 'number' && typeof geo?.lng === 'number') {
+          const { error: upErr } = await supabase.from('profiles')
+            .update({ latitude: geo.lat, longitude: geo.lng }).eq('id', p.id)
+          if (upErr) throw upErr
+          ok++
+        } else { fail++ }
+      } catch { fail++ }
+    }
+    alert(`좌표 갱신 완료: 성공 ${ok}곳${fail ? `, 실패 ${fail}곳(주소 확인 필요)` : ''}`)
+  } catch (e: any) {
+    alert('좌표 채우기 오류: ' + (e.message ?? e))
+  } finally {
+    backfillBusy.value = false
+  }
+}
+
 async function assign(o: Order, partnerId: string) {
   const pid = partnerId || null
   const { error } = await supabase.from('orders').update({ partner_id: pid }).eq('id', o.id)
@@ -152,6 +235,13 @@ async function del(o: Order) {
 .section-label { font-family:'Roboto Mono',monospace; font-size:11px; color:#ec4899; letter-spacing:2px; font-weight:600; margin-bottom:8px; }
 .page-header-row h1 { font-size:26px; font-weight:900; }
 .page-desc { font-size:13px; color:var(--text-dim); margin-top:6px; }
+.header-actions { display:flex; flex-direction:column; align-items:flex-end; gap:10px; }
+.btn-backfill { border:1px solid #ec4899; background:#fff; color:#db2777; padding:8px 14px; border-radius:999px; font-size:13px; font-weight:700; cursor:pointer; font-family:inherit; white-space:nowrap; }
+.btn-backfill:hover:not(:disabled) { background:#fdf2f8; }
+.btn-backfill:disabled { opacity:.5; cursor:not-allowed; }
+.btn-auto { width:100%; border:none; background:#ec4899; color:#fff; padding:9px; border-radius:10px; font-size:13px; font-weight:800; cursor:pointer; font-family:inherit; margin-bottom:10px; }
+.btn-auto:hover:not(:disabled) { filter:brightness(.93); }
+.btn-auto:disabled { opacity:.6; cursor:not-allowed; }
 .filter { display:flex; gap:6px; flex-wrap:wrap; }
 .chip { border:1px solid var(--border); background:#fff; padding:7px 14px; border-radius:999px; font-size:13px; font-weight:600; cursor:pointer; font-family:inherit; }
 .chip.on { background:#ec4899; color:#fff; border-color:#ec4899; }

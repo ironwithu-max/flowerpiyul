@@ -169,6 +169,24 @@ export function useAuth() {
     if ((data.user?.identities?.length ?? 1) === 0) {
       throw new Error('이미 가입된 이메일입니다.')
     }
+
+    // 업체 주소 → 좌표 변환 후 프로필에 저장 (거리 기반 자동배정용).
+    // 실패해도 가입은 완료 — 좌표는 관리자 화면에서 나중에 채울 수 있음.
+    const uid = data.user?.id
+    if (uid && info.address?.trim()) {
+      try {
+        const { data: geo } = await supabase.functions.invoke('geocode-address', {
+          body: { address: info.address.trim() },
+        })
+        if (typeof geo?.lat === 'number' && typeof geo?.lng === 'number') {
+          await supabase.from('profiles')
+            .update({ latitude: geo.lat, longitude: geo.lng })
+            .eq('id', uid)
+        }
+      } catch (e) {
+        console.warn('[signUpCorporate] 주소 좌표 변환 실패:', e)
+      }
+    }
   }
 
   /* ── 로그아웃 ──────────────────────────────── */

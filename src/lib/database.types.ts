@@ -85,6 +85,8 @@ export interface Database {
           biz_number:    string | null
           address:       string | null
           delivery_area: string | null
+          latitude:      number | null
+          longitude:     number | null
           avatar_url:    string | null
           created_at:    string
           updated_at:    string
@@ -98,6 +100,8 @@ export interface Database {
           biz_number?:    string | null
           address?:       string | null
           delivery_area?: string | null
+          latitude?:      number | null
+          longitude?:     number | null
           avatar_url?:    string | null
           created_at?:    string
           updated_at?:    string
@@ -334,6 +338,9 @@ export interface Database {
           summary:        string
           customer_name:  string | null
           customer_phone: string | null
+          delivery_address: string | null
+          latitude:       number | null
+          longitude:      number | null
           status:         string
           created_at:     string
         }
@@ -345,6 +352,9 @@ export interface Database {
           summary:         string
           customer_name?:  string | null
           customer_phone?: string | null
+          delivery_address?: string | null
+          latitude?:       number | null
+          longitude?:      number | null
           status?:         string
           created_at?:     string
         }
