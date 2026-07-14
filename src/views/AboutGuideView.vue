@@ -4,31 +4,53 @@
 
     <main class="legal-container">
       <div class="legal-header">
-        <div class="legal-badge">ABOUT &amp; 견적 기준</div>
-        <h1>꽃피율 소개 &amp; AI 표준견적 산정 기준</h1>
-        <p class="effective-date">집에 대한 모든 고민, 투명한 표준 견적으로 해결합니다.</p>
+        <div class="legal-badge">ABOUT</div>
+        <h1>꽃피율 소개</h1>
+        <p class="effective-date">동네 꽃집과 함께, 마음을 담은 꽃을 가장 빠르게.</p>
       </div>
 
       <div class="legal-body">
 
         <!-- ── 꽃피율 소개 ── -->
         <section class="legal-section">
-          <h2>꽃피율(꽃피율)이란?</h2>
+          <h2>꽃피율이란?</h2>
           <p>
-            꽃피율은 <strong>긴급수리·생활수리·인테리어·시공</strong>을 한 곳에서 의뢰하고, 검증된 전문 파트너가
-            현장으로 출동하는 <strong>홈서비스 출동 플랫폼</strong>입니다. 누수·전기·잠금·설치 같은 생활 속 문제부터
-            인테리어·건축 시공까지, 집에 대한 모든 고민을 빠르고 투명하게 해결합니다.
+            꽃피율은 고객의 주문을 <strong>배송지에서 가장 가까운 동네 꽃집</strong>에 자동으로 연결해 드리는
+            <strong>꽃 주문·배달 중개 플랫폼</strong>입니다. 꽃다발·꽃바구니부터 경조사 화환, 화분·식물,
+            프러포즈 이벤트, 정기구독까지 — 소중한 순간에 어울리는 꽃을 빠르고 신선하게 전해 드립니다.
           </p>
         </section>
 
         <section class="legal-section">
           <h2>꽃피율의 특징</h2>
           <ul>
-            <li><strong>24시간 긴급 대응</strong> — 누수·정전·잠긴 문 등 긴급 상황에 신속 출동</li>
-            <li><strong>검증된 파트너</strong> — 사업자·자격 심사를 거쳐 승인된 전문 기사·업체만 활동</li>
-            <li><strong>투명한 표준 견적</strong> — 공개된 표준 단가 기준으로 누구에게나 동일한 기준 적용</li>
-            <li><strong>AI 자동 견적</strong> — 요청 내용을 분석해 예상 시공비를 즉시 안내</li>
-            <li><strong>안전 결제</strong> — 선결제·현금영수증 발행, 통신판매중개 기준 준수</li>
+            <li><strong>동네 꽃집 자동배정</strong> — 배송지에서 가장 가까운 입점 꽃집이 제작·배송해 신선하고 빠릅니다</li>
+            <li><strong>당일배송 가능</strong> — 긴급 꽃배달 등 주문 시간·지역에 따라 당일 수령이 가능합니다</li>
+            <li><strong>검증된 파트너</strong> — 사업자 심사를 거쳐 승인된 지역 꽃집만 활동합니다</li>
+            <li><strong>다양한 상품</strong> — 꽃다발·꽃바구니·화환·화분·꽃+선물·정기구독·플라워 스타일링</li>
+            <li><strong>안전 결제</strong> — 안전한 결제와 현금영수증 발행, 통신판매중개 기준을 준수합니다</li>
+          </ul>
+        </section>
+
+        <!-- ── 이용 방법 ── -->
+        <section class="legal-section">
+          <h2>이용 방법</h2>
+          <ol>
+            <li>원하는 <strong>상품 카테고리</strong>를 선택합니다. (꽃다발, 화환, 화분 등)</li>
+            <li>받는 분·배송지·희망일·요청사항을 입력하고 <strong>주문·결제</strong>합니다.</li>
+            <li>배송지에서 <strong>가장 가까운 꽃집</strong>에 주문이 자동 배정됩니다.</li>
+            <li>꽃집이 상품을 <strong>제작·배송</strong>하고, 진행 상황은 마이페이지에서 확인할 수 있습니다.</li>
+          </ol>
+        </section>
+
+        <!-- ── 배송 안내 ── -->
+        <section class="legal-section highlight-section">
+          <h2>배송 · 가격 안내</h2>
+          <ul>
+            <li><strong>최소 주문 금액</strong> — 배송은 <strong>35,000원</strong>부터 진행됩니다.</li>
+            <li><strong>가격 선택</strong> — 카테고리별로 준비된 가격대(예산)를 선택하면, 해당 예산에 맞춰 꽃집이 상품을 구성합니다.</li>
+            <li><strong>당일배송</strong> — 지역·주문 시간·꽃집 사정에 따라 당일 배송이 가능하며, 상세 일정은 꽃집과 조율됩니다.</li>
+            <li><strong>상담 후 결정</strong> — 프러포즈 이벤트·플라워 스타일링 등은 상담을 통해 견적이 확정됩니다.</li>
           </ul>
         </section>
 
@@ -38,104 +60,16 @@
             <strong>주식회사 미남테크</strong> &nbsp;|&nbsp; 사업자등록번호 286-88-02731<br />
             대표 하현주 &nbsp;|&nbsp; 통신판매업신고 제2024-경남김해-1397호<br />
             경상남도 김해시 서김해산단안길 66, 3층 303호 (풍유동, 하이원빌딩)<br />
-            고객센터 1533-9820 (평일 09:00~18:00)
+            고객센터 1533-9820 (평일 09:00~18:00) &nbsp;|&nbsp; 이메일 mm9820@daum.net
           </p>
-        </section>
-
-        <!-- ── AI 표준견적 산정 기준 ── -->
-        <section class="legal-section">
-          <h2>AI 표준견적은 이렇게 산정됩니다</h2>
-          <p>
-            꽃피율의 긴급·생활수리 견적은 <strong>공개된 표준 단가</strong>를 기준으로 자동 산출됩니다.
-            아래 공식과 단가에 따라 누구에게나 동일하게 적용됩니다.
-          </p>
-          <div class="formula-box">
-            예상 시공비 = 기본 출동비 + (긴급 출동비) + 공임(작업유형 × 작업시간 × 시간대 할증) + 부자재
-            <span class="formula-sub">+ 이동 거리 요금 (콜 수락 후 정산)</span>
-          </div>
-        </section>
-
-        <section class="legal-section">
-          <h2>기본 단가</h2>
-          <div class="price-table-wrap">
-            <table class="price-table">
-              <thead>
-                <tr><th>항목</th><th>단가</th><th>설명</th></tr>
-              </thead>
-              <tbody>
-                <tr><td>기본 출동비</td><td class="amt">25,000원</td><td>현장 방문 기본 비용</td></tr>
-                <tr><td>긴급 출동 추가</td><td class="amt">+30,000원</td><td>긴급 요청 시</td></tr>
-                <tr><td>일반 공임</td><td class="amt">30,000원/시간</td><td>단순 교체·설치</td></tr>
-                <tr><td>전문 공임</td><td class="amt">50,000원/시간</td><td>누수·배관·배선·도기·가전</td></tr>
-                <tr><td>특수 공임</td><td class="amt">80,000원/시간</td><td>고압·용접·소방·분전반 등</td></tr>
-                <tr><td>이동 거리 요금</td><td class="amt">2,000원/km</td><td>기준 5km, 콜 수락 후 정산</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        <section class="legal-section">
-          <h2>야간·시간대 할증</h2>
-          <p>야간·심야 작업 시 공임에 아래 배수가 적용됩니다.</p>
-          <div class="price-table-wrap">
-            <table class="price-table">
-              <thead>
-                <tr><th>시간대</th><th>할증</th></tr>
-              </thead>
-              <tbody>
-                <tr><td>주간 (06:00~18:00)</td><td class="amt">기본요금</td></tr>
-                <tr><td>저녁 (18:00~20:00)</td><td class="amt">공임 × 1.2</td></tr>
-                <tr><td>야간 (20:00~22:00)</td><td class="amt">공임 × 1.5</td></tr>
-                <tr><td>심야 (22:00~04:00)</td><td class="amt">공임 × 2.0</td></tr>
-                <tr><td>새벽 (04:00~06:00)</td><td class="amt">공임 × 1.2</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        <section class="legal-section highlight-section">
-          <h2>산정 근거</h2>
-          <p>
-            꽃피율의 공임·작업시간 기준은 다음의 <strong>공신력 있는 공공 자료</strong>를 참고하여 산정·검증됩니다.
-          </p>
-          <ul>
-            <li><strong>건설업 시중노임단가</strong> (대한건설협회, 반기 발표) — 직종별 노무비 기준으로 <strong>공임 단가</strong> 산정</li>
-            <li><strong>건설공사 표준품셈</strong> (국토교통부·한국건설기술연구원) — 작업별 표준 투입 기준으로 <strong>예상 작업시간</strong> 산정</li>
-          </ul>
           <p style="margin-top:12px;">
-            소규모 출장 수리의 특성(이동·준비·최소 작업)을 반영하여, 위 공공 기준을 바탕으로 꽃피율 표준 단가를 운영합니다.
+            꽃피율은 주식회사 미남테크가 운영하는 <strong>꽃 주문·배달 중개 서비스</strong>이며,
+            통신판매중개자로서 거래 당사자가 아닙니다. 상품 제작·배송의 이행 책임은 각 거래 당사자(파트너 꽃집)에게 있습니다.
           </p>
-        </section>
-
-        <section class="legal-section">
-          <h2>자재비 안내</h2>
-          <ul>
-            <li><strong>시공 부자재(소모품)</strong> — 실리콘·피스·앵커·배관 부속·전선 등 시공에 쓰이는 소모품은 견적에 <strong>포함</strong>됩니다.</li>
-            <li><strong>제품(주자재)</strong> — 도어락·비데·변기·세면대 등 <strong>제품 자체는 고객님이 준비</strong>하시거나 현장에서 추천해 드립니다. (견적 금액에는 미포함, 참고가만 안내)</li>
-          </ul>
-        </section>
-
-        <section class="legal-section">
-          <h2>AI는 이렇게 분석합니다</h2>
-          <ol>
-            <li>고객님이 입력한 <strong>요청 제목·상세 내용(및 사진)</strong>을 AI가 분석합니다.</li>
-            <li>"물이 계속 흘러요", "도어락 교체" 같은 표현을 <strong>표준 작업 항목</strong>으로 매칭합니다.</li>
-            <li>매칭된 항목의 <strong>표준 공임·작업시간·부자재</strong>로 예상 시공비를 산출합니다.</li>
-            <li>표준 항목으로 판단이 어려운 경우 <strong>현장 확인 견적</strong>으로 안내합니다.</li>
-          </ol>
-        </section>
-
-        <section class="legal-section highlight-section">
-          <h2>견적 관련 안내</h2>
-          <ul>
-            <li>AI 표준견적은 <strong>참고용 예상 견적</strong>이며, 실제 금액은 <strong>현장 확인 후 최종 확정</strong>됩니다.</li>
-            <li>현장 상황(노후도·접근성·추가 작업 등)에 따라 비용이 조정될 수 있습니다.</li>
-            <li>꽃피율은 통신판매중개자로서 거래 당사자가 아니며, 서비스 이행 책임은 각 거래 당사자에게 있습니다.</li>
-          </ul>
         </section>
 
         <div class="cta-row">
-          <RouterLink to="/request/create" class="cta-btn">지금 견적 받아보기 →</RouterLink>
+          <RouterLink to="/" class="cta-btn">지금 꽃 주문하기 →</RouterLink>
         </div>
 
       </div>

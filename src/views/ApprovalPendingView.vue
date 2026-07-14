@@ -85,7 +85,7 @@
         <!-- ── support info ── -->
         <p class="support-info">
           승인 절차가 지연되거나 수정이 필요한 경우
-          <a href="mailto:support@fixhome.kr">고객 지원 센터</a>
+          <a href="mailto:mm9820@daum.net">고객 지원 센터</a>
           (1533-9820)로 문의 바랍니다.
         </p>
 
