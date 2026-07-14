@@ -6,7 +6,7 @@
       <div class="footer-top">
         <div class="footer-brand">
           <span class="brand-logo-chip"><img src="/logo.png" alt="꽃피율" class="brand-logo-img" /></span>
-          <span class="brand-sub">성산점 · 24시 무인 꽃집</span>
+          <span class="brand-sub">꽃 주문·배달 플랫폼</span>
         </div>
         <nav class="footer-links">
           <RouterLink to="/about">꽃피율 소개</RouterLink>
@@ -25,26 +25,26 @@
       <!-- 사업자 정보 (전자상거래법 제10조 의무 표기) -->
       <div class="biz-info">
         <div class="biz-row">
-          <span><strong>상호</strong> 꽃:피율</span>
-          <span><strong>대표</strong> 서혜림</span>
-          <span><strong>사업자등록번호</strong> 747-14-01497</span>
+          <span><strong>상호</strong> 주식회사 미남테크</span>
+          <span><strong>대표</strong> 하현주</span>
+          <span><strong>사업자등록번호</strong> 286-88-02731</span>
         </div>
         <div class="biz-row">
-          <span><strong>업종</strong> 도매 및 소매업 · 화훼류 및 식물 도매업</span>
+          <span><strong>통신판매업신고</strong> 제2024-경남김해-1397호</span>
+          <span><strong>서비스명</strong> 꽃피율</span>
         </div>
         <div class="biz-row">
-          <span><strong>주소</strong> 경상남도 창원시 성산구 창이대로719번길 25 (사파동)</span>
-          <span><strong>운영</strong> 24시 무인 운영</span>
+          <span><strong>주소</strong> 경상남도 김해시 서김해산단안길 66, 3층 303호 (풍유동, 하이원빌딩)</span>
         </div>
         <div class="biz-row">
-          <span><strong>예약 및 문의</strong> 010-5160-7684</span>
+          <span><strong>고객문의</strong> 010-5160-7684</span>
         </div>
       </div>
 
       <!-- 하단 카피라이트 -->
       <div class="footer-copy">
-        <span>© {{ year }} 꽃:피율. All rights reserved.</span>
-        <span class="copy-sub">꽃피율은 통신판매중개 플랫폼으로서 거래 당사자가 아니며, 서비스 이용과 관련한 의무와 책임은 각 거래 당사자에게 있습니다.</span>
+        <span>© {{ year }} 주식회사 미남테크. All rights reserved.</span>
+        <span class="copy-sub">꽃피율은 주식회사 미남테크가 운영하는 꽃 주문·배달 중개 서비스입니다.</span>
       </div>
 
     </div>
