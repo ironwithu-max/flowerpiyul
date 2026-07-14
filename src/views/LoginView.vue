@@ -103,12 +103,12 @@
         </div>
 
         <!-- social divider -->
-        <div class="social-divider">
+        <div v-if="showSocial" class="social-divider">
           <span class="mono-label" style="letter-spacing: 2px; font-size: 10px;">또는 소셜 계정으로 로그인</span>
         </div>
 
-        <!-- social buttons -->
-        <div class="social-btns">
+        <!-- social buttons (카카오 심사 승인 후 showSocial=true 로 노출) -->
+        <div v-if="showSocial" class="social-btns">
           <button class="social-btn kakao" @click="socialLogin('kakao')">
             <!-- kakao bubble icon -->
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
@@ -145,6 +145,9 @@ import FooterHud from '@/components/FooterHud.vue'
 const router = useRouter()
 const route  = useRoute()
 const { signIn } = useAuth()
+
+// 카카오/구글 소셜 로그인 — 카카오 비즈앱 심사 승인 후 true 로 변경하면 노출
+const showSocial = false
 
 /* ── form state ──────────────────────────────── */
 const form = reactive({ email: '', password: '' })

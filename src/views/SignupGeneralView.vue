@@ -14,8 +14,8 @@
           <p class="subtitle">꽃피율 서비스 이용을 위한 계정을 생성합니다.</p>
         </div>
 
-        <!-- ── social signup ── -->
-        <div class="social-btns">
+        <!-- ── social signup (카카오 심사 승인 후 showSocial=true) ── -->
+        <div v-if="showSocial" class="social-btns">
           <button class="social-btn kakao" type="button" @click="socialSignup('kakao')">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 3C6.48 3 2 6.48 2 10.8c0 2.82 1.73 5.29 4.35 6.77l-.88 3.24 3.74-2.04c.89.18 1.82.27 2.79.27 5.52 0 10-3.48 10-7.8S17.52 3 12 3z"/>
@@ -34,7 +34,7 @@
         </div>
 
         <!-- ── divider ── -->
-        <div class="divider">
+        <div v-if="showSocial" class="divider">
           <span class="mono-label" style="letter-spacing: 2px; font-size: 10px;">이메일로 가입하기</span>
         </div>
 
@@ -300,6 +300,9 @@ import { supabase } from '@/lib/supabase'
 
 const router = useRouter()
 const { sendPhoneOtp, verifyPhoneOtp, signUpGeneral } = useAuth()
+
+// 카카오/구글 소셜 가입 — 카카오 비즈앱 심사 승인 후 true 로 변경하면 노출
+const showSocial = false
 
 /* ── form state ────────────────────────────────── */
 const form = reactive({
