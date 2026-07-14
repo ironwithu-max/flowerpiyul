@@ -505,7 +505,7 @@ async function socialSignup(provider: 'kakao' | 'google') {
     provider,
     options: {
       redirectTo: `${window.location.origin}/`,
-      scopes: provider === 'kakao' ? 'profile_nickname' : undefined,
+      scopes: undefined,
     },
   })
   if (error) {
