@@ -218,7 +218,7 @@ async function socialLogin(provider: 'kakao' | 'google') {
     provider,
     options: {
       redirectTo: `${window.location.origin}/`,
-      scopes: provider === 'kakao' ? 'profile_nickname account_email' : undefined,
+      scopes: provider === 'kakao' ? 'profile_nickname' : undefined,
     },
   })
   if (error) {
