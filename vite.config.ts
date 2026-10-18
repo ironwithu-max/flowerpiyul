@@ -12,7 +12,7 @@ export default defineConfig({
       manifest: {
         name: '꽃피율',
         short_name: '꽃피율',
-        description: '꽃 주문·배달 — 가까운 꽃집이 바로 배송',
+        description: '직접 손으로 제작하는 핸드메이드 소품 · 꽃 · 식물',
         lang: 'ko',
         theme_color: '#ec4899',
         background_color: '#ffffff',
