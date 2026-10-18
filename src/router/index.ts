@@ -24,6 +24,11 @@ const router = createRouter({
 
     /* ── 꽃 주문 (공개) ───────────────────────── */
     {
+      path: '/handmade',
+      name: 'handmade-shop',
+      component: () => import('@/views/HandmadeShopView.vue'),
+    },
+    {
       path: '/flowers',
       name: 'flower-categories',
       component: () => import('@/views/FlowerCategoriesView.vue'),
