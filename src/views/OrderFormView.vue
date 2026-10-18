@@ -11,7 +11,7 @@
     <div v-else-if="submitted" class="done-card">
       <div class="done-emoji">{{ schema.emoji }}</div>
       <h2>주문이 접수되었습니다</h2>
-      <p>가까운 꽃집에서 확인 후 <strong>{{ contactName }}</strong>님께 곧 연락드립니다.</p>
+      <p>꽃피율에서 주문을 확인한 뒤 <strong>{{ contactName }}</strong>님께 곧 연락드립니다.</p>
       <div class="done-actions">
         <RouterLink to="/" class="btn-ghost">홈으로</RouterLink>
         <button class="btn-accent" @click="resetForm">새 주문 작성</button>
