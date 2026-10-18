@@ -35,6 +35,7 @@ export const PRICE_BY_CATEGORY: Record<string, string[]> = {
   giftset:      ['5만원', '10만원', '15만원', '20만원', '20만원 이상', '상담 후 결정'],
   subscription: ['5만원', '8만원', '10만원', '15만원', '20만원', '20만원 이상', '상담 후 결정'],
   styling:      ['상담 후 결정'],
+  fabric:       ['1만원', '2만원', '3만원', '5만원', '8만원', '10만원', '10만원 이상', '상담 후 결정'],
 }
 
 export interface OrderSchema {
@@ -212,6 +213,25 @@ export const ORDER_SCHEMAS: Record<string, OrderSchema> = {
       { key: 'budget', label: '예산', type: 'price' },
       { key: 'photo', label: '현장 사진', type: 'file', optional: true },
       { key: 'note', label: '기타 요청사항', type: 'textarea', optional: true },
+    ],
+  },
+
+  fabric: {
+    id: 'fabric',
+    emoji: '🧵',
+    title: '핸드메이드 패브릭 소품 주문서',
+    subtitle: '쿠션 · 파우치 · 에코백 · 패브릭 플라워 등 주문 제작.',
+    accent: '#ea580c',
+    fields: [
+      { key: 'applicant', label: '주문자 (성함 / 연락처)', type: 'person' },
+      { key: 'item', label: '소품 종류', type: 'select', options: ['쿠션 / 쿠션커버', '파우치', '에코백', '테이블러너 / 매트', '패브릭 플라워', '기타'] },
+      { key: 'quantity', label: '수량', type: 'text', placeholder: '예) 2개' },
+      { key: 'design', label: '원단 · 색상 · 디자인', type: 'textarea', placeholder: '예) 린넨 소재, 아이보리 톤, 이니셜 자수' },
+      { key: 'photo', label: '참고 사진', type: 'file', optional: true },
+      { key: 'deliver_at', label: '수령 희망일', type: 'date' },
+      { key: 'address', label: '배송 주소', type: 'text', placeholder: '도로명 주소 + 상세주소' },
+      { key: 'price', label: '희망 가격대', type: 'price' },
+      { key: 'note', label: '요청사항', type: 'textarea', optional: true },
     ],
   },
 }

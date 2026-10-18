@@ -24,6 +24,11 @@ const router = createRouter({
 
     /* ── 꽃 주문 (공개) ───────────────────────── */
     {
+      path: '/flowers',
+      name: 'flower-categories',
+      component: () => import('@/views/FlowerCategoriesView.vue'),
+    },
+    {
       path: '/order',
       name: 'order-create',
       component: () => import('@/views/OrderFormView.vue'),
