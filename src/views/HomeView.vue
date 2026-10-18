@@ -22,10 +22,20 @@
       <div class="hero-right" ref="heroVisual">
         <HomeGallery />
 
-        <p class="hero-sub">
-          주문을 접수하면 꽃피율이 직접 확인해 가까운 지점과 연결해 드립니다.
-          핸드메이드 소품부터 꽃·식물까지, 제작부터 배송까지 정성껏 챙깁니다.
-        </p>
+        <div class="hero-cta">
+          <a :href="ORDER_PHONE_TEL" class="cta" aria-label="전화주문">
+            <svg class="cta-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            <b>전화주문</b>
+          </a>
+          <a :href="KAKAO_CHANNEL_URL || undefined" target="_blank" rel="noopener" class="cta" aria-label="톡상담" @click="onTalkClick">
+            <svg class="cta-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9.5 9.5 0 0 1-3.3-.6L3 21l1.6-4.4A8 8 0 0 1 3 11.5 8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5z"/>
+            </svg>
+            <b>톡상담</b>
+          </a>
+        </div>
       </div>
     </section>
 
@@ -64,9 +74,17 @@ import TheFooter from '@/components/TheFooter.vue'
 import ServiceCard from '@/components/ServiceCard.vue'
 import HomeGallery from '@/components/HomeGallery.vue'
 import { HOME_MENU } from '@/lib/categories'
+import { ORDER_PHONE_TEL, KAKAO_CHANNEL_URL } from '@/lib/contact'
 
 // ── 홈 메인 메뉴 (4) — 꽃·식물 세부 카테고리는 /flowers ──
 const categories = HOME_MENU
+
+// ── 톡상담: 채널 주소 등록 전에는 안내만 ──
+function onTalkClick(e: MouseEvent) {
+  if (KAKAO_CHANNEL_URL) return
+  e.preventDefault()
+  alert('카카오톡 상담 채널을 준비 중입니다.\n전화주문 버튼을 이용해 주세요.')
+}
 
 // ── auth ──────────────────────────────────────
 const { user, profile, loading: authLoading, isLoggedIn, isCorporate, signOut } = useAuth()
@@ -166,12 +184,26 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   display: block;
 }
 
-.hero-sub {
-  color: var(--text-dim);
-  max-width: 480px;
-  font-size: 18px;
-  font-weight: 300;
+/* ── 전화주문 / 톡상담 버튼 ── */
+.hero-cta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
 }
+.cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 8px 4px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.cta { color: #2ec4b6; }  /* 민트 */
+.cta:hover { opacity: 0.7; }
+.cta-ico { width: 22px; height: 22px; flex-shrink: 0; }
+.cta b { font-size: 16px; font-weight: 900; }
 
 /* ── hero right column ─────────────────────── */
 .hero-right {
@@ -271,7 +303,10 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
     overflow-wrap: break-word;
   }
 
-  .hero-sub { display: none; }
+  .hero-cta { gap: 8px; margin-top: 4px; }
+  .cta { padding: 6px 4px; gap: 8px; }
+  .cta-ico { width: 19px; height: 19px; }
+  .cta b { font-size: 14px; }
 
   .services-section {
     padding: 10px clamp(10px, 3.7vw, 16px) 68px;

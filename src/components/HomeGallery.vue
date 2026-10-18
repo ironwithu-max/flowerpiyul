@@ -1,7 +1,7 @@
 <template>
   <section class="gallery">
     <div class="gallery-head">
-      <span class="g-title">꽃피율 갤러리</span>
+      <span class="g-title">갤러리</span>
       <a class="g-insta" :href="instagramUrl" target="_blank" rel="noopener noreferrer">@flower_piyul →</a>
     </div>
 
@@ -10,7 +10,7 @@
         <div v-for="(pg, pi) in pages" :key="pi" class="g-page">
           <button
             v-for="(p, ci) in pg"
-            :key="p.id ?? (pi + '-' + ci)"
+            :key="p.image_url + '-' + pi + '-' + ci"
             class="g-cell"
             type="button"
             @click="open(pi * pageSize + ci)"
@@ -49,6 +49,7 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { supabase } from '@/lib/supabase'
+import { HANDMADE_ITEMS, handmadePhoto } from '@/lib/handmade'
 
 const instagramUrl = 'https://www.instagram.com/flower_piyul'
 
@@ -67,7 +68,36 @@ const fallback: Photo[] = Object.keys(fb)
   .sort()
   .map((k, idx) => ({ id: -1 - idx, image_url: fb[k], caption: null }))
 
-const photos = ref<Photo[]>(fallback)
+// 핸드메이드 소품 사진 (public/handmade)
+const handmade: Photo[] = HANDMADE_ITEMS.flatMap(item =>
+  Array.from({ length: item.photos }, (_, i) => ({
+    id: null,
+    image_url: handmadePhoto(item.id, i + 1),
+    caption: item.name,
+  })),
+)
+
+function shuffle<T>(arr: T[]): T[] {
+  const a = arr.slice()
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[a[i], a[j]] = [a[j], a[i]]
+  }
+  return a
+}
+
+// 꽃 사진과 핸드메이드 사진을 각각 섞은 뒤 번갈아 배치 (최대 24장 = 4페이지)
+const MAX_PHOTOS = 24
+function mix(flowers: Photo[]): Photo[] {
+  const f = shuffle(flowers), h = shuffle(handmade), out: Photo[] = []
+  while ((f.length || h.length) && out.length < MAX_PHOTOS) {
+    if (f.length) out.push(f.shift()!)
+    if (h.length && out.length < MAX_PHOTOS) out.push(h.shift()!)
+  }
+  return out
+}
+
+const photos = ref<Photo[]>(mix(fallback))
 const lightbox = ref(-1)
 
 // ── 2줄(3×2=6장) 단위 페이지로 묶어 가로 슬라이드 ──
@@ -107,7 +137,7 @@ async function load() {
       .limit(12)
     if (error) throw error
     if (data && data.length) {
-      photos.value = data as Photo[]
+      photos.value = mix(data as Photo[])
       page.value = 0
       startSlide()
     }

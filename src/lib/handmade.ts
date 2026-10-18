@@ -3,8 +3,7 @@
 //  사진: public/handmade/<id>/<n>.webp  (원본: 이미지/핸드메이드 이미지/)
 // ============================================================
 
-/* 카카오톡 채널 주소 (예: https://pf.kakao.com/_xxxxx/chat). 비어 있으면 문의 버튼 숨김 */
-export const KAKAO_CHANNEL_URL = ''
+export { KAKAO_CHANNEL_URL } from '@/lib/contact'
 
 export interface HandmadeItem {
   id: string
