@@ -15,7 +15,7 @@
         <section class="legal-section">
           <h2>제1조 (목적)</h2>
           <p>
-            이 약관은 주식회사 미남테크(이하 "회사")가 운영하는 꽃피율 서비스(이하 "서비스")의 이용과 관련하여
+            이 약관은 꽃:피율(이하 "회사")가 운영하는 꽃피율 서비스(이하 "서비스")의 이용과 관련하여
             회사와 이용자 간의 권리, 의무 및 책임사항, 기타 필요한 사항을 규정함을 목적으로 합니다.
           </p>
         </section>
@@ -193,12 +193,12 @@
         <div class="contact-box">
           <div class="contact-title">문의처</div>
           <div class="contact-info">
-            <span><strong>상호</strong> 주식회사 미남테크</span>
-            <span><strong>대표자</strong> 하현주</span>
+            <span><strong>상호</strong> 꽃:피율</span>
+            <span><strong>대표자</strong> 서혜림</span>
             <span><strong>서비스명</strong> 꽃피율</span>
-            <span><strong>사업자등록번호</strong> 286-88-02731</span>
+            <span><strong>사업자등록번호</strong> 747-14-01497</span>
             <span><strong>통신판매업신고</strong> 제2024-경남김해-1397호</span>
-            <span><strong>주소</strong> 경상남도 김해시 서김해산단안길 66, 3층 303호</span>
+            <span><strong>주소</strong> 경상남도 창원시 성산구 창이대로719번길 25 (사파동)</span>
             <span><strong>고객센터</strong> 1533-9820</span>
             <span><strong>이메일</strong> mm9820@daum.net</span>
           </div>

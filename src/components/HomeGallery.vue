@@ -86,13 +86,16 @@ function shuffle<T>(arr: T[]): T[] {
   return a
 }
 
-// 꽃 사진과 핸드메이드 사진을 각각 섞은 뒤 번갈아 배치 (최대 24장 = 4페이지)
-const MAX_PHOTOS = 24
+// 페이지마다 윗줄 3장 = 핸드메이드, 아랫줄 3장 = 꽃·식물 (각각 랜덤, 최대 4페이지)
+const MAX_PAGES = 4
 function mix(flowers: Photo[]): Photo[] {
-  const f = shuffle(flowers), h = shuffle(handmade), out: Photo[] = []
-  while ((f.length || h.length) && out.length < MAX_PHOTOS) {
-    if (f.length) out.push(f.shift()!)
-    if (h.length && out.length < MAX_PHOTOS) out.push(h.shift()!)
+  const h = shuffle(handmade), f = shuffle(flowers)
+  if (!f.length) return h.slice(0, MAX_PAGES * 6)
+  const pageCount = Math.min(MAX_PAGES, Math.ceil(Math.max(h.length, f.length) / 3))
+  const out: Photo[] = []
+  for (let p = 0; p < pageCount; p++) {
+    for (let i = 0; i < 3; i++) out.push(h[(p * 3 + i) % h.length])   // 윗줄
+    for (let i = 0; i < 3; i++) out.push(f[(p * 3 + i) % f.length])   // 아랫줄 (부족하면 반복)
   }
   return out
 }

@@ -12,7 +12,7 @@
       <div class="legal-body">
 
         <p class="intro">
-          주식회사 미남테크(이하 "회사")는 「개인정보 보호법」, 「정보통신망 이용촉진 및 정보보호 등에 관한 법률」 등 관련 법령에 따라
+          꽃:피율(이하 "회사")는 「개인정보 보호법」, 「정보통신망 이용촉진 및 정보보호 등에 관한 법률」 등 관련 법령에 따라
           이용자의 개인정보를 보호하고, 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 다음과 같이 개인정보처리방침을 수립·공개합니다.
         </p>
 
@@ -207,15 +207,15 @@
           <div class="officer-box">
             <div class="officer-row">
               <span class="officer-label">개인정보 보호 책임자</span>
-              <span>하현주</span>
+              <span>서혜림</span>
             </div>
             <div class="officer-row">
               <span class="officer-label">소속</span>
-              <span>주식회사 미남테크</span>
+              <span>꽃:피율</span>
             </div>
             <div class="officer-row">
               <span class="officer-label">주소</span>
-              <span>경상남도 김해시 서김해산단안길 66, 3층 303호</span>
+              <span>경상남도 창원시 성산구 창이대로719번길 25 (사파동)</span>
             </div>
             <div class="officer-row">
               <span class="officer-label">전화</span>
