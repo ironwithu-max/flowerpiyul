@@ -132,7 +132,7 @@ header {
   white-space: nowrap;
   text-decoration: none;
 }
-.header-title b { font-weight: 800; color: #5c483a; margin-left: 2px; }
+.header-title b { font-weight: 800; color: #5c483a; margin-left: 2px; font-size: 1.3em; vertical-align: -0.06em; }
 
 @media (max-width: 640px) {
   /* 폰: 로고와 로그인 버튼 사이 남는 공간의 가운데 */
@@ -144,6 +144,9 @@ header {
     font-size: 12px;
     letter-spacing: 0.04em;
   }
+}
+@media (max-width: 400px) {
+  .header-title { font-size: 11px; letter-spacing: 0; }
 }
 /* 아주 좁은 폰: 로고·로그인과 겹치지 않게 숨김 */
 @media (max-width: 359px) {
