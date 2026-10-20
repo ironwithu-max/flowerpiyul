@@ -87,7 +87,7 @@ const isSuperAdmin = computed(() => user.value?.email === 'maystory@flowerpiyul.
 }
 .nav-item svg { width: 15px; height: 15px; }
 .nav-item:hover:not(.active) { color: #fff; background: rgba(255, 255, 255, 0.07); }
-.nav-item.active { background: #ec4899; color: #fff; }
+.nav-item.active { background: #a0816c; color: #fff; }
 .nav-perm { color: rgba(245, 158, 11, 0.75); }
 .nav-perm.active { background: #f59e0b; }
 @media (max-width: 768px) {

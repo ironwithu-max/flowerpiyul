@@ -1,7 +1,7 @@
 <template>
   <TheHeader />
 
-  <main class="order-page" :style="{ '--accent': schema?.accent || '#ec4899' }">
+  <main class="order-page" :style="{ '--accent': schema?.accent || '#a0816c' }">
     <div v-if="!schema" class="not-found">
       <p>존재하지 않는 주문 유형입니다.</p>
       <RouterLink to="/" class="back-home">홈으로</RouterLink>

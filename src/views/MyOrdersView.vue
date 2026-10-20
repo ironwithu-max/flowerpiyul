@@ -73,7 +73,7 @@ onMounted(load)
 .orders-page { max-width: 640px; margin: 0 auto; padding: 100px 16px 110px; min-height: 100vh; }
 .page-title { font-size: 22px; font-weight: 900; margin-bottom: 20px; }
 .empty { text-align: center; padding: 60px 20px; color: var(--text-dim); line-height: 2; }
-.link { color: #ec4899; font-weight: 700; }
+.link { color: #a0816c; font-weight: 700; }
 .order-list { display: flex; flex-direction: column; gap: 14px; }
 .order-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 16px; }
 .order-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }

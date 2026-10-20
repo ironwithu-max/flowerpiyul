@@ -198,15 +198,15 @@ onUnmounted(() => { if (smsTimer) clearInterval(smsTimer) })
 .signup-container { display: flex; justify-content: center; padding: 100px 16px 60px; }
 .signup-card { width: 100%; max-width: 520px; background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 36px 26px; }
 .card-head { margin-bottom: 24px; }
-.mono-label { font-family: 'Roboto Mono', monospace; font-size: 11px; color: #ec4899; letter-spacing: 1px; }
+.mono-label { font-family: 'Roboto Mono', monospace; font-size: 11px; color: #a0816c; letter-spacing: 1px; }
 .card-head h2 { font-size: 24px; font-weight: 900; margin: 6px 0 4px; }
 .subtitle { font-size: 13px; color: var(--text-dim); }
 .fields { display: flex; flex-direction: column; gap: 16px; }
 .field { display: flex; flex-direction: column; gap: 6px; }
 .field label { font-size: 13px; font-weight: 700; }
-.req { color: #ec4899; }
+.req { color: #a0816c; }
 .field input { width: 100%; padding: 12px 14px; border: 1px solid var(--border); border-radius: 10px; font-size: 14px; font-family: inherit; outline: none; box-sizing: border-box; }
-.field input:focus { border-color: #ec4899; }
+.field input:focus { border-color: #a0816c; }
 .field input.input-err { border-color: #ef4444; }
 .row { display: flex; gap: 8px; }
 .row input { flex: 1; min-width: 0; }
@@ -217,7 +217,7 @@ onUnmounted(() => { if (smsTimer) clearInterval(smsTimer) })
 .hint.err { color: #ef4444; }
 .terms { display: flex; align-items: center; gap: 8px; font-size: 13px; cursor: pointer; margin-top: 4px; }
 .error-banner { background: rgba(239,68,68,.07); border: 1px solid rgba(239,68,68,.3); color: #ef4444; font-size: 13px; padding: 10px 14px; border-radius: 8px; }
-.btn-primary { width: 100%; background: #ec4899; color: #fff; border: none; border-radius: 12px; padding: 15px; font-size: 15px; font-weight: 800; cursor: pointer; font-family: inherit; margin-top: 6px; }
+.btn-primary { width: 100%; background: #a0816c; color: #fff; border: none; border-radius: 12px; padding: 15px; font-size: 15px; font-weight: 800; cursor: pointer; font-family: inherit; margin-top: 6px; }
 .btn-primary:disabled { opacity: .6; cursor: not-allowed; }
 .back-link { display: block; text-align: center; margin-top: 20px; color: var(--text-dim); font-size: 13px; text-decoration: none; }
 </style>

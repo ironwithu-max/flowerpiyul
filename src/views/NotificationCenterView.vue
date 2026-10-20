@@ -108,7 +108,7 @@ interface NotifGroup {
 }
 
 /* ── icon SVG map ───────────────────────────────── */
-const SVG_ATTRS = `width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2"`
+const SVG_ATTRS = `width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a0816c" stroke-width="2"`
 
 const iconMap: Record<NotifType, string> = {
   NEW_QUOTE: `<svg ${SVG_ATTRS}>
@@ -339,7 +339,7 @@ function handleCardClick(notif: Notification): void {
 .notification-card:focus-visible {
   border-color: var(--accent-yellow);
   transform: translateX(4px);
-  box-shadow: 0 10px 30px rgba(236, 72, 153, 0.08);
+  box-shadow: 0 10px 30px rgba(160, 129, 108, 0.08);
 }
 
 /* unread green dot (top-right) */
@@ -352,7 +352,7 @@ function handleCardClick(notif: Notification): void {
   height: 6px;
   background: var(--accent-yellow);
   border-radius: 50%;
-  box-shadow: 0 0 10px rgba(236, 72, 153, 0.3);
+  box-shadow: 0 0 10px rgba(160, 129, 108, 0.3);
 }
 
 /* ── HUD corner ───────────────────────────────── */

@@ -101,7 +101,7 @@ async function advance(o: Order) {
 .order-summary { font-family: inherit; font-size: 13px; color: var(--text-dim); white-space: pre-wrap; word-break: break-word; margin: 0; line-height: 1.6; }
 .order-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; }
 .order-date { font-family: 'Roboto Mono', monospace; font-size: 11px; color: var(--text-dim); }
-.btn-next { background: #ec4899; color: #fff; border: none; border-radius: 8px; padding: 8px 14px; font-size: 13px; font-weight: 700; cursor: pointer; font-family: inherit; }
+.btn-next { background: #a0816c; color: #fff; border: none; border-radius: 8px; padding: 8px 14px; font-size: 13px; font-weight: 700; cursor: pointer; font-family: inherit; }
 .btn-next:hover { filter: brightness(0.93); }
 .done-tag { font-size: 12px; font-weight: 700; color: #16a34a; }
 </style>

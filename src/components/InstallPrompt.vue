@@ -78,13 +78,13 @@ async function onClick() {
   padding: 11px 16px;
   border: none;
   border-radius: 999px;
-  background: #ec4899;
+  background: #a0816c;
   color: #fff;
   font-size: 14px;
   font-weight: 800;
   font-family: inherit;
   cursor: pointer;
-  box-shadow: 0 8px 24px rgba(236, 72, 153, 0.45);
+  box-shadow: 0 8px 24px rgba(160, 129, 108, 0.45);
   animation: pop 0.4s ease;
 }
 .install-fab .i { font-size: 16px; }
@@ -102,7 +102,7 @@ async function onClick() {
 .ios-emoji { font-size: 44px; margin-bottom: 8px; }
 .ios-modal h3 { font-size: 18px; font-weight: 900; margin-bottom: 12px; }
 .guide-body { font-size: 14px; color: var(--text-dim); line-height: 1.8; margin-bottom: 18px; }
-.ios-ok { background: #ec4899; color: #fff; border: none; border-radius: 10px; padding: 12px 28px; font-size: 14px; font-weight: 800; cursor: pointer; font-family: inherit; }
+.ios-ok { background: #a0816c; color: #fff; border: none; border-radius: 10px; padding: 12px 28px; font-size: 14px; font-weight: 800; cursor: pointer; font-family: inherit; }
 
 .fade-enter-active, .fade-leave-active { transition: opacity 0.2s; }
 .fade-enter-from, .fade-leave-to { opacity: 0; }

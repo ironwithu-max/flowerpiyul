@@ -96,16 +96,16 @@ function onSubmit() {
 <style scoped>
 .review-page { max-width: 560px; margin: 0 auto; padding: 104px 16px 120px; min-height: 100vh; }
 .card { background: #fff; border: 1px solid var(--border); border-radius: 18px; padding: 28px 22px; }
-.form-head { display: flex; align-items: center; gap: 14px; padding-bottom: 20px; margin-bottom: 22px; border-bottom: 2px solid #ec4899; }
+.form-head { display: flex; align-items: center; gap: 14px; padding-bottom: 20px; margin-bottom: 22px; border-bottom: 2px solid #a0816c; }
 .form-head .emoji { font-size: 34px; }
 .form-head h1 { font-size: 20px; font-weight: 900; }
 .form-head .subtitle { font-size: 13px; color: var(--text-dim); margin-top: 4px; }
 .fields { display: flex; flex-direction: column; gap: 18px; }
 .field { display: flex; flex-direction: column; gap: 7px; }
 .field label { font-size: 13.5px; font-weight: 700; }
-.req { color: #ec4899; } .opt { color: var(--text-dim); font-weight: 500; font-size: 12px; }
+.req { color: #a0816c; } .opt { color: var(--text-dim); font-weight: 500; font-size: 12px; }
 .field input, .field textarea { width: 100%; padding: 12px 14px; border: 1px solid var(--border); border-radius: 10px; font-size: 14px; font-family: inherit; outline: none; }
-.field input:focus, .field textarea:focus { border-color: #ec4899; }
+.field input:focus, .field textarea:focus { border-color: #a0816c; }
 .field textarea { resize: vertical; }
 .field.invalid input, .field.invalid textarea { border-color: #ef4444; }
 .file-info { font-size: 12px; color: var(--text-dim); }
@@ -116,7 +116,7 @@ function onSubmit() {
 .field.invalid .star { color: #fca5a5; }
 .field.invalid .star.on { color: #fbbf24; }
 
-.btn-accent { background: #ec4899; color: #fff; border: none; border-radius: 12px; padding: 15px; font-size: 15px; font-weight: 800; cursor: pointer; font-family: inherit; }
+.btn-accent { background: #a0816c; color: #fff; border: none; border-radius: 12px; padding: 15px; font-size: 15px; font-weight: 800; cursor: pointer; font-family: inherit; }
 .btn-accent:hover { filter: brightness(0.93); }
 .submit { width: 100%; margin-top: 6px; }
 

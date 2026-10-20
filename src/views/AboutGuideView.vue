@@ -108,7 +108,7 @@ import TheFooter from '@/components/TheFooter.vue'
   font-family: 'Roboto Mono', monospace;
   font-size: 11px;
   font-weight: 700;
-  color: #ec4899;
+  color: #a0816c;
   letter-spacing: 2px;
   margin-bottom: 12px;
 }
@@ -148,10 +148,10 @@ import TheFooter from '@/components/TheFooter.vue'
 .legal-section strong { color: #111827; }
 
 .highlight-section {
-  background: #fdf2f8;
+  background: #faf6ee;
   margin: 0 -24px;
   padding: 28px 24px;
-  border-left: 3px solid #ec4899;
+  border-left: 3px solid #a0816c;
   border-bottom: 1px solid rgba(17, 24, 39, 0.08);
 }
 
@@ -178,7 +178,7 @@ import TheFooter from '@/components/TheFooter.vue'
   font-size: 14px;
 }
 .price-table th {
-  background: #ec4899;
+  background: #a0816c;
   color: #fff;
   font-weight: 700;
   padding: 11px 14px;
@@ -190,14 +190,14 @@ import TheFooter from '@/components/TheFooter.vue'
   border-bottom: 1px solid rgba(17, 24, 39, 0.08);
   color: rgba(17, 24, 39, 0.8);
 }
-.price-table .amt { font-weight: 700; color: #db2777; white-space: nowrap; }
+.price-table .amt { font-weight: 700; color: #8a6b57; white-space: nowrap; }
 .price-table tbody tr:nth-child(even) { background: #f8fafc; }
 
 /* CTA */
 .cta-row { margin-top: 40px; text-align: center; }
 .cta-btn {
   display: inline-block;
-  background: #ec4899;
+  background: #a0816c;
   color: #fff;
   font-weight: 700;
   font-size: 15px;
@@ -206,7 +206,7 @@ import TheFooter from '@/components/TheFooter.vue'
   text-decoration: none;
   transition: background .2s;
 }
-.cta-btn:hover { background: #db2777; }
+.cta-btn:hover { background: #8a6b57; }
 
 @media (max-width: 640px) {
   .legal-container { padding: 90px 20px 60px; }

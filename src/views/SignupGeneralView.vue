@@ -518,7 +518,7 @@ onUnmounted(() => {
 .signup-general-page {
   --border: rgba(17, 24, 39, 0.12);
   --input-bg: #f9fafb;
-  --glow-green: rgba(236, 72, 153, 0.12);
+  --glow-green: rgba(160, 129, 108, 0.12);
 
   min-height: 100vh;
   background-color: var(--bg);
@@ -533,7 +533,7 @@ onUnmounted(() => {
   right: -10%;
   width: 60%;
   height: 60%;
-  background: radial-gradient(circle, rgba(236, 72, 153, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(160, 129, 108, 0.08) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
@@ -726,7 +726,7 @@ onUnmounted(() => {
 .form-input:focus {
   border-color: var(--accent-yellow);
   background: #ffffff;
-  box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.12);
+  box-shadow: 0 0 0 3px rgba(160, 129, 108, 0.12);
 }
 
 .form-input.input-error {
@@ -790,7 +790,7 @@ onUnmounted(() => {
 }
 
 .inline-btn.btn-verified {
-  background: rgba(236, 72, 153, 0.08);
+  background: rgba(160, 129, 108, 0.08);
   border-color: var(--accent-yellow);
   color: var(--accent-yellow);
 }
@@ -803,7 +803,7 @@ onUnmounted(() => {
   font-size: 12px;
   font-weight: 700;
   color: var(--accent-yellow);
-  background: rgba(236, 72, 153, 0.08);
+  background: rgba(160, 129, 108, 0.08);
   border: 1px solid var(--accent-yellow);
   white-space: nowrap;
   flex-shrink: 0;
@@ -1000,9 +1000,9 @@ onUnmounted(() => {
 }
 
 .badge-required {
-  background: rgba(236, 72, 153, 0.1);
+  background: rgba(160, 129, 108, 0.1);
   color: var(--accent-yellow);
-  border: 1px solid rgba(236, 72, 153, 0.25);
+  border: 1px solid rgba(160, 129, 108, 0.25);
 }
 
 .badge-optional {
@@ -1064,7 +1064,7 @@ onUnmounted(() => {
 
 .btn-primary:hover:not(:disabled) {
   background: var(--accent-lime);
-  box-shadow: 0 4px 16px rgba(236, 72, 153, 0.35);
+  box-shadow: 0 4px 16px rgba(160, 129, 108, 0.35);
   transform: translateY(-2px);
 }
 

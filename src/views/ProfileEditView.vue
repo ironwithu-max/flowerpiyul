@@ -331,7 +331,7 @@ onUnmounted(() => {
 <style scoped>
 /* ── local vars ───────────────────────────────── */
 .profile-edit-page {
-  --glow-yellow: rgba(236, 72, 153, 0.3);
+  --glow-yellow: rgba(160, 129, 108, 0.3);
   min-height: 100vh;
   background-color: var(--bg);
   overflow-x: hidden;

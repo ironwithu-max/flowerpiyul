@@ -172,13 +172,13 @@ function next() { lightbox.value = (lightbox.value + 1) % photos.value.length }
   font-size: 16px;
   font-weight: 900;
   letter-spacing: -0.02em;
-  color: #be185d;
+  color: #6e5444;
 }
 .g-insta {
   font-family: 'Roboto Mono', monospace;
   font-size: 12px;
   font-weight: 700;
-  color: #ec4899;
+  color: #a0816c;
   text-decoration: none;
 }
 .g-insta:hover { text-decoration: underline; }
@@ -211,12 +211,12 @@ function next() { lightbox.value = (lightbox.value + 1) % photos.value.length }
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #f9a8d4;
+  background: #d1bfa7;
   cursor: pointer;
   transition: all 0.3s;
 }
 .dot.active {
-  background: #ec4899;
+  background: #a0816c;
   width: 20px;
   border-radius: 999px;
 }
@@ -225,7 +225,7 @@ function next() { lightbox.value = (lightbox.value + 1) % photos.value.length }
   position: relative;
   padding: 0;
   border: none;
-  background: #fce7f3;
+  background: #efe6da;
   border-radius: 8px;
   overflow: hidden;
   aspect-ratio: 1 / 1;

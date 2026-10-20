@@ -52,7 +52,7 @@ export const ORDER_STATUS: Record<string, { label: string; color: string }> = {
   received:   { label: '주문접수', color: '#0ea5e9' },
   accepted:   { label: '수락',     color: '#8b5cf6' },
   making:     { label: '제작중',   color: '#f59e0b' },
-  delivering: { label: '배달중',   color: '#ec4899' },
+  delivering: { label: '배달중',   color: '#a0816c' },
   done:       { label: '배달완료', color: '#16a34a' },
   cancelled:  { label: '취소',     color: '#ef4444' },
 }
@@ -80,7 +80,7 @@ export const ORDER_SCHEMAS: Record<string, OrderSchema> = {
     emoji: '⚡',
     title: '긴급꽃배달 주문서',
     subtitle: '가까운 꽃집에서 바로 제작해 신속 배송합니다.',
-    accent: '#ef4444',
+    accent: '#a0816c',
     fields: [
       f.recvDate,
       f.sender,
@@ -98,7 +98,7 @@ export const ORDER_SCHEMAS: Record<string, OrderSchema> = {
     emoji: '💐',
     title: '꽃다발 · 꽃바구니 주문서',
     subtitle: '상황과 취향에 맞춘 맞춤 꽃다발 · 꽃바구니.',
-    accent: '#ec4899',
+    accent: '#b0915c',
     fields: [
       f.recvDate,
       f.sender,
@@ -116,7 +116,7 @@ export const ORDER_SCHEMAS: Record<string, OrderSchema> = {
     emoji: '💍',
     title: '프로포즈 이벤트 주문서',
     subtitle: '특별한 순간을 위한 꽃과 이벤트 연출.',
-    accent: '#f43f5e',
+    accent: '#a39673',
     fields: [
       { key: 'event_at', label: '이벤트 날짜 / 시간', type: 'datetime' },
       { key: 'applicant', label: '신청자 (성함 / 연락처)', type: 'person' },
@@ -133,7 +133,7 @@ export const ORDER_SCHEMAS: Record<string, OrderSchema> = {
     emoji: '🌺',
     title: '경조사 화환 주문서',
     subtitle: '축하 · 근조 화환을 정중하고 빠르게 배송합니다.',
-    accent: '#a855f7',
+    accent: '#8f8172',
     fields: [
       f.recvDate,
       f.sender,
@@ -151,7 +151,7 @@ export const ORDER_SCHEMAS: Record<string, OrderSchema> = {
     emoji: '🪴',
     title: '화분 · 식물 주문서',
     subtitle: '개업화분 · 관엽 · 반려식물까지.',
-    accent: '#16a34a',
+    accent: '#a0816c',
     fields: [
       f.recvDate,
       f.sender,
@@ -168,7 +168,7 @@ export const ORDER_SCHEMAS: Record<string, OrderSchema> = {
     emoji: '🎁',
     title: '꽃 + 선물 주문서',
     subtitle: '꽃에 케이크 · 와인 · 초콜릿 등을 함께.',
-    accent: '#f59e0b',
+    accent: '#b0915c',
     fields: [
       f.recvDate,
       f.sender,
@@ -186,7 +186,7 @@ export const ORDER_SCHEMAS: Record<string, OrderSchema> = {
     emoji: '📅',
     title: '꽃 정기구독 신청',
     subtitle: '주기적으로 받아보는 꽃 정기배송.',
-    accent: '#0d9488',
+    accent: '#a39673',
     fields: [
       { key: 'applicant', label: '신청자 (성함 / 연락처)', type: 'person' },
       { key: 'address', label: '배송 주소', type: 'text' },
@@ -203,7 +203,7 @@ export const ORDER_SCHEMAS: Record<string, OrderSchema> = {
     emoji: '🎪',
     title: '플라워 스타일링 (행사 · 무대꾸밈)',
     subtitle: '행사 · 무대 · 웨딩 공간 데코레이션.',
-    accent: '#6366f1',
+    accent: '#8f8172',
     fields: [
       { key: 'event_at', label: '행사 날짜 / 시간', type: 'datetime' },
       { key: 'applicant', label: '신청자 (성함 / 연락처)', type: 'person' },
@@ -221,7 +221,7 @@ export const ORDER_SCHEMAS: Record<string, OrderSchema> = {
     emoji: '🧵',
     title: '핸드메이드 패브릭 소품 주문서',
     subtitle: '쿠션 · 파우치 · 에코백 · 패브릭 플라워 등 주문 제작.',
-    accent: '#ea580c',
+    accent: '#a0816c',
     fields: [
       { key: 'applicant', label: '주문자 (성함 / 연락처)', type: 'person' },
       { key: 'item', label: '소품 종류', type: 'select', options: ['쿠션 / 쿠션커버', '파우치', '에코백', '테이블러너 / 매트', '패브릭 플라워', '기타'] },

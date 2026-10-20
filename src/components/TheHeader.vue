@@ -59,15 +59,22 @@ header {
 }
 
 .logo-img {
-  height: 46px;
+  height: 58px;
+  margin: -6px 0;   /* 로고만 키우고 헤더 높이는 유지 */
   width: auto;
   object-fit: contain;
 }
 
 @media (max-width: 640px) {
   .logo-img {
-    height: 40px;
+    height: 50px;
+    margin: -5px 0;
   }
+}
+
+/* 좁은 폰: 로고가 넓어져서 상태 표시는 숨김 */
+@media (max-width: 420px) {
+  .header-right .system-status { display: none; }
 }
 
 .header-right {

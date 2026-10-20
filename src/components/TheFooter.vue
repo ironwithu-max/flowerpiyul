@@ -57,7 +57,7 @@ const year = new Date().getFullYear()
 
 <style scoped>
 .site-footer {
-  background: #0f172a;
+  background: #3d3029;
   color: rgba(255, 255, 255, 0.6);
   font-family: 'Noto Sans KR', 'Inter', sans-serif;
   font-size: 13px;
@@ -89,12 +89,12 @@ const year = new Date().getFullYear()
 .brand-logo-chip {
   display: inline-flex;
   align-items: center;
-  background: #ffffff;
+  background: #f9f4e1;
   padding: 7px 12px;
   border-radius: 10px;
 }
 .brand-logo-img {
-  height: 30px;
+  height: 36px;
   width: auto;
   display: block;
 }
@@ -119,7 +119,7 @@ const year = new Date().getFullYear()
 
 .footer-links a:hover,
 .footer-links a.strong {
-  color: #ec4899;
+  color: #a0816c;
 }
 
 .footer-links a.strong {

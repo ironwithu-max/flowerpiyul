@@ -9,7 +9,7 @@
     <main class="login-container">
       <div class="auth-card">
         <!-- HUD corner brackets -->
-        <HudCorners color="#ec4899" />
+        <HudCorners color="#a0816c" />
 
         <!-- card header -->
         <div class="card-head">
@@ -226,12 +226,12 @@ async function kakaoLogin() {
 .login-page {
   --bg: #f8fafc;
   --surface: #ffffff;
-  --accent-yellow: #ec4899;
-  --accent-lime: #ec4899;
+  --accent-yellow: #a0816c;
+  --accent-lime: #a0816c;
   --text-main: #0f172a;
   --text-dim: #64748b;
   --border: #e2e8f0;
-  --glow-yellow: rgba(236, 72, 153, 0.3);
+  --glow-yellow: rgba(160, 129, 108, 0.3);
 
   min-height: 100vh;
   background-color: var(--bg);
@@ -247,7 +247,7 @@ async function kakaoLogin() {
   right: -10%;
   width: 60%;
   height: 60%;
-  background: radial-gradient(circle, rgba(236, 72, 153, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(160, 129, 108, 0.08) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
@@ -344,7 +344,7 @@ async function kakaoLogin() {
 
 .form-input:focus {
   border-color: var(--accent-yellow);
-  box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.15);
+  box-shadow: 0 0 0 3px rgba(160, 129, 108, 0.15);
 }
 
 .form-input.input-error {
@@ -424,7 +424,7 @@ async function kakaoLogin() {
 }
 
 .btn-primary:hover:not(:disabled) {
-  background: #db2777;
+  background: #8a6b57;
   box-shadow: 0 4px 12px var(--glow-yellow);
   transform: translateY(-2px);
 }
@@ -471,7 +471,7 @@ async function kakaoLogin() {
 }
 
 .auth-links .signup-link:hover {
-  color: #db2777;
+  color: #8a6b57;
 }
 
 .sep {
