@@ -4,6 +4,9 @@
       <img src="/logo.png" alt="메이뜰" class="logo-img" />
     </RouterLink>
 
+    <!-- 가운데 상호 -->
+    <RouterLink to="/" class="header-title">핸드메이드 샵 <b>메이:뜰</b></RouterLink>
+
     <div class="header-right">
       <div class="system-status">
         <div class="status-dot" />
@@ -114,5 +117,36 @@ header {
 
 @media (max-width: 640px) {
   header { padding: 20px; }
+}
+
+/* ── 가운데 상호: 핸드메이드 샵 메이:뜰 ── */
+.header-title {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: #8a6b57;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.header-title b { font-weight: 800; color: #5c483a; margin-left: 2px; }
+
+@media (max-width: 640px) {
+  /* 폰: 로고와 로그인 버튼 사이 남는 공간의 가운데 */
+  .header-title {
+    position: static;
+    transform: none;
+    flex: 1;
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+  }
+}
+/* 아주 좁은 폰: 로고·로그인과 겹치지 않게 숨김 */
+@media (max-width: 359px) {
+  .header-title { display: none; }
 }
 </style>
