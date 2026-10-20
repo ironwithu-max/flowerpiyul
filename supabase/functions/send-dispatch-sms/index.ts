@@ -62,7 +62,7 @@ serve(async (req: Request) => {
     }
 
     const name = techName ? `${techName} ` : ''
-    const msg  = `[꽃피율] ${name}새 주문이 배정되었습니다.\n주문: ${requestTitle}\n관리자 화면에서 확인해 주세요.\n(주문 #${requestId})`
+    const msg  = `[메이뜰] ${name}새 주문이 배정되었습니다.\n주문: ${requestTitle}\n관리자 화면에서 확인해 주세요.\n(주문 #${requestId})`
 
     const r = await sendSolapi(digits, msg)
     if (!r.ok) {

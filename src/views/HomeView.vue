@@ -42,7 +42,7 @@
     <!-- ───────────── CATEGORIES ───────────── -->
     <section class="services-section">
       <div class="section-header">
-        <div class="section-label">꽃피율 메뉴 [4]</div>
+        <div class="section-label">메이뜰 메뉴 [4]</div>
         <div class="select-module">메뉴 선택</div>
       </div>
 
@@ -186,7 +186,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   cursor: pointer;
   transition: opacity 0.2s;
 }
-.cta { color: #2ec4b6; }  /* 민트 */
+.cta { color: #8a6b57; }  /* 모카 */
 .cta:hover { opacity: 0.7; }
 .cta-ico { width: 22px; height: 22px; flex-shrink: 0; }
 .cta b { font-size: 16px; font-weight: 900; }

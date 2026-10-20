@@ -1,5 +1,5 @@
 // ============================================================
-//  꽃피율 · 주문 알림 SMS Edge Function (솔라피/Solapi)
+//  메이뜰 · 주문 알림 SMS Edge Function (솔라피/Solapi)
 //  고객이 주문서를 제출하면 사장님(발신번호)에게 주문 내용을 SMS로 발송.
 //
 //  보안: 수신번호는 요청값이 아니라 서버 환경변수로 고정(스팸 악용 방지).
@@ -59,7 +59,7 @@ serve(async (req: Request) => {
     if (!from || !receiver) return json({ error: '발신/수신 번호 설정이 없습니다.' }, 500)
 
     // 메시지 구성 (LMS 길이 한도 내로 컷)
-    let text = `[꽃피율 주문]\n${title ?? ''}\n${summary}`.slice(0, 1900)
+    let text = `[메이뜰 주문]\n${title ?? ''}\n${summary}`.slice(0, 1900)
 
     const r = await sendSolapi(receiver, from, text)
     if (!r.ok) throw new Error(r.error ?? '주문 알림 발송 실패')

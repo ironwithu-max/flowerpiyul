@@ -5,26 +5,26 @@
     <main class="legal-container">
       <div class="legal-header">
         <div class="legal-badge">ABOUT</div>
-        <h1>꽃피율 소개</h1>
+        <h1>메이뜰 소개</h1>
         <p class="effective-date">동네 꽃집과 함께, 마음을 담은 꽃을 가장 빠르게.</p>
       </div>
 
       <div class="legal-body">
 
-        <!-- ── 꽃피율 소개 ── -->
+        <!-- ── 메이뜰 소개 ── -->
         <section class="legal-section">
-          <h2>꽃피율이란?</h2>
+          <h2>메이뜰이란?</h2>
           <p>
-            꽃피율은 고객의 주문을 직접 확인해 <strong>배송지에서 가까운 지점</strong>과 연결해 드리는
+            메이뜰은 고객의 주문을 직접 확인해 <strong>배송지에서 가까운 지점</strong>과 연결해 드리는
             <strong>꽃 주문·배달 중개 플랫폼</strong>입니다. 꽃다발·꽃바구니부터 경조사 화환, 화분·식물,
             프러포즈 이벤트, 정기구독까지 — 소중한 순간에 어울리는 꽃을 빠르고 신선하게 전해 드립니다.
           </p>
         </section>
 
         <section class="legal-section">
-          <h2>꽃피율의 특징</h2>
+          <h2>메이뜰의 특징</h2>
           <ul>
-            <li><strong>가까운 지점 연결</strong> — 꽃피율이 주문을 확인해 배송지에서 가까운 지점이 제작·배송합니다</li>
+            <li><strong>가까운 지점 연결</strong> — 메이뜰이 주문을 확인해 배송지에서 가까운 지점이 제작·배송합니다</li>
             <li><strong>당일배송 가능</strong> — 긴급 꽃배달 등 주문 시간·지역에 따라 당일 수령이 가능합니다</li>
             <li><strong>검증된 파트너</strong> — 사업자 심사를 거쳐 승인된 지역 꽃집만 활동합니다</li>
             <li><strong>다양한 상품</strong> — 꽃다발·꽃바구니·화환·화분·꽃+선물·정기구독·플라워 스타일링</li>
@@ -38,7 +38,7 @@
           <ol>
             <li>원하는 <strong>상품 카테고리</strong>를 선택합니다. (꽃다발, 화환, 화분 등)</li>
             <li>받는 분·배송지·희망일·요청사항을 입력하고 <strong>주문·결제</strong>합니다.</li>
-            <li>꽃피율이 주문을 확인한 뒤 <strong>가까운 지점</strong>에 연락해 제작을 맡깁니다.</li>
+            <li>메이뜰이 주문을 확인한 뒤 <strong>가까운 지점</strong>에 연락해 제작을 맡깁니다.</li>
             <li>꽃집이 상품을 <strong>제작·배송</strong>하고, 진행 상황은 마이페이지에서 확인할 수 있습니다.</li>
           </ol>
         </section>
@@ -63,7 +63,7 @@
             고객센터 1533-9820 (평일 09:00~18:00) &nbsp;|&nbsp; 이메일 mm9820@daum.net
           </p>
           <p style="margin-top:12px;">
-            꽃피율은 꽃:피율이 운영하는 <strong>꽃 주문·배달 중개 서비스</strong>이며,
+            메이뜰은 꽃:피율이 운영하는 <strong>꽃 주문·배달 중개 서비스</strong>이며,
             통신판매중개자로서 거래 당사자가 아닙니다. 상품 제작·배송의 이행 책임은 각 거래 당사자(파트너 꽃집)에게 있습니다.
           </p>
         </section>

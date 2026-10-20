@@ -1,5 +1,5 @@
 // ============================================================
-//  꽃피율 메인 메뉴 / 꽃·식물 세부 카테고리
+//  메이뜰 메인 메뉴 / 꽃·식물 세부 카테고리
 // ============================================================
 import type { ServiceCategory } from '@/types'
 
@@ -11,7 +11,7 @@ export const FLOWER_CATEGORIES: ServiceCategory[] = [
     title: '긴급꽃배달',
     description: '30분·1시간·당일·예약·새벽·심야까지, 가까운 꽃집에서 바로 제작해 신속 배송합니다.',
     statusLabel: '출동 준비',
-    metaRight: '꽃피율 핵심',
+    metaRight: '메이뜰 핵심',
     metaRightColor: '#8a6b57',
     variant: 'emergency',
     accentColor: '#a0816c',
@@ -135,7 +135,7 @@ export const HOME_MENU: ServiceCategory[] = [
     title: '꽃 / 식물 주문',
     description: '긴급꽃배달·꽃다발·프로포즈·경조사화환·화분·꽃+선물·정기구독·플라워 스타일링.',
     statusLabel: '카테고리 8',
-    metaRight: '꽃피율 핵심',
+    metaRight: '메이뜰 핵심',
     metaRightColor: '#8a6b57',
     variant: 'default',
     accentColor: '#b0915c',

@@ -7,7 +7,7 @@
     <div v-if="guide" class="ios-backdrop" @click.self="guide = false">
       <div class="ios-modal">
         <div class="ios-emoji">📲</div>
-        <h3>꽃피율 앱 설치</h3>
+        <h3>메이뜰 앱 설치</h3>
         <p class="guide-body" v-html="guideText" />
         <button class="ios-ok" @click="guide = false">확인</button>
       </div>

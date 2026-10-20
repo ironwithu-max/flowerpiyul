@@ -10,8 +10,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['apple-touch-icon.png', 'pwa-192x192.png'],
       manifest: {
-        name: '꽃피율',
-        short_name: '꽃피율',
+        name: '메이뜰',
+        short_name: '메이뜰',
         description: '직접 손으로 제작하는 핸드메이드 소품 · 꽃 · 식물',
         lang: 'ko',
         theme_color: '#a0816c',

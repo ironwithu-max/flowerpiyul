@@ -15,7 +15,7 @@
             type="button"
             @click="open(pi * pageSize + ci)"
           >
-            <img :src="p.image_url" :alt="p.caption || '꽃피율 꽃 사진'" loading="lazy" />
+            <img :src="p.image_url" :alt="p.caption || '메이뜰 꽃 사진'" loading="lazy" />
           </button>
         </div>
       </div>

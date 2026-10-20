@@ -7,13 +7,13 @@
         <div class="card-head">
           <span class="mono-label">꽃집 파트너 가입</span>
           <h2>꽃집(사업자) 가입</h2>
-          <p class="subtitle">꽃피율에 입점할 꽃집 정보를 입력하세요.</p>
+          <p class="subtitle">메이뜰에 입점할 꽃집 정보를 입력하세요.</p>
         </div>
 
         <form class="fields" @submit.prevent="handleSubmit" novalidate>
           <div class="field">
             <label>업체명 <span class="req">*</span></label>
-            <input v-model="form.companyName" type="text" placeholder="예) 꽃피율 성산점" :class="cls('companyName')" @blur="touched.companyName = true" />
+            <input v-model="form.companyName" type="text" placeholder="예) 메이뜰 성산점" :class="cls('companyName')" @blur="touched.companyName = true" />
             <span v-if="touched.companyName && errs.companyName" class="hint err">{{ errs.companyName }}</span>
           </div>
 

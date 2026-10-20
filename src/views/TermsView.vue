@@ -5,7 +5,7 @@
     <main class="legal-container">
       <div class="legal-header">
         <div class="legal-badge">이용약관</div>
-        <h1>꽃피율 서비스 이용약관</h1>
+        <h1>메이뜰 서비스 이용약관</h1>
         <p class="effective-date">시행일: 2025년 1월 1일 &nbsp;|&nbsp; 최종 개정: 2025년 1월 1일</p>
       </div>
 
@@ -15,7 +15,7 @@
         <section class="legal-section">
           <h2>제1조 (목적)</h2>
           <p>
-            이 약관은 꽃:피율(이하 "회사")가 운영하는 꽃피율 서비스(이하 "서비스")의 이용과 관련하여
+            이 약관은 꽃:피율(이하 "회사")가 운영하는 메이뜰 서비스(이하 "서비스")의 이용과 관련하여
             회사와 이용자 간의 권리, 의무 및 책임사항, 기타 필요한 사항을 규정함을 목적으로 합니다.
           </p>
         </section>
@@ -195,7 +195,7 @@
           <div class="contact-info">
             <span><strong>상호</strong> 꽃:피율</span>
             <span><strong>대표자</strong> 서혜림</span>
-            <span><strong>서비스명</strong> 꽃피율</span>
+            <span><strong>서비스명</strong> 메이뜰</span>
             <span><strong>사업자등록번호</strong> 747-14-01497</span>
             <span><strong>통신판매업신고</strong> 제2024-경남김해-1397호</span>
             <span><strong>주소</strong> 경상남도 창원시 성산구 창이대로719번길 25 (사파동)</span>

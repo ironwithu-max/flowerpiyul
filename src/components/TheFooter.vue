@@ -5,11 +5,11 @@
       <!-- 상단: 브랜드 + 링크 -->
       <div class="footer-top">
         <div class="footer-brand">
-          <span class="brand-logo-chip"><img src="/logo.png" alt="꽃피율" class="brand-logo-img" /></span>
+          <span class="brand-logo-chip"><img src="/logo.png" alt="메이뜰" class="brand-logo-img" /></span>
           <span class="brand-sub">핸드메이드 패브릭 소품 · 꽃·식물 판매</span>
         </div>
         <nav class="footer-links">
-          <RouterLink to="/about">꽃피율 소개</RouterLink>
+          <RouterLink to="/about">메이뜰 소개</RouterLink>
           <span class="divider">|</span>
           <RouterLink to="/terms">이용약관</RouterLink>
           <span class="divider">|</span>
@@ -31,7 +31,7 @@
         </div>
         <div class="biz-row">
           <span><strong>통신판매업신고</strong> 제2024-경남김해-1397호</span>
-          <span><strong>서비스명</strong> 꽃피율</span>
+          <span><strong>서비스명</strong> 메이뜰</span>
         </div>
         <div class="biz-row">
           <span><strong>주소</strong> 경상남도 창원시 성산구 창이대로719번길 25 (사파동)</span>
@@ -44,7 +44,7 @@
       <!-- 하단 카피라이트 -->
       <div class="footer-copy">
         <span>© {{ year }} 꽃:피율. All rights reserved.</span>
-        <span class="copy-sub">꽃피율은 꽃:피율이 운영하는 꽃 주문·배달 중개 서비스입니다.</span>
+        <span class="copy-sub">메이뜰은 꽃:피율이 운영하는 꽃 주문·배달 중개 서비스입니다.</span>
       </div>
 
     </div>
