@@ -137,8 +137,6 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 <style scoped>
 /* ── hero ──────────────────────────────────── */
 .hero {
-  position: relative;
-  isolation: isolate;
   margin-top: 80px;
   padding: 80px 40px;
   display: grid;
@@ -146,18 +144,6 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   gap: 40px;
   min-height: 80vh;
   align-items: center;
-}
-
-/* 히어로 배경: 핸드메이드 마켓 사진 (글자 쪽은 흰색으로 흐리게) */
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  border-radius: 28px;
-  background:
-    linear-gradient(90deg, rgba(255,255,255,0.94) 0%, rgba(255,255,255,0.82) 45%, rgba(255,255,255,0.45) 100%),
-    url('/bg/handmade-market.webp') center 55% / cover no-repeat;
 }
 
 .hero-text h1 {
